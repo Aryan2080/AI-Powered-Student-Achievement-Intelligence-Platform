@@ -1,1 +1,94 @@
-"__pycache__/*.py[cod].venv/venv/.env.ipynb_checkpoints/.DS_Store" 
+# ---------------------------------------------------------------------------
+# .gitignore — AI-Powered Student Achievement Intelligence Platform
+#
+# Keep schema files, taxonomies, metadata templates, and small synthetic test
+# fixtures tracked. Keep raw datasets, private evidence, OCR output,
+# embeddings, model checkpoints, and other large/sensitive artifacts out.
+# ---------------------------------------------------------------------------
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+MANIFEST
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+ENV/
+
+# --- Environment / secrets / local config ---
+.env
+.env.*
+!.env.example
+*.secret
+*.secrets
+secrets/
+credentials.json
+*.pem
+*.key
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Test / lint / type caches ---
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+
+# ---------------------------------------------------------------------------
+# Dataset artifacts
+# ---------------------------------------------------------------------------
+# Raw inputs (public datasets, private achievement records, private evidence
+# documents) stay out of Git by default. Only structural markers (.gitkeep)
+# are tracked so the folder exists after a fresh clone.
+hybrid_dataset/raw/*
+!hybrid_dataset/raw/.gitkeep
+
+# Processed / generated outputs
+hybrid_dataset/processed/*
+!hybrid_dataset/processed/.gitkeep
+
+# OCR output and embeddings are generated artifacts
+hybrid_dataset/metadata/ocr_output/
+hybrid_dataset/metadata/embeddings/
+
+# --- Model checkpoints / large binary artifacts ---
+models/
+checkpoints/
+*.ckpt
+*.pt
+*.pth
+*.bin
+*.h5
+*.onnx
+*.npy
+*.npz
+*.parquet
+*.feather
+
+# --- Logs ---
+logs/
+*.log

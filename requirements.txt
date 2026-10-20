@@ -1,0 +1,7 @@
+# Minimal dependencies for Chunk 1 (foundations).
+# OCR, PyMuPDF, sentence-transformers, transformers, and other heavier
+# dependencies will be added in later, approved chunks.
+pandas
+pydantic>=2,<3
+pytest
+pyyaml
