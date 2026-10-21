@@ -28,6 +28,12 @@ from .evidence import (
 )
 from .identifiers import make_id, validate_label_id, validate_prefixed_id
 from .label_taxonomy import LabelTaxonomy
+from .loader import (
+    TaxonomyError,
+    load_and_validate_taxonomy,
+    load_taxonomy,
+    validate_taxonomy,
+)
 from .source_registry import CredentialInUrlError, UNKNOWN_LICENSE, SourceRegistry
 
 __all__ = [
@@ -48,10 +54,14 @@ __all__ = [
     "TaxonomyTask",
     # Exceptions
     "CredentialInUrlError",
-    # Helpers / constants
+    "TaxonomyError",
+    # Helpers / loaders / constants
     "make_id",
     "validate_prefixed_id",
     "validate_label_id",
+    "load_taxonomy",
+    "validate_taxonomy",
+    "load_and_validate_taxonomy",
     "APPROVED_EVIDENCE_PREFIX",
     "PROCESSED_TEXT_PREFIX",
     "MAX_INLINE_TEXT",

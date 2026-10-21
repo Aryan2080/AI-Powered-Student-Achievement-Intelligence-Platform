@@ -162,10 +162,108 @@ which asserts the leak is still present on the direct path; if that
 test ever starts failing, the limitation has been closed upstream and
 this note should be retired.
 
+## Taxonomy
+
+The actual label content lives under `hybrid_dataset/labels/`:
+
+| File | Task | Count | Status |
+|---|---|---|---|
+| `primary_taxonomy.yaml` | `primary_type` (multi-class) | 14 | all `draft` |
+| `domain_tags.yaml` | `domain_tags` (multi-label) | 10 | all `draft` |
+
+Both files are structured as a YAML list of `LabelTaxonomy` records (one
+mapping per entry; unknown fields rejected). The two files are
+intentionally kept separate so a reviewer can promote one task's
+taxonomy without touching the other.
+
+### Load and validate
+
+```python
+from nlp_semantic.schema import load_and_validate_taxonomy
+
+primary = load_and_validate_taxonomy("hybrid_dataset/labels/primary_taxonomy.yaml")
+domain  = load_and_validate_taxonomy("hybrid_dataset/labels/domain_tags.yaml")
+```
+
+`load_taxonomy(path)` returns the raw entries; `validate_taxonomy(entries)`
+enforces file-local invariants:
+
+- All entries share a single `task_name` (one file, one task).
+- `label_id` values are unique within the file.
+- Every `supersedes` reference points to a `label_id` present in the same file.
+- The `supersedes` graph is acyclic.
+
+Per-entry validation (format of `label_id`, `supersedes != label_id`,
+enum values, no unknown fields, required `definition`) runs inside
+`LabelTaxonomy` itself and surfaces as `pydantic.ValidationError`.
+File-level problems surface as `TaxonomyError`.
+
+Cross-record / dataset-wide checks (does a `label_id` referenced from
+an `Achievement` actually appear in the taxonomy?) are **not** done
+here. They remain a concern for a later dataset-level validator.
+
+### Review workflow — `draft → under_review → approved`
+
+Every taxonomy entry ships with `status: draft`. The intent of each
+status:
+
+- `draft` — the maintainer added or edited this entry. **Not** usable
+  as ground truth; downstream code must treat records labelled with a
+  `draft` label as unverified.
+- `under_review` — a reviewer other than the author is actively
+  discussing or approving the entry. Still not usable as ground truth.
+- `approved` — the team has signed off. Only `approved` entries are
+  eligible for use as verified training ground truth. Pair this with
+  the `annotation_status` field on an `Achievement` — a record is
+  verified ground truth **only** when its `annotation_status.<task>`
+  is `VERIFIED` **and** every referenced `label_id` has
+  `status == approved`.
+- `deprecated` — the entry is retired. New annotations must not
+  reference it; historical annotations referencing it stay readable
+  because the row is kept with a `supersedes` pointer from the
+  replacement entry.
+
+Promoting a label is a one-field YAML edit plus a PR. Deprecating is
+the same, plus adding a replacement entry (new `label_id`, same
+`task_name`) whose `supersedes` points at the deprecated one.
+
+### Adding or renaming a label
+
+- **Add:** append a new entry to the correct file. Choose a stable
+  snake-case `label_id`; stick with `status: draft`; write a definition
+  that is specific enough that two annotators would classify an
+  identical record the same way; include at least one inclusion rule
+  and one exclusion rule, and at least two realistic examples.
+- **Rename:** the schema does not allow mutating a `label_id` in place.
+  Add a new entry with the new `label_id`, set `supersedes` to the old
+  `label_id`, and change the old entry's `status` to `deprecated`.
+  Both rows stay committed; the test suite enforces that the
+  `supersedes` graph remains acyclic.
+- **Delete:** avoid. Deprecate instead (see above) so historical
+  annotations stay interpretable.
+
+### Current taxonomy status (Chunk 3)
+
+All 24 entries (14 primary + 10 domain) ship with `status: draft`.
+Nothing here is approved. Downstream training code must not treat a
+`primary_type` or `domain_tags` value as verified until **both**
+conditions hold:
+
+1. The referenced `label_id` has `status == approved` in its
+   taxonomy file.
+2. The record's `annotation_status.<task>` is `VERIFIED`.
+
+Loader tests ship under `tests/schema/test_loader.py`.
+
 ## What this chunk does NOT do
 
-- No cross-record foreign-key existence check.
-- No filesystem existence check for `relative_path` or `extracted_text_ref`.
-- No license eligibility decision; `UNKNOWN` passes but is not permission.
-- No duplicate detection, no OCR, no ingestion.
-- No finalized taxonomy YAML.
+- No cross-record foreign-key existence check between an
+  `Achievement`'s `primary_type` / `domain_tags` and the taxonomy
+  files. That is a dataset-level concern.
+- No filesystem existence check for `relative_path` or
+  `extracted_text_ref`.
+- No license eligibility decision; `UNKNOWN` passes but is not
+  permission.
+- No duplicate detection on achievements, no OCR, no ingestion.
+- No automatic promotion of taxonomy status; `draft → approved` is a
+  human-reviewed PR edit.

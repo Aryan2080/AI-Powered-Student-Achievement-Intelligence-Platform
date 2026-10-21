@@ -1,0 +1,316 @@
+# Primary achievement taxonomy — 14 classes.
+#
+# Status: ALL entries are `draft`. Nothing here is approved for use as
+# training ground truth until the team has reviewed it and promoted the
+# status (see schema/README.md > Taxonomy).
+#
+# Shape: each entry is a LabelTaxonomy record (see
+# src/nlp_semantic/schema/label_taxonomy.py). task_name must be
+# `primary_type`. label_id values are stable; renames go through
+# `supersedes`.
+
+- label_id: lbl_hackathon
+  task_name: primary_type
+  display_name: Hackathon
+  definition: >
+    Participation, placement, or team role in a time-boxed competitive
+    building event in which participants design and implement a working
+    software or hardware prototype within a bounded window (typically
+    24–72 hours).
+  inclusion_rules:
+    - In-person or virtual hackathons organized by universities, companies, or communities
+    - Role-based participation (developer, designer, team lead) is included
+    - Placement (winner, runner-up, finalist) and bare participation both qualify
+  exclusion_rules:
+    - Course-assigned project work with no time-boxed competition is a PROJECT, not a hackathon
+    - Programming contests judged purely on algorithmic problem solving belong to COMPETITION
+    - Hackathon-shaped workshops with no competitive judging belong to WORKSHOP
+  examples:
+    - Won first place at HackMIT 2024
+    - Team captain at SIH 2023 — built a traffic prediction prototype in 48 hours
+    - Participant at ETHGlobal Online 2024
+  status: draft
+
+- label_id: lbl_competition
+  task_name: primary_type
+  display_name: Competition
+  definition: >
+    Participation or placement in a judged competition that is NOT a
+    hackathon — including algorithmic contests, case competitions,
+    debate, design contests, business plan contests, and similar.
+  inclusion_rules:
+    - Programming / data-science / ML challenges (Codeforces, Kaggle, ACM-ICPC)
+    - Case competitions, debate, moot court, model UN
+    - Design or innovation contests not time-boxed as hackathons
+    - Olympiad or quiz championships
+  exclusion_rules:
+    - Time-boxed build events with a prototype deliverable are HACKATHON
+    - Participation in an event without competitive judging is WORKSHOP or OTHER
+    - Sports competitions belong to SPORTS
+    - Cultural performance contests belong to CULTURAL
+  examples:
+    - Top 10 team at ACM ICPC Regional Finals 2024
+    - Winner of a national case competition
+    - Kaggle silver medal in a published challenge
+  status: draft
+
+- label_id: lbl_research_pub
+  task_name: primary_type
+  display_name: Research publication
+  definition: >
+    Authorship (first, co-, or named contributor) on a peer-reviewed
+    paper, preprint, journal article, workshop paper, or technical
+    report that reports original research.
+  inclusion_rules:
+    - Peer-reviewed conference and journal papers
+    - Workshop papers at major venues
+    - arXiv or similar archival preprints with student as named author
+    - University-published technical reports with original contribution
+  exclusion_rules:
+    - Course term papers not submitted to a venue
+    - Blog posts, Medium articles, newsletters
+    - Review articles with no original contribution unless peer reviewed
+    - Patents belong to PATENT
+  examples:
+    - Co-authored 'Lightweight transformers for low-resource NLP' at ACL 2024
+    - First author of 'A dataset for Indic script OCR' arXiv preprint
+    - Named author of a short paper on scene segmentation at a top venue
+  status: draft
+
+- label_id: lbl_patent
+  task_name: primary_type
+  display_name: Patent
+  definition: >
+    A granted or filed patent or utility model naming the student as
+    inventor or co-inventor.
+  inclusion_rules:
+    - Granted patents (national or international)
+    - Filed patent applications with a published application number
+    - Utility models filed with a government patent office
+  exclusion_rules:
+    - Trade secrets or internal invention disclosures without a filing
+    - Design-only submissions filed as design registrations do not qualify by default
+    - Published papers describing an invention without a patent filing are RESEARCH_PUBLICATION
+  examples:
+    - Inventor on US patent 11,000,000 (granted 2024)
+    - Co-inventor on Indian patent application 202411012345
+    - Named inventor on PCT filing WO2024/012345
+  status: draft
+
+- label_id: lbl_internship
+  task_name: primary_type
+  display_name: Internship
+  definition: >
+    A time-bounded professional work engagement at a company, lab,
+    research group, or non-profit — paid or unpaid — undertaken while
+    the student is enrolled.
+  inclusion_rules:
+    - Industry internships at private companies or startups
+    - Research internships at academic labs or national labs
+    - Government and non-profit internships
+    - Virtual or remote internships
+    - Structured program-based internships
+  exclusion_rules:
+    - Full-time post-graduation employment is not an internship
+    - Short unstructured shadowing without defined deliverables
+    - Course-credit projects supervised only by university faculty are PROJECT
+    - Certification programs are CERTIFICATION
+  examples:
+    - Summer research intern at a national AI lab, 2024
+    - Software engineering intern at a major cloud provider, 10 weeks
+    - Policy research intern at a UN agency
+  status: draft
+
+- label_id: lbl_certification
+  task_name: primary_type
+  display_name: Certification
+  definition: >
+    Completion of a credentialed training program issuing a formal
+    certificate from a recognized provider, platform, or professional
+    body.
+  inclusion_rules:
+    - Industry certifications (AWS, GCP, Azure, Red Hat, Cisco)
+    - Platform-issued course certificates with verifiable identifiers
+    - Professional body credentials (PMP, CFA level I, etc.)
+    - Language proficiency certificates tied to the subject domain
+  exclusion_rules:
+    - A participation certificate from a hackathon is HACKATHON
+    - Workshop attendance badges without a graded assessment belong to WORKSHOP
+    - Internship completion letters are INTERNSHIP
+    - Course-complete badges with no verification are OTHER
+  examples:
+    - AWS Certified Solutions Architect – Associate
+    - Google Cloud Professional Data Engineer
+    - Verified Coursera Deep Learning Specialization
+  status: draft
+
+- label_id: lbl_project
+  task_name: primary_type
+  display_name: Project
+  definition: >
+    A substantial individual, team, or course-based project that
+    produced a described artifact — code, system, hardware, or report
+    — and is not a hackathon, internship, or publication.
+  inclusion_rules:
+    - Course or capstone projects with a described deliverable
+    - Open-source contributions documented as a project
+    - Independent personal projects with a described outcome and scope
+    - Student organization technical projects
+  exclusion_rules:
+    - Time-boxed judged events belong to HACKATHON or COMPETITION
+    - Published papers reporting a project belong to RESEARCH_PUBLICATION
+    - Projects undertaken inside an internship belong to INTERNSHIP
+    - Toy exercises completed in a short tutorial are OTHER
+  examples:
+    - Built a Hindi handwriting OCR pipeline — capstone, 6 months
+    - Core contributor to an open-source tokenizer, 1200 LoC merged
+    - Designed a solar-powered weather station — undergraduate thesis
+  status: draft
+
+- label_id: lbl_workshop
+  task_name: primary_type
+  display_name: Workshop
+  definition: >
+    Participation in a workshop, bootcamp, tutorial, or short training
+    event (hours to a few days) focused on skills transfer rather than
+    competition or formal certification.
+  inclusion_rules:
+    - In-person or virtual workshops organized by universities, labs, or industry
+    - Short bootcamps that do not issue a formal certification
+    - Conference-colocated tutorials and training sessions
+  exclusion_rules:
+    - Formally credentialed courses issuing certificates belong to CERTIFICATION
+    - Conferences attended for the plenary program belong to CONFERENCE
+    - Hackathons organized as workshops still belong to HACKATHON when competitive
+  examples:
+    - Attended an ACL 2024 tutorial on multilingual tokenization
+    - 3-day workshop on Kubernetes for data engineers
+    - Participated in a robotics bootcamp
+  status: draft
+
+- label_id: lbl_conference
+  task_name: primary_type
+  display_name: Conference
+  definition: >
+    Attendance, oral presentation, poster, demo, or named role at an
+    academic or professional conference, without a corresponding
+    peer-reviewed paper claimed as the achievement.
+  inclusion_rules:
+    - Delivered a talk, poster, or demo at a conference
+    - Student volunteer or organizing-committee member
+    - Named panelist or invited respondent
+    - Attendance with an explicit named role or scholarship
+  exclusion_rules:
+    - A peer-reviewed paper at the same conference is RESEARCH_PUBLICATION
+    - Workshop tutorials or short courses at a conference are WORKSHOP
+    - A conference-colocated hackathon is HACKATHON
+  examples:
+    - Poster presenter at NeurIPS 2024 (non-archival track)
+    - Student volunteer at ACL 2023
+    - Attended ICML 2024 with a student travel award
+  status: draft
+
+- label_id: lbl_leadership
+  task_name: primary_type
+  display_name: Leadership
+  definition: >
+    A named leadership, officer, or coordinator role in a student
+    organization, campus body, chapter of a professional society, or
+    event-organizing team.
+  inclusion_rules:
+    - President, secretary, treasurer, or named officer of a student body
+    - Head of a technical, cultural, sports, or social club
+    - Student chapter chair of a professional society (ACM, IEEE)
+    - Lead organizer of a conference, hackathon, or cultural event
+  exclusion_rules:
+    - Being on a team without a named leadership role is not LEADERSHIP
+    - A one-time workshop volunteer slot is WORKSHOP or VOLUNTEERING
+    - Technical responsibility inside a project without an org role is PROJECT
+  examples:
+    - President, ACM Student Chapter, 2023–24
+    - Head of operations for the annual university cultural festival
+    - Lead organizer of a women-in-tech student conference
+  status: draft
+
+- label_id: lbl_sports
+  task_name: primary_type
+  display_name: Sports
+  definition: >
+    Participation, representation, or placement in an organized
+    athletic activity at university, state, national, or higher levels.
+  inclusion_rules:
+    - Team membership at inter-college, inter-university, state, or national level
+    - Individual sport placements and ranks
+    - Representation in a national or international championship
+    - Named squad or team roster for a recognized tournament
+  exclusion_rules:
+    - Casual intramural matches without a named role are OTHER
+    - Sports coaching roles that are the student's job may be INTERNSHIP
+    - E-sports contests belong to COMPETITION unless the catalogue decides otherwise
+  examples:
+    - Represented university football team at All-India Inter-University 2024
+    - State-level badminton quarter-finalist, 2023
+    - Nationally ranked chess player, under-21 category
+  status: draft
+
+- label_id: lbl_cultural
+  task_name: primary_type
+  display_name: Cultural
+  definition: >
+    Participation, performance, or placement in a cultural, artistic,
+    literary, musical, or performance activity.
+  inclusion_rules:
+    - Dance, music, theatre, film, or visual-art performances
+    - Literary submissions, published poetry, short fiction
+    - Named role in a cultural festival or arts competition
+    - Debating or elocution outside structured COMPETITION context when primarily performance
+  exclusion_rules:
+    - Technical fest participation is HACKATHON / COMPETITION / PROJECT as appropriate
+    - Sports representation is SPORTS
+    - Leadership of a cultural club is LEADERSHIP (keep the activity itself separate)
+  examples:
+    - Lead vocalist in the university rock band — won inter-college music fest
+    - Published short story in the campus literary magazine
+    - Performed classical dance at a state-level youth festival
+  status: draft
+
+- label_id: lbl_volunteering
+  task_name: primary_type
+  display_name: Volunteering
+  definition: >
+    Sustained or event-based volunteering with a non-profit, NGO, civic
+    body, or community initiative where the primary purpose is service
+    rather than a career-oriented internship.
+  inclusion_rules:
+    - Named volunteer with an NGO, non-profit, or civic initiative
+    - Teaching assistant or tutor roles done without pay for an outreach program
+    - Disaster-response or community-health volunteering
+    - Open-source maintenance volunteering with no stipend
+  exclusion_rules:
+    - Paid or stipend-based engagements with defined deliverables are INTERNSHIP
+    - Mandatory course community-service requirements are OTHER unless substantively documented
+    - Student-club officer roles are LEADERSHIP
+  examples:
+    - Volunteer teacher at a government school weekend program, 2022–2024
+    - Flood-relief volunteer with a national NGO
+    - Translation volunteer for an Indian-language Wikipedia project
+  status: draft
+
+- label_id: lbl_other
+  task_name: primary_type
+  display_name: Other
+  definition: >
+    Catch-all for achievements that do not fit any of the thirteen
+    specific primary types. Use sparingly and only when the record is
+    genuinely incompatible with every other category after inspection.
+  inclusion_rules:
+    - Achievements with ambiguous or missing primary category after review
+    - Hybrid or edge records awaiting taxonomy refinement
+    - Items the annotator cannot classify with confidence and are escalating for review
+  exclusion_rules:
+    - Avoid defaulting here when a specific category plausibly applies — leave annotation_status as DRAFT or PENDING instead
+    - Do not use OTHER as a workaround to skip annotation effort
+  examples:
+    - Received a departmental special-mention award with no comparable category
+    - Experimental taxonomy edge case flagged for review in 2024
+  status: draft

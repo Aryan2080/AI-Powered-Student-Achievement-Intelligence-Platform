@@ -1,0 +1,198 @@
+# Multi-label domain tags — initial 10 tags.
+#
+# Status: ALL entries are `draft`. Nothing here is approved for use as
+# training ground truth until the team has reviewed it (see
+# schema/README.md > Taxonomy).
+#
+# Shape: each entry is a LabelTaxonomy record (see
+# src/nlp_semantic/schema/label_taxonomy.py). task_name must be
+# `domain_tags`. These tags are intentionally orthogonal to the primary
+# taxonomy — a single Achievement may carry zero or many of them.
+
+- label_id: lbl_domain_ai
+  task_name: domain_tags
+  display_name: Artificial intelligence
+  definition: >
+    Broad artificial-intelligence domain not already covered by a more
+    specific sub-field tag below.
+  inclusion_rules:
+    - AI research or product work that spans multiple sub-fields
+    - Classical AI topics (planning, search, symbolic reasoning)
+    - Multi-agent systems and reasoning
+  exclusion_rules:
+    - Pure machine-learning work with no distinctly AI framing — prefer lbl_domain_ml
+    - NLP and CV sub-fields have their own tags; this tag is for broader AI framing
+  examples:
+    - Research on tool-use planning for LLM agents
+    - Rule-based clinical decision-support prototype
+  status: draft
+
+- label_id: lbl_domain_ml
+  task_name: domain_tags
+  display_name: Machine learning
+  definition: >
+    Supervised, unsupervised, or reinforcement-learning methods and
+    applications not specific to NLP or computer vision.
+  inclusion_rules:
+    - Tabular ML, time-series forecasting, recommenders
+    - RL and policy learning
+    - ML theory, optimization, generalization
+  exclusion_rules:
+    - NLP tasks belong to lbl_domain_nlp
+    - Image, video, or geometry tasks belong to lbl_domain_cv
+  examples:
+    - Kaggle solution for insurance churn prediction
+    - Published paper on bandit algorithms for exploration
+  status: draft
+
+- label_id: lbl_domain_nlp
+  task_name: domain_tags
+  display_name: Natural language processing
+  definition: >
+    Processing, understanding, or generation of human-language text or
+    speech.
+  inclusion_rules:
+    - Language modeling, machine translation, summarization
+    - Speech recognition and synthesis
+    - Information extraction over text
+    - Low-resource language work
+  exclusion_rules:
+    - Image captioning primarily driven by vision should also carry lbl_domain_cv if the vision aspect dominates
+  examples:
+    - Built a Hindi–Tamil translation system
+    - Fine-tuned a language model for query rewriting
+  status: draft
+
+- label_id: lbl_domain_cv
+  task_name: domain_tags
+  display_name: Computer vision
+  definition: >
+    Processing, understanding, or generation of visual data — images,
+    video, geometry — including recognition, detection, segmentation,
+    tracking, and generation.
+  inclusion_rules:
+    - Classification, detection, segmentation
+    - Video analysis and 3D vision
+    - Image generation and editing
+    - Medical imaging and remote sensing when primarily visual
+  exclusion_rules:
+    - OCR projects targeting text extraction may additionally carry lbl_domain_nlp
+  examples:
+    - Semantic segmentation of satellite imagery
+    - Diffusion-based image editing demo
+  status: draft
+
+- label_id: lbl_domain_security
+  task_name: domain_tags
+  display_name: Security
+  definition: >
+    Cybersecurity, information security, privacy, cryptography, and
+    related adversarial topics.
+  inclusion_rules:
+    - Vulnerability research, pen-testing, CTF work
+    - Cryptography and protocols
+    - Privacy-preserving ML, differential privacy, secure multi-party computation
+    - Network and systems security
+  exclusion_rules:
+    - Red-team / blue-team projects in a hackathon context carry this tag only when the content is security-focused
+  examples:
+    - Capture-the-flag team finalist at a major competition
+    - Project on homomorphic encryption for private inference
+  status: draft
+
+- label_id: lbl_domain_systems
+  task_name: domain_tags
+  display_name: Systems
+  definition: >
+    Operating systems, distributed systems, databases, compilers,
+    networking, cloud infrastructure, and high-performance computing.
+  inclusion_rules:
+    - OS kernels, schedulers, memory management
+    - Databases and storage engines
+    - Distributed consensus, large-scale systems
+    - Compilers and programming-language implementation
+    - Networking stacks and protocols
+    - Cloud, Kubernetes, infrastructure engineering
+  exclusion_rules:
+    - Pure web-application work goes to lbl_domain_web
+    - Hardware design and FPGA work goes to lbl_domain_hardware
+  examples:
+    - Contributor to a distributed key-value store
+    - Implemented a JIT compiler for a toy language
+  status: draft
+
+- label_id: lbl_domain_web
+  task_name: domain_tags
+  display_name: Web and application
+  definition: >
+    Web applications, mobile applications, UI/UX, and front- and
+    back-end development that is primarily product-focused rather than
+    systems- or data-focused.
+  inclusion_rules:
+    - Full-stack web applications
+    - Mobile apps (Android, iOS, cross-platform)
+    - UI and UX design and front-end engineering
+    - API design for applications
+  exclusion_rules:
+    - Infrastructure or systems work belongs to lbl_domain_systems
+    - Deep-learning–backed features inherit the ML / NLP / CV tag of the model in addition
+  examples:
+    - Built a React Native application for crop advisory
+    - Full-stack hackathon project on a mental-health tracker
+  status: draft
+
+- label_id: lbl_domain_data
+  task_name: domain_tags
+  display_name: Data engineering and analytics
+  definition: >
+    Data engineering, data warehousing, ETL and ELT, business
+    intelligence, dashboards, and non-ML analytics.
+  inclusion_rules:
+    - Data pipeline design, Airflow / Spark / dbt projects
+    - SQL warehouse modeling and performance tuning
+    - BI dashboards and reporting
+    - Descriptive statistics and non-ML analytics
+  exclusion_rules:
+    - Predictive modeling that is primarily ML goes to lbl_domain_ml
+    - Research-grade statistics for a scientific paper is RESEARCH_PUBLICATION at the primary level
+  examples:
+    - Internship project building a Spark-based ETL for a 10-TB warehouse
+    - Dashboard of state-level health indicators used by a civic NGO
+  status: draft
+
+- label_id: lbl_domain_hardware
+  task_name: domain_tags
+  display_name: Hardware and embedded systems
+  definition: >
+    Digital electronics, FPGA design, embedded systems, robotics
+    hardware, IoT devices, and related physical-computing work.
+  inclusion_rules:
+    - FPGA and ASIC design, HDL implementations
+    - Embedded firmware and microcontroller projects
+    - Robotics hardware integration and sensor fusion
+    - IoT device prototypes
+  exclusion_rules:
+    - Robotics software without hardware integration is lbl_domain_ml or lbl_domain_systems
+    - Hardware security belongs to lbl_domain_security plus this tag
+  examples:
+    - Designed a MIPS-lite processor in Verilog
+    - Smart-home sensor node with LoRa radio
+  status: draft
+
+- label_id: lbl_domain_other
+  task_name: domain_tags
+  display_name: Other domain
+  definition: >
+    Catch-all for domain tagging when no specific tag fits. Use
+    sparingly; prefer leaving domain_tags empty with the explicit
+    annotation status when nothing applies.
+  inclusion_rules:
+    - Interdisciplinary work where the dominant domain is outside AI / ML / CS
+    - Edge cases flagged for taxonomy refinement
+  exclusion_rules:
+    - Do not use when a specific tag plausibly applies
+    - Do not combine with every other tag — leave domain_tags empty if truly none apply and status is verified
+  examples:
+    - Economics research project applying only basic analytics
+    - Public-policy design work with no technology implementation
+  status: draft
