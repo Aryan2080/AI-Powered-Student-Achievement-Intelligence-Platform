@@ -368,6 +368,59 @@ What it cannot guarantee:
   opening file descriptors on raw data, which Chunk 4's read-only
   mandate forbids.
 
+## Dataset validation and splits (Chunk 5)
+
+The `nlp_semantic.dataset` package layers on top of the Chunk 2
+schemas and the Chunk 4 ingestion loaders:
+
+- `load_dataset(<root>)` — reads curated YAML batch files from
+  `<root>/dataset/records/` and (optional) `<root>/dataset/annotations/`,
+  returning a `DatasetLoadReport`. File-level errors raise
+  `DatasetError`; per-entry format errors remain `pydantic.ValidationError`
+  (consistent with the taxonomy and manifest loaders).
+- `validate_dataset(...)` — performs the cross-record FK checks the
+  Chunk 4 handoff explicitly deferred (every `source_id` present in
+  `sources.yaml`; every `primary_type` and `domain_tag` in the matching
+  taxonomy and not `deprecated`; no duplicate
+  `(source_id, source_record_id)` pair; no orphan annotations;
+  annotation label references exist). Returns a report, never raises
+  on content. Fatal findings flip `is_valid` to False; advisory
+  findings (`UNKNOWN` license, non-`VERIFIED` source review, draft
+  label references) surface separately.
+- `eligible_ground_truth(records, ..., task=...)` — returns the subset
+  of records eligible as training ground truth for `task`. Both of
+  these must hold for a record to be included:
+  1. `Achievement.annotation_status.<task> == AnnotationStatus.VERIFIED`
+  2. Every referenced `label_id` has
+     `LabelTaxonomy.status == TaxonomyStatus.APPROVED` in the task's
+     taxonomy. Chunk 3 taxonomies ship all-draft, so this function
+     returns `[]` by design. Promotion to `approved` is a separate
+     human-review PR, not a code concern.
+- `find_duplicates(records)` — deterministic exact + normalized-text
+  + `(source_id, source_record_id)` + `(date, org, event)` triple
+  collisions. Flags for human review; **never deletes or merges**.
+  Semantic (embedding-based) duplicate detection is deferred.
+- `compute_stats(records)` — per-primary-type counts, per-domain-tag
+  counts, co-occurrence matrix, synthetic/real split, per-source
+  counts. Pandas is deliberately avoided; stdlib `Counter` scales
+  cleanly to the dataset's size.
+- `generate_splits(records, *, seed, ratios, exclude_synthetic)` —
+  deterministic, source-grouped train/val/test. Hard guarantees:
+  deterministic (same input + same seed → same assignment); every
+  `source_id` lands in exactly one split (no leakage); synthetic
+  records excluded by default. The manifest records the seed, the
+  achieved sizes and ratios, every source assignment, class
+  distribution per split, and the SHA-256 of each JSONL file. Hard
+  non-guarantees are documented: no stratification claim, no
+  snapshot atomicity, no semantic dedup.
+- `write_splits(result, root)` — writes `train.jsonl`, `val.jsonl`,
+  `test.jsonl`, and `split_manifest.json` to
+  `<root>/processed/splits/` (gitignored). Uses byte-level writes to
+  keep SHA-256 stable on Windows.
+
+Chunk 5 ships zero curated records; adding records is a separate
+human-review PR (see `hybrid_dataset/dataset/ANNOTATION_GUIDELINES.md`).
+
 ## Annotator pseudonym convention (Chunk 4)
 
 Annotators are referenced by stable pseudonyms following the

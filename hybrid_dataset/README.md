@@ -44,6 +44,58 @@ achievement taxonomy, multi-label domain tags, and label validation rules.
 These are committed so the team shares a single source of truth. Taxonomy
 contents are **not yet implemented** in this chunk.
 
+## `dataset/` — curated records and annotation history (Chunk 5)
+
+Tracked, PR-reviewed curated achievement records and (optional)
+annotation history live here. One YAML list file per annotation
+batch:
+
+```
+dataset/
+├── README.md                       (shape, rules, GT eligibility)
+├── ANNOTATION_GUIDELINES.md        (rubric + dispute workflow + examples)
+├── records/batch_<NN>.yaml         (list of Achievement entries)
+└── annotations/batch_<NN>.yaml     (list of Annotation entries, for dual-reviewed records)
+```
+
+See `dataset/README.md` for the file format, cross-record validation
+rules, and the ground-truth eligibility contract (both
+`annotation_status.<task> == VERIFIED` **and** the referenced label's
+`status == approved` are required; the current all-draft taxonomies
+mean the eligible-GT set is empty by design).
+
+### Dataset CLI
+
+Validate records, print statistics, or generate reproducible
+train/val/test splits. The package is not pip-installed, so `src/`
+must be on `PYTHONPATH`.
+
+```powershell
+# Windows PowerShell
+$env:PYTHONPATH = "src"
+python -m nlp_semantic.dataset.cli validate hybrid_dataset
+python -m nlp_semantic.dataset.cli stats    hybrid_dataset
+python -m nlp_semantic.dataset.cli split    hybrid_dataset --seed 42
+```
+
+```bash
+# bash / zsh / Git Bash
+PYTHONPATH=src python -m nlp_semantic.dataset.cli validate hybrid_dataset
+PYTHONPATH=src python -m nlp_semantic.dataset.cli stats    hybrid_dataset
+PYTHONPATH=src python -m nlp_semantic.dataset.cli split    hybrid_dataset --seed 42
+```
+
+All three subcommands print JSON to stdout and a one-line ASCII
+summary to stderr. Exit codes: `0` success, `1` dataset/build error,
+`2` CLI usage error.
+
+Split output lands under `hybrid_dataset/processed/splits/` (which is
+gitignored). The split generator groups records by `source_id` so no
+`source_id` ever crosses splits; synthetic records are excluded by
+default. Infeasibility (too few source groups, empty split) surfaces
+as warnings in the manifest — the generator does **not** silently
+claim stratification or leakage prevention it cannot deliver.
+
 ## `metadata/` — registry, dataset cards, data dictionary
 
 Source registry entries (one per dataset we rely on), dataset cards,
