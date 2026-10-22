@@ -184,3 +184,77 @@ def test_annotation_guidelines_has_boundary_matrix() -> None:
     assert "event-centric" in text and "artifact-centric" in text
     assert "seven calendar days" in text
     assert "merged pull request" in text
+
+
+# ---- Chunk 7.2: approval-checklist workflow coverage -----------------------
+
+
+@pytest.fixture(scope="module")
+def approval_checklist_text() -> str:
+    return (
+        REPO_ROOT / "hybrid_dataset" / "labels" / "TAXONOMY_APPROVAL_CHECKLIST.md"
+    ).read_text("utf-8").lower()
+
+
+def test_checklist_has_reviewer_independence_section(
+    approval_checklist_text: str,
+) -> None:
+    """Chunk 7.2 adds explicit reviewer-independence guidance."""
+    text = approval_checklist_text
+    assert "## reviewer independence" in text
+    # Core rule: each reviewer posts before discussing.
+    assert "before discussing" in text or "before" in text
+    assert "independent" in text
+
+
+def test_checklist_sign_off_template_fields(
+    approval_checklist_text: str,
+) -> None:
+    """The copy-paste sign-off template must carry its five required fields."""
+    text = approval_checklist_text
+    assert "## sign-off record template" in text
+    for field in ("label_id", "reviewer", "date", "decision", "rationale"):
+        assert field in text, f"sign-off template missing field: {field}"
+    assert "approve" in text and "revise" in text
+
+
+def test_checklist_disagreement_workflow_section(
+    approval_checklist_text: str,
+) -> None:
+    """The disagreement + revision procedure must be documented."""
+    text = approval_checklist_text
+    assert "## reviewer-disagreement workflow" in text
+    # Append-only history; never edit prior sign-offs.
+    assert "never edit or delete" in text or "preserve the history" in text
+    # Third-reviewer tiebreak after two cycles.
+    assert "third" in text and ("cycle" in text or "adjudicate" in text)
+    # Promotion blocked while any revise is current.
+    assert "must not be promoted" in text
+
+
+def test_checklist_distinguishes_refinement_from_promotion(
+    approval_checklist_text: str,
+) -> None:
+    text = approval_checklist_text
+    assert "## refinement prs versus promotion prs" in text
+    assert "refinement pr" in text
+    assert "promotion pr" in text
+    assert "refinement is not approval" in text or (
+        "is not itself approval" in text
+    ) or ("not approval" in text)
+
+
+def test_checklist_covers_illustrative_examples_limitation(
+    approval_checklist_text: str,
+) -> None:
+    """Chunk 7.2 clarifies that illustrative examples don't satisfy the
+    real-records requirement."""
+    text = approval_checklist_text
+    assert "## illustrative examples when real records are unavailable" in text
+    # Explicit non-substitution for the representative-sample box.
+    assert "does not satisfy" in text or "do not substitute" in text or (
+        "does not substitute" in text
+    )
+    assert "representative" in text
+    # Must still be addressed when real records arrive.
+    assert "real records" in text
