@@ -177,3 +177,17 @@ def test_created_at_non_utc_aware_allowed() -> None:
     ts = datetime(2024, 6, 15, 16, 0, 0, tzinfo=ist)
     a = Annotation(**_minimal(created_at=ts))
     assert a.created_at.utcoffset() == timedelta(hours=5, minutes=30)
+
+
+# ---- documented pseudonym convention: labeler_<NNN> --------------------------
+# These tests cover the Chunk 4 pseudonym convention. The existing annotator
+# regex accepts character class + length only, not a trailing-ordinal shape,
+# so these assertions document that labeler_<NNN> pseudonyms are accepted.
+# Convention enforcement (e.g. requiring a numeric suffix) would be a separate
+# validator change outside Chunk 4's scope.
+
+
+@pytest.mark.parametrize("name", ["labeler_001", "labeler_017", "labeler_999"])
+def test_labeler_pseudonym_convention_accepted(name: str) -> None:
+    a = Annotation(**_minimal(annotator=name))
+    assert a.annotator == name

@@ -267,3 +267,122 @@ Loader tests ship under `tests/schema/test_loader.py`.
 - No duplicate detection on achievements, no OCR, no ingestion.
 - No automatic promotion of taxonomy status; `draft → approved` is a
   human-reviewed PR edit.
+
+## Source registry files (Chunk 4)
+
+The hybrid dataset's source registry and ingestion manifest live under
+`hybrid_dataset/metadata/`:
+
+| File | Loader | Content |
+|---|---|---|
+| `hybrid_dataset/metadata/sources.yaml` | `nlp_semantic.ingestion.registry.load_and_validate_sources` | YAML list of `SourceRegistry` records |
+| `hybrid_dataset/metadata/manifest.yaml` | `nlp_semantic.ingestion.manifest.load_and_validate_manifest` | YAML list of `ManifestEntry` records, keyed off `source_id` |
+
+Both files ship as empty lists with top-of-file comment blocks
+documenting their schemas. **Registration is not approval.** A row in
+`sources.yaml` does not mean the source is suitable, licensed, or
+verified; downstream training must gate on `review_status == VERIFIED`
+plus a human-approved license decision. The loader surfaces
+`license == "UNKNOWN"` and non-`VERIFIED` entries as advisory warnings
+on `SourceLoadReport` — advisory, not fatal.
+
+Untrusted source records (anything read from disk or a form) go through
+`SourceRegistry.from_untrusted(data)`. The ingestion loader uses this
+hot path exclusively; a credential-bearing `source_url` raises
+`CredentialInUrlError` whose fixed message contains neither the URL,
+username, nor password.
+
+### Manifest contract
+
+`ManifestEntry.raw_subdir` points under `hybrid_dataset/raw/…` using
+forward slashes; no absolute paths, no `..`, no backslashes, no empty
+segments (so no trailing `/`). The manifest describes **expectations**
+about where files should live — it does not verify filesystem presence.
+`validate_manifest` cross-checks that every manifest `source_id` is
+registered in `sources.yaml` and that `source_id` / `raw_subdir` are
+unique within the manifest.
+
+### Shared path validator
+
+`schema.path_safety` holds the single implementation of
+`reject_unsafe_relative_path` used by both `Evidence` and
+`ManifestEntry`. The function is byte-identical to the original private
+helper in `evidence.py`; Evidence's API and error messages are
+unchanged.
+
+## Inventory (Chunk 4)
+
+The read-only inventory walks `<hybrid_dataset_root>/raw/` and produces
+an `InventoryReport` of filesystem metadata. **No file contents are
+ever read.** The CLI runs as a module; `src/` must be on
+`PYTHONPATH` (the package is not pip-installed in Chunk 4):
+
+```
+PYTHONPATH=src python -m nlp_semantic.ingestion.inventory <hybrid_dataset_root>
+
+  stdout: InventoryReport JSON (relative_path, file_type, size_bytes,
+          modified_at per entry, plus aggregated counts and warnings)
+  stderr: one-line summary "<N> files | <M> warnings | raw_root=<path>"
+          (ASCII separator for Windows code-page portability)
+  exit:   0 success, 2 CLI usage error, 1 build failure
+```
+
+Windows equivalents: `set PYTHONPATH=src` (cmd) or
+`$env:PYTHONPATH = "src"` (PowerShell), then `python -m
+nlp_semantic.ingestion.inventory <hybrid_dataset_root>`.
+
+What it guarantees:
+
+- Only `.stat` / `scandir` metadata is read; `builtins.open` is never
+  called on raw files (test-enforced).
+- Symlinks (files and directories) are never followed; they emit
+  `symlink_skipped` warnings.
+- The root and its `raw/` subdirectory must each be real directories
+  and not symlinks; otherwise the call raises before scanning begins.
+- Per-entry resolution + containment is wrapped in `try/except`.
+  Vanished entries, inaccessible components, and resolve-cycle errors
+  surface as `path_resolution_failed` warnings; stat failures as
+  `unreadable_stat`; unreadable directories as `unreadable_dir`.
+  **A scan that emitted warnings is partial and the CLI's stderr line
+  prints the warning count — partial scans are never silently reported
+  as fully successful.**
+- Resolved paths that end up outside `raw_root` after symlink
+  resolution emit `symlink_skipped` with `detail="resolved outside raw_root"`
+  and are dropped.
+- Relative paths in output always use forward slashes.
+- The tree is byte-identical before and after a scan (test-enforced
+  via SHA256 comparison).
+
+What it cannot guarantee:
+
+- **Snapshot atomicity.** Pure-metadata inspection cannot be atomic.
+  Files may be created, deleted, renamed, or truncated between
+  `scandir` and `stat`. The report is a best-effort view of filesystem
+  metadata at scan time.
+- **Protection against TOCTOU on a hostile filesystem.** `follow_symlinks=False`
+  everywhere prevents our tool from traversing a swapped-in symlink,
+  but a writer racing every syscall can still present a well-formed
+  `InventoryEntry` whose `size_bytes` / `modified_at` reflect a
+  different file than the enumerator saw. The appropriate mitigation
+  — open-and-fstat under an opened directory handle — would require
+  opening file descriptors on raw data, which Chunk 4's read-only
+  mandate forbids.
+
+## Annotator pseudonym convention (Chunk 4)
+
+Annotators are referenced by stable pseudonyms following the
+convention **`labeler_<NNN>`** (e.g. `labeler_001`, `labeler_017`,
+`labeler_999`). The convention is documented and example-tested; the
+runtime annotator regex in `Annotation` checks character class and
+length only — it does **not** enforce the trailing-ordinal shape.
+Stricter enforcement is out of Chunk 4's scope and would be a separate
+validator change.
+
+The pseudonym → real-identity mapping is **never stored in this
+repository**. Treat pseudonyms as opaque stable handles for
+inter-annotator-agreement analysis, nothing more.
+
+Visual overlap with Annotation record IDs (`ann_<32hex>`) is cosmetic
+only: record IDs are 36 characters with a hex suffix, pseudonyms are
+8–13 characters with a decimal suffix, and the two always appear in
+different fields.

@@ -51,6 +51,53 @@ data-dictionary files, and extraction-method logs. OCR output and
 embedding files produced here are gitignored; textual metadata files
 are tracked.
 
+Tracked files (Chunk 4):
+
+- `sources.yaml` — tracked YAML list of `SourceRegistry` entries. Ships
+  as `[]`; see the file's top-of-file comment block for the schema and
+  the "registration ≠ approval" rule.
+- `manifest.yaml` — tracked YAML list of `ManifestEntry` records keyed
+  off `source_id`, describing where each source's raw files are
+  expected to live. Ships as `[]`.
+
+Neither file is approval. `sources.yaml` is a registry of what we have
+chosen to track; `manifest.yaml` records expectations about on-disk
+layout. Suitability for training is a separate downstream decision
+that gates on `review_status: verified` and a human-approved license
+determination outside these files.
+
+### Inventory CLI
+
+To see what is actually present under `raw/` on your local machine (no
+contents are read, only filesystem metadata), run the inventory as a
+module. The package lives under `src/`, so `src/` must be on
+`PYTHONPATH` unless the project is installed as a package (not shipped
+in Chunk 4). From the project root:
+
+```powershell
+# Windows PowerShell
+$env:PYTHONPATH = "src"
+python -m nlp_semantic.ingestion.inventory hybrid_dataset
+```
+
+```cmd
+:: Windows cmd.exe
+set PYTHONPATH=src
+python -m nlp_semantic.ingestion.inventory hybrid_dataset
+```
+
+```bash
+# bash / zsh (POSIX, Git Bash)
+PYTHONPATH=src python -m nlp_semantic.ingestion.inventory hybrid_dataset
+```
+
+The command prints a JSON `InventoryReport` to stdout and a one-line
+summary to stderr. Exit code is 0 on success, 2 on CLI usage error, 1
+on a build failure. Symlinks are never followed; they are reported as
+`symlink_skipped` warnings. A scan that emitted warnings is a partial
+scan, not a silently-successful one — the stderr summary prints the
+warning count so partial scans are always visibly partial.
+
 ## `notebooks/` — exploration
 
 Jupyter notebooks for EDA and prototyping. Checkpoints

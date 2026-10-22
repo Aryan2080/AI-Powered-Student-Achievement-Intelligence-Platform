@@ -1,0 +1,32 @@
+# Source registry — hybrid_dataset
+#
+# This file is a tracked YAML list of SourceRegistry entries (see
+# src/nlp_semantic/schema/source_registry.py). Chunk 4 ships it empty.
+# Registration grants NO permission to train, redistribute, or publish
+# from a source. Downstream training must gate on both:
+#   - review_status == verified
+#   - a human-approved license decision outside this file
+# A row that merely exists here is NOT approval.
+#
+# To register a new source, append a mapping with these fields:
+#
+#   source_id:         src_<32 lowercase hex>        # make_id("src")
+#   source_name:       "Short human-readable name"   # 1-120 chars
+#   source_url:        "https://example.org/..."     # optional; http/https only
+#                                                    # NEVER embed user:password@
+#                                                    # credentials; strip them first
+#   license:           "CC-BY-4.0" | "UNKNOWN" | ... # free text, 1-200 chars
+#                                                    # "UNKNOWN" grants no permission
+#   usage_restrictions: "..."                        # optional; <= 2000 chars
+#   collection_date:   2026-10-21                    # ISO date; <= today + 1 day
+#   original_labels:   ["label_a", "label_b"]        # verbatim from the source
+#   intended_use:      "primary_type_training"       # 1-200 chars (free text)
+#   mapping_notes:     "..."                         # optional; <= 2000 chars
+#   review_status:     unreviewed | in_review | verified | rejected
+#   is_synthetic:      false
+#
+# Annotator pseudonyms (used elsewhere in the project): follow the
+# labeler_<NNN> convention (e.g. labeler_001). Pseudonym -> real identity
+# mapping is NEVER stored in this repository.
+
+[]

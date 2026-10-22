@@ -1,36 +1,25 @@
-"""Evidence model and path-safety validators."""
+"""Evidence model.
+
+Path-safety rules for ``relative_path`` and ``extracted_text_ref`` live in
+:mod:`nlp_semantic.schema.path_safety` and are reused by the Chunk 4
+manifest module. Evidence's public behavior, API, and error messages are
+unchanged by that extraction.
+"""
 from __future__ import annotations
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 from .enums import DocumentFileType, ExtractionMethod, ReviewStatus
 from .identifiers import validate_prefixed_id
+from .path_safety import (
+    APPROVED_EVIDENCE_PREFIX,
+    PROCESSED_TEXT_PREFIX,
+    reject_unsafe_relative_path,
+)
 
-APPROVED_EVIDENCE_PREFIX = "hybrid_dataset/raw/evidence_documents/"
-PROCESSED_TEXT_PREFIX = "hybrid_dataset/processed/"
 MAX_INLINE_TEXT = 2000
 
 OCR_METHODS = {ExtractionMethod.OCR_TESSERACT, ExtractionMethod.OCR_OTHER}
-
-
-def _reject_unsafe_relative_path(v: str, *, must_start_with: str) -> str:
-    """Shared check used for both ``relative_path`` and ``extracted_text_ref``."""
-    if not v:
-        raise ValueError("path must be a non-empty string")
-    if "\\" in v:
-        raise ValueError("path must use forward slashes, not backslashes")
-    if v.startswith("/"):
-        raise ValueError("path must not be an absolute POSIX path")
-    if len(v) >= 2 and v[1] == ":":
-        raise ValueError("path must not be an absolute Windows path")
-    parts = v.split("/")
-    if any(p == ".." for p in parts):
-        raise ValueError("path must not contain '..' segments")
-    if any(p == "" for p in parts):
-        raise ValueError("path must not contain empty segments")
-    if not v.startswith(must_start_with):
-        raise ValueError(f"path must start with {must_start_with!r}")
-    return v
 
 
 def _validate_original_filename(v: str | None) -> str | None:
@@ -89,7 +78,7 @@ class Evidence(BaseModel):
     @field_validator("relative_path")
     @classmethod
     def _validate_relative_path(cls, v: str) -> str:
-        return _reject_unsafe_relative_path(v, must_start_with=APPROVED_EVIDENCE_PREFIX)
+        return reject_unsafe_relative_path(v, must_start_with=APPROVED_EVIDENCE_PREFIX)
 
     @field_validator("original_filename")
     @classmethod
@@ -101,7 +90,7 @@ class Evidence(BaseModel):
     def _validate_extracted_text_ref(cls, v: str | None) -> str | None:
         if v is None:
             return v
-        return _reject_unsafe_relative_path(v, must_start_with=PROCESSED_TEXT_PREFIX)
+        return reject_unsafe_relative_path(v, must_start_with=PROCESSED_TEXT_PREFIX)
 
     @field_validator("ocr_confidence")
     @classmethod

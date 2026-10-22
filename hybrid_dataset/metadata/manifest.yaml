@@ -1,0 +1,32 @@
+# Manifest — hybrid_dataset
+#
+# This file is a tracked YAML list of ManifestEntry records (see
+# src/nlp_semantic/ingestion/manifest.py). Chunk 4 ships it empty.
+#
+# A manifest row describes EXPECTATIONS about where a registered
+# source's raw files should live on disk. It does NOT record what is
+# actually present; use the inventory CLI for that:
+#
+#     python -m nlp_semantic.ingestion.inventory <hybrid_dataset_root>
+#
+# Every source_id listed here must already appear in
+# hybrid_dataset/metadata/sources.yaml.
+#
+# To add an entry, append a mapping with these fields:
+#
+#   source_id:            src_<32 lowercase hex>     # must exist in sources.yaml
+#   raw_subdir:           hybrid_dataset/raw/<subdir>
+#                                                    # - forward slashes only
+#                                                    # - no backslashes, no absolute
+#                                                    #   paths, no '..', no empty
+#                                                    #   segments (so no trailing /)
+#                                                    # - must start with
+#                                                    #   hybrid_dataset/raw/
+#   expected_file_types:  [pdf, image_jpg, image_png, image_tiff, text, other]
+#                                                    # advisory; subset of
+#                                                    # DocumentFileType enum values
+#   expected_count:       123                        # optional, >= 0 if set
+#   sampling_notes:       "..."                      # optional; <= 2000 chars
+#   is_synthetic:         false
+
+[]

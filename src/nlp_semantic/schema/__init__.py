@@ -34,6 +34,7 @@ from .loader import (
     load_taxonomy,
     validate_taxonomy,
 )
+from .path_safety import RAW_HYBRID_PREFIX, reject_unsafe_relative_path
 from .source_registry import CredentialInUrlError, UNKNOWN_LICENSE, SourceRegistry
 
 __all__ = [
@@ -64,6 +65,8 @@ __all__ = [
     "load_and_validate_taxonomy",
     "APPROVED_EVIDENCE_PREFIX",
     "PROCESSED_TEXT_PREFIX",
+    "RAW_HYBRID_PREFIX",
+    "reject_unsafe_relative_path",
     "MAX_INLINE_TEXT",
     "UNKNOWN_LICENSE",
 ]
