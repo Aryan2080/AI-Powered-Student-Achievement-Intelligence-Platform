@@ -70,6 +70,111 @@ Pick ~20% of the seed to dual-review. For each dual-reviewed record:
 
 ---
 
+## Deciding between `HACKATHON`, `COMPETITION`, and `PROJECT` (Chunk 7.1)
+
+The three labels that most often blur in real records are
+`lbl_hackathon`, `lbl_competition`, and `lbl_project`. Use the
+procedure below *before* picking from the longer label list; it
+resolves the overlap that drove most of our pre-approval ambiguity.
+
+### Step 1 — identify the primary achievement
+
+Classify the main achievement the record claims and the evidence
+supports. Not the event's marketing name. Not the mere existence of a
+built artifact.
+
+Ask: *what is the student actually claiming they achieved?*
+
+- Participation in, a role at, or a judged placement at an event →
+  **event-centric**. Candidates: `HACKATHON`, `COMPETITION`,
+  `INTERNSHIP`, `CONFERENCE`.
+- Independently developed or materially continued work that produced
+  an artifact with described objective, scope, and outcome →
+  **artifact-centric**. Candidates: `PROJECT`,
+  `RESEARCH_PUBLICATION`, `PATENT`.
+
+If the record and evidence do not support one framing clearly over
+the other, keep `annotation_status.<task> = draft` or `pending` and
+flag it for review rather than guessing.
+
+### Step 2 — if event-centric, pick HACKATHON vs COMPETITION
+
+- **HACKATHON** when all four hold: the event has a defined build
+  window of ≤ seven calendar days; the event has competitive or
+  formal judging; the primary deliverable is a demonstrable
+  software or hardware prototype, implementation, or MVP; and the
+  record's primary story is the student's event-centric role or
+  result.
+- **COMPETITION** when the event is judged and the primary deliverable
+  is a scored, ranked, or formally judged submission or result (an
+  algorithmic solution against test cases, a model against a
+  benchmark, a case brief, a debate, a design submission adjudicated
+  by judges). Includes multi-stage events — record the stage that
+  carried the formal competitive judging.
+- Participation without a placement still qualifies for either label
+  when judged participation is supported by evidence.
+
+### Step 3 — if artifact-centric, PROJECT applies
+
+Use `PROJECT` when the record's primary story is the artifact itself
+and the evidence establishes: a describable objective, non-trivial
+scope, documented deliverable or outcome, and the student's role.
+Open-source contributions are evaluated the same way — a single
+meaningful merged pull request can qualify; a contributor title alone
+cannot. Routine tutorial reproductions do not qualify.
+
+### Step 4 — follow-on work (hackathon → project)
+
+A hackathon entry and a later project built on the same artifact can
+both be recorded, as two separate records, when the follow-on work is
+a *materially distinct* achievement with its own evidence (new scope,
+new deliverable, substantially continued development). Do not create a
+second record to describe the same achievement twice from a different
+perspective.
+
+### Boundary matrix
+
+| Scenario | Expected guidance |
+|---|---|
+| Three-day judged build event producing a demonstrable prototype | `HACKATHON` |
+| Seven-day judged build event producing a demonstrable prototype | `HACKATHON`, if all other criteria are met |
+| Multi-week asynchronous program with no single bounded build window | Do not automatically classify as `HACKATHON`; evaluate `PROJECT` or `COMPETITION` where applicable |
+| Workshop with no competitive judging | Normally `WORKSHOP` |
+| Kaggle-style scored data-science challenge | `COMPETITION` |
+| Algorithmic contest judged by scored solutions | `COMPETITION` |
+| Case competition, debate, or Model UN judged event | `COMPETITION`, if the evidence supports it |
+| Independent personal project with meaningful scope and a documented outcome | `PROJECT` |
+| Substantive course capstone with a documented deliverable | `PROJECT` |
+| Hackathon participation followed by materially distinct product development | Separate records may be appropriate if each achievement has its own evidence |
+| Competition submission without a documented placement | `COMPETITION` may still apply when judged participation is supported |
+| Single meaningful merged open-source pull request | May qualify as `PROJECT` when significance and authorship are evidenced |
+| Trivial tutorial reproduction | Do not automatically classify as `PROJECT` |
+| Event record and project record describing the same achievement | Avoid duplicate records — pick the perspective the primary story supports |
+
+### Event-centric vs artifact-centric examples
+
+Event-centric phrasings that typically route to `HACKATHON` /
+`COMPETITION`:
+
+- "Won first place at HackIIT 2024."
+- "Placed Rank 5 at a national Kaggle challenge."
+- "Participated at a 48-hour judged build event."
+- "Team captain at Smart India Hackathon 2023."
+
+Artifact-centric phrasings that typically route to `PROJECT`:
+
+- "Built a Hindi handwriting OCR pipeline over my capstone semester."
+- "Core contributor to an open-source tokenizer — merged a batching
+  feature and documented it in a README."
+- "Designed and launched a campus-events SaaS over six months after a
+  hackathon prototype, with a new scope and new deliverable."
+
+If the same underlying work can be described both ways and the
+evidence only supports one record, pick the perspective the primary
+story supports — don't duplicate.
+
+---
+
 ## Choosing `primary_type`
 
 Each record has **exactly one** `primary_type`. Pick the label whose

@@ -13,45 +13,58 @@
   task_name: primary_type
   display_name: Hackathon
   definition: >
-    Participation, placement, or team role in a time-boxed competitive
-    building event in which participants design and implement a working
-    software or hardware prototype within a bounded window (typically
-    24–72 hours).
+    Event-centric achievement: participation, placement, or team role in
+    a competitive, bounded build event with a defined build window of up
+    to seven calendar days, in which participants work toward a
+    demonstrable software or hardware prototype, implementation, or
+    minimum viable product. The record classifies the student's
+    event-centric achievement (participation / role / placement), not
+    the long-term evolution of any artifact built during the event.
   inclusion_rules:
-    - In-person or virtual hackathons organized by universities, companies, or communities
-    - Role-based participation (developer, designer, team lead) is included
-    - Placement (winner, runner-up, finalist) and bare participation both qualify
+    - In-person or virtual hackathons organized by universities, companies, or communities, with a defined build window of up to seven calendar days
+    - Role-based participation (developer, designer, team lead) and placement (winner, runner-up, finalist) both qualify when the event meets the definition
+    - Judged participation is sufficient; a documented placement is not required when competitive or formal judging is supported by evidence
+    - The deliverable at the end of the build window must be a demonstrable software or hardware prototype, implementation, or MVP
   exclusion_rules:
-    - Course-assigned project work with no time-boxed competition is a PROJECT, not a hackathon
-    - Programming contests judged purely on algorithmic problem solving belong to COMPETITION
+    - Events whose defined build window exceeds seven calendar days do not qualify as HACKATHON even if organizers market them that way; evaluate PROJECT, COMPETITION, or OTHER instead
+    - Multi-week asynchronous programs with periodic submissions and no single bounded build window do not automatically qualify as HACKATHON; evaluate PROJECT or COMPETITION where applicable
     - Hackathon-shaped workshops with no competitive judging belong to WORKSHOP
+    - Algorithmic contests primarily judged through scored solutions or benchmark performance belong to COMPETITION, not HACKATHON
+    - A certificate of participation alone does not establish that an event meets this definition; evaluate the underlying event and its evidence
+    - Course-assigned project work with no bounded competitive build window is PROJECT, not HACKATHON
+    - Materially distinct productization or further independent development after a hackathon may be recorded separately as PROJECT; do not duplicate the same underlying claim
   examples:
-    - Won first place at HackMIT 2024
-    - Team captain at SIH 2023 — built a traffic prediction prototype in 48 hours
-    - Participant at ETHGlobal Online 2024
+    - Won first place at HackMIT 2024 — 36-hour judged build event with a working prototype
+    - Team captain at Smart India Hackathon 2023 — built a traffic-prediction prototype in a 48-hour build window
+    - Participant at ETHGlobal Online 2024 — bare judged participation at a bounded build event
   status: draft
 
 - label_id: lbl_competition
   task_name: primary_type
   display_name: Competition
   definition: >
-    Participation or placement in a judged competition that is NOT a
-    hackathon — including algorithmic contests, case competitions,
-    debate, design contests, business plan contests, and similar.
+    Event-centric achievement: participation or placement in a judged
+    competition whose primary deliverable is a scored, ranked, or
+    formally judged submission or result — for example an algorithmic
+    solution evaluated against test cases, a model evaluated on a
+    benchmark, a case brief, debate, or design submission adjudicated
+    by judges — and that is not a hackathon-style bounded build of a
+    demonstrable prototype.
   inclusion_rules:
-    - Programming / data-science / ML challenges (Codeforces, Kaggle, ACM-ICPC)
-    - Case competitions, debate, moot court, model UN
-    - Design or innovation contests not time-boxed as hackathons
-    - Olympiad or quiz championships
+    - Programming, data-science, or ML challenges with scored or ranked submissions (Codeforces, Kaggle, ACM-ICPC)
+    - Case competitions, debate, moot court, Model UN, business plan competitions, design or innovation contests adjudicated by judges
+    - Olympiads, quiz championships, or named competitive events with formal placements
+    - Judged participation is sufficient; a documented placement is not required when competitive judging is supported by evidence
   exclusion_rules:
-    - Time-boxed build events with a prototype deliverable are HACKATHON
-    - Participation in an event without competitive judging is WORKSHOP or OTHER
-    - Sports competitions belong to SPORTS
-    - Cultural performance contests belong to CULTURAL
+    - Time-boxed events of up to seven calendar days whose primary deliverable is a demonstrable software or hardware prototype belong to HACKATHON, regardless of the event's marketing name (innovation challenge, hack jam, build-off)
+    - Participation in an event without competitive or formal judging belongs to WORKSHOP or OTHER
+    - Sports competitions belong to SPORTS; cultural performance contests belong to CULTURAL
+    - For multi-stage events (e.g. bootcamp culminating in a pitch), record the stage that carried the formal competitive judging and placement; do not duplicate records for the same underlying claim
+    - A project submitted to a competition is COMPETITION when the record's primary story is the competition entry or placement; use PROJECT only when the primary story is the artifact itself and is a materially distinct achievement
   examples:
-    - Top 10 team at ACM ICPC Regional Finals 2024
-    - Winner of a national case competition
-    - Kaggle silver medal in a published challenge
+    - Top 10 team at ACM ICPC Regional Finals 2024 — algorithmic contest judged by scored solutions
+    - Winner of a national case competition — adjudicated by panel of judges
+    - Kaggle silver medal in a published data-science challenge — ranked by held-out benchmark
   status: draft
 
 - label_id: lbl_research_pub
@@ -148,23 +161,32 @@
   task_name: primary_type
   display_name: Project
   definition: >
-    A substantial individual, team, or course-based project that
-    produced a described artifact — code, system, hardware, or report
-    — and is not a hackathon, internship, or publication.
+    Artifact-centric achievement: a substantive piece of implementation,
+    investigation, or development — code, system, hardware, report, or
+    documented open-source contribution — with a describable objective,
+    non-trivial scope, and a documented deliverable or outcome. The
+    record classifies the artifact and the student's role in producing
+    it, not an event-centric claim such as participation in or placement
+    at a competitive event.
   inclusion_rules:
-    - Course or capstone projects with a described deliverable
-    - Open-source contributions documented as a project
-    - Independent personal projects with a described outcome and scope
-    - Student organization technical projects
+    - Course or capstone projects with a substantive, documented deliverable
+    - Independently developed personal projects with a describable objective and documented outcome
+    - Documented open-source contributions where the evidence establishes the contributor's role and the significance of the work — a single meaningful merged pull request, a substantial feature, bug fix, component, or improvement, or sustained documented maintenance may all qualify
+    - Technical projects completed by student organizations with documented scope and deliverable
+    - Continued product development after a hackathon or competition may be recorded as a separate PROJECT when the follow-on work constitutes a materially distinct achievement with its own evidence
   exclusion_rules:
-    - Time-boxed judged events belong to HACKATHON or COMPETITION
-    - Published papers reporting a project belong to RESEARCH_PUBLICATION
+    - Event-centric achievements belong to the matching event label — HACKATHON, COMPETITION, INTERNSHIP, CONFERENCE — not PROJECT, even when a described artifact exists
+    - Substantiality is not defined by universal numeric thresholds; raw lines of code, duration, number of commits, number of contributors, and report page count are supporting evidence, not the test. A short-duration but meaningful contribution may qualify while a long-duration trivial one may not
+    - A contributor's title or self-description alone (e.g. "maintainer", "core contributor") is insufficient evidence of the claimed achievement
+    - Routine tutorial reproductions and toy exercises do not qualify
+    - A project report may serve as supporting evidence, but the mere existence of a report does not by itself establish a qualifying project
+    - Published papers reporting a project belong to RESEARCH_PUBLICATION; granted or filed patents belong to PATENT
     - Projects undertaken inside an internship belong to INTERNSHIP
-    - Toy exercises completed in a short tutorial are OTHER
+    - Do not create duplicate PROJECT records that restate the same artifact already captured by an event-centric record
   examples:
-    - Built a Hindi handwriting OCR pipeline — capstone, 6 months
-    - Core contributor to an open-source tokenizer, 1200 LoC merged
-    - Designed a solar-powered weather station — undergraduate thesis
+    - Built a Hindi handwriting OCR pipeline as a capstone — documented deliverable with a described outcome and scope
+    - Core contributor to an open-source tokenizer — merged a substantive feature; evidence establishes the contributor's role and the significance of the work
+    - Designed a solar-powered weather station as an undergraduate thesis — artifact plus report that together describe objective, scope, and outcome
   status: draft
 
 - label_id: lbl_workshop
