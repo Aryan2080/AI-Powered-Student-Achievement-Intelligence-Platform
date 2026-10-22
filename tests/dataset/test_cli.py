@@ -198,3 +198,225 @@ def test_cli_split_include_synthetic_flag(tmp_path: Path) -> None:
     total = sum(data["actual_sizes"].values())
     assert total == 6
     assert data["excluded_synthetic_count"] == 0
+
+
+# ---- readiness --------------------------------------------------------------
+
+
+def test_cli_readiness_on_shipped_dataset_completes_and_reports_not_ready() -> None:
+    """Shipped dataset: no sources, no records, all labels draft.
+
+    Default mode must exit 0 (assessment completed) even though
+    is_training_ready is False.
+    """
+    proc = _run(["readiness", str(REPO_ROOT / "hybrid_dataset")])
+    assert proc.returncode == 0, proc.stderr
+    data = json.loads(proc.stdout)
+    assert data["assessment_status"] == "completed"
+    assert data["structurally_valid"] is True
+    assert data["approved_label_count"]["primary_type"] == 0
+    assert data["approved_label_count"]["domain_tags"] == 0
+    assert data["is_training_ready"]["primary_type"] is False
+    assert data["is_training_ready"]["domain_tags"] is False
+    # Aggregates (post Chunk 6 revision): both aggregates must be False.
+    assert data["any_task_training_ready"] is False
+    assert data["all_tasks_training_ready"] is False
+    assert "overall" not in data["is_training_ready"]
+    # Human-review disclaimer always present.
+    assert any("human review required" in n.lower() for n in data["notes"])
+    # Blockers list the specific gaps.
+    codes = {b["code"] for b in data["blockers"]}
+    assert "no_approved_labels" in codes
+
+
+def test_cli_readiness_strict_mode_exits_1_on_shipped_dataset() -> None:
+    proc = _run(["readiness", str(REPO_ROOT / "hybrid_dataset"), "--strict"])
+    assert proc.returncode == 1
+    data = json.loads(proc.stdout)
+    # Shipped dataset has 0 approved labels for either task -> no task ready.
+    assert data["any_task_training_ready"] is False
+    assert data["all_tasks_training_ready"] is False
+    assert data["strict"]["enabled"] is True
+
+
+def test_cli_readiness_report_shape_has_required_fields() -> None:
+    proc = _run(["readiness", str(REPO_ROOT / "hybrid_dataset")])
+    assert proc.returncode == 0
+    data = json.loads(proc.stdout)
+    for key in (
+        "assessment_status", "structurally_valid", "approved_label_count",
+        "eligible_record_count", "agreement_status", "is_training_ready",
+        "blockers", "warnings", "strict", "notes",
+    ):
+        assert key in data, f"readiness JSON missing {key!r}"
+    for task in ("primary_type", "domain_tags"):
+        assert task in data["approved_label_count"]
+        assert task in data["eligible_record_count"]
+        assert task in data["is_training_ready"]
+        assert task in data["agreement_status"]
+
+
+def test_cli_readiness_missing_root_exits_1(tmp_path: Path) -> None:
+    proc = _run(["readiness", str(tmp_path / "nope")])
+    assert proc.returncode == 1
+    assert "FileNotFoundError" in proc.stderr
+
+
+def test_cli_readiness_default_mode_exits_0_when_dataset_structurally_ok(tmp_path: Path) -> None:
+    """Even with 0 eligible records, default mode still exits 0."""
+    root = _dataset_root_with_sources(tmp_path)  # empty dataset
+    proc = _run(["readiness", str(root)])
+    assert proc.returncode == 0
+    data = json.loads(proc.stdout)
+    # New split aggregates: both must be False on the empty fixture.
+    assert data["any_task_training_ready"] is False
+    assert data["all_tasks_training_ready"] is False
+    # "overall" is no longer a key on is_training_ready.
+    assert "overall" not in data["is_training_ready"]
+
+
+# ---- Chunk 6 revision: aggregate rename + strict minimum N -----------------
+
+
+def _rec_dict_with_verified_primary(
+    source_id: str, primary_label_id: str = "lbl_hackathon",
+) -> dict:
+    """Fully GT-eligible record for primary_type."""
+    return _rec(
+        source_id=source_id,
+        primary_type=primary_label_id,
+        annotation_status={
+            "primary_type": "verified",
+            "domain_tags": "not_started",
+        },
+    )
+
+
+def _taxonomies_yaml(root: Path, *, primary_approved: list[str], domain_approved: list[str]) -> None:
+    """Overwrite the test fixture taxonomies with the given approved labels."""
+    primary_entries = [
+        {
+            "label_id": lid,
+            "task_name": "primary_type",
+            "display_name": lid.replace("lbl_", "").title(),
+            "definition": "synthetic",
+            "status": "approved",
+        }
+        for lid in primary_approved
+    ]
+    domain_entries = [
+        {
+            "label_id": lid,
+            "task_name": "domain_tags",
+            "display_name": lid.replace("lbl_", "").title(),
+            "definition": "synthetic",
+            "status": "approved",
+        }
+        for lid in domain_approved
+    ]
+    (root / "labels" / "primary_taxonomy.yaml").write_text(
+        yaml.safe_dump(primary_entries, sort_keys=False), encoding="utf-8"
+    )
+    (root / "labels" / "domain_tags.yaml").write_text(
+        yaml.safe_dump(domain_entries, sort_keys=False), encoding="utf-8"
+    )
+
+
+def test_cli_readiness_one_task_ready_other_not(tmp_path: Path) -> None:
+    """Primary ready, domain not ready -> any_task=True, all_tasks=False."""
+    sid = make_id("src")
+    rec = _rec_dict_with_verified_primary(sid)
+    root = _dataset_root_with_sources(tmp_path, rec)
+    # Approve only lbl_hackathon on primary; approve nothing on domain.
+    _taxonomies_yaml(root, primary_approved=["lbl_hackathon"], domain_approved=[])
+
+    proc = _run(["readiness", str(root)])
+    assert proc.returncode == 0, proc.stderr
+    data = json.loads(proc.stdout)
+    assert data["is_training_ready"]["primary_type"] is True
+    assert data["is_training_ready"]["domain_tags"] is False
+    assert data["any_task_training_ready"] is True
+    assert data["all_tasks_training_ready"] is False
+    # strict mode still exits 0 because any_task is ready.
+    proc_strict = _run(["readiness", str(root), "--strict"])
+    assert proc_strict.returncode == 0, proc_strict.stderr
+
+
+def test_cli_readiness_fully_eligible_fixture_strict_exits_0(tmp_path: Path) -> None:
+    """Both tasks have approved labels + eligible records -> both aggregates True."""
+    sid = make_id("src")
+    rec = _rec(
+        source_id=sid,
+        primary_type="lbl_hackathon",
+        domain_tags=["lbl_domain_ai"],
+        annotation_status={
+            "primary_type": "verified",
+            "domain_tags": "verified",
+        },
+    )
+    root = _dataset_root_with_sources(tmp_path, rec)
+    _taxonomies_yaml(
+        root,
+        primary_approved=["lbl_hackathon"],
+        domain_approved=["lbl_domain_ai"],
+    )
+
+    proc = _run(["readiness", str(root), "--strict"])
+    assert proc.returncode == 0, proc.stderr
+    data = json.loads(proc.stdout)
+    assert data["any_task_training_ready"] is True
+    assert data["all_tasks_training_ready"] is True
+    assert data["is_training_ready"]["primary_type"] is True
+    assert data["is_training_ready"]["domain_tags"] is True
+
+
+def test_cli_readiness_strict_min_n_2_fails_when_coverage_insufficient(tmp_path: Path) -> None:
+    """Approved: 2 labels; eligible: 1 record. 1 < 2*2 -> strict fails."""
+    sid = make_id("src")
+    rec = _rec_dict_with_verified_primary(sid, primary_label_id="lbl_hackathon")
+    root = _dataset_root_with_sources(tmp_path, rec)
+    _taxonomies_yaml(
+        root,
+        primary_approved=["lbl_hackathon", "lbl_competition"],
+        domain_approved=[],
+    )
+    proc = _run([
+        "readiness", str(root),
+        "--strict", "--min-records-per-approved-label", "2",
+    ])
+    assert proc.returncode == 1, proc.stdout
+    data = json.loads(proc.stdout)
+    codes = {b["code"] for b in data["blockers"]}
+    assert "strict_minimum_records_per_approved_label" in codes
+    assert data["strict"]["min_records_per_approved_label"] == 2
+
+
+def test_cli_readiness_strict_min_n_2_passes_with_adequate_coverage(tmp_path: Path) -> None:
+    """Approved: 1 label; eligible: 2 records of that label. 2 >= 2*1 -> OK."""
+    sid = make_id("src")
+    recs = [
+        _rec(
+            source_id=sid,
+            source_record_id=f"k{i}",
+            primary_type="lbl_hackathon",
+            annotation_status={
+                "primary_type": "verified",
+                "domain_tags": "not_started",
+            },
+        )
+        for i in range(2)
+    ]
+    root = _dataset_root_with_sources(tmp_path, *recs)
+    _taxonomies_yaml(
+        root,
+        primary_approved=["lbl_hackathon"],
+        domain_approved=[],
+    )
+    proc = _run([
+        "readiness", str(root),
+        "--strict", "--min-records-per-approved-label", "2",
+    ])
+    assert proc.returncode == 0, proc.stderr
+    data = json.loads(proc.stdout)
+    assert data["any_task_training_ready"] is True
+    assert data["strict"]["min_records_per_approved_label"] == 2

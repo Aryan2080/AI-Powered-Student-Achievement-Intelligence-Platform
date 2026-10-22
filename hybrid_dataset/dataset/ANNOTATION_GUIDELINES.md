@@ -303,3 +303,92 @@ Before merging an annotation batch PR:
 4. Only after sign-off, merge the PR. No in-place edits to a
    previously-merged batch — open a new batch file or a correction
    PR that references the record IDs being revised.
+
+---
+
+## Inter-annotator agreement (Chunk 6)
+
+For dual-reviewed records, compute agreement with:
+
+```
+PYTHONPATH=src python -m nlp_semantic.dataset.cli readiness hybrid_dataset
+```
+
+The command's JSON output includes an `agreement_status` block per
+task with:
+
+- `pairs_evaluated`: number of pairwise comparisons.
+- `records_eligible_for_agreement`: records with ≥ 2 distinct
+  annotators (same annotator submitting twice does **not** count as
+  independent review).
+- `exact_agreement_rate`: fraction of pairs that produced identical
+  labels.
+- `cohen_kappa` (primary_type only): aggregated pairwise Cohen's κ.
+  **`null`** when mathematically undefined (zero pairs; or every pair
+  used a single class so expected agreement is 1). We never substitute
+  1.0 for an undefined κ.
+- `mean_jaccard` (domain_tags only): mean of per-pair Jaccard
+  similarities.
+- `self_reannotation_count`: rows where the same annotator submitted
+  multiple annotations for the same (achievement, task). Chunk 6
+  keeps the row with the greatest `created_at`; the collapsed count is
+  reported here.
+- `conflict_count`: rows carrying `review_status: conflicted`.
+
+### Jaccard convention for empty-vs-empty
+
+`jaccard(set(), set()) == 1.0` by documented convention. Rationale:
+two annotators independently writing `domain_tags: []` with
+`annotation_status.domain_tags: verified` have agreed that no tags
+apply — a legitimate schema state (`[]` + `VERIFIED` means "reviewer
+confirmed none apply"). The alternative (undefined) was rejected
+because it would discard legitimate perfect agreements on records that
+genuinely have no domain tags.
+
+### Interpretation of κ and Jaccard (advisory only)
+
+Landis–Koch descriptors for κ are reproduced below as **reference
+ranges**. They are not thresholds, not pass/fail gates, and not
+encoded anywhere in code.
+
+| κ range | Landis–Koch descriptor |
+|---|---|
+| < 0.00 | Poor |
+| 0.00–0.20 | Slight |
+| 0.21–0.40 | Fair |
+| 0.41–0.60 | Moderate |
+| 0.61–0.80 | Substantial |
+| 0.81–1.00 | Almost perfect |
+
+Mean Jaccard for `domain_tags` is harder to compare across datasets
+because the number of tags per record varies. Use it to compare across
+annotation batches on the same taxonomy, not against external
+benchmarks.
+
+**No automated threshold.** The readiness CLI reports the numbers; the
+team decides whether to accept, re-annotate, or expand the dual-review
+subset.
+
+### What agreement does and does not prove
+
+Agreement is a **consistency** metric. High agreement means annotators
+apply the rubric the same way. It does **not** prove that:
+
+- The labels are factually correct for each record.
+- The rubric itself matches the real-world distinction the project
+  cares about.
+- The dataset is large enough or representative enough for a model to
+  train usefully.
+
+Factual correctness, rubric validity, and representativeness are
+separate human judgments made outside this CLI.
+
+### Related readiness check
+
+`python -m nlp_semantic.dataset.cli readiness hybrid_dataset [--strict]`
+rolls agreement, structural validation, approved-label counts, and
+training-ready-subset counts into one JSON report. Default mode exits
+0 regardless of readiness state; `--strict` opts into exit 1 when the
+machine-checkable criteria fail. The report always carries a
+human-review disclaimer: a passing CLI does not mean a dataset is
+training-ready.

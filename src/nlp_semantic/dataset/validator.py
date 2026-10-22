@@ -316,3 +316,56 @@ def eligible_ground_truth(
         return out
 
     raise ValueError(f"unknown task: {task!r}")
+
+
+def training_ready_subset(
+    records: Iterable[Achievement],
+    *,
+    sources: Iterable[SourceRegistry],
+    primary_taxonomy: Iterable[LabelTaxonomy] | None = None,
+    domain_taxonomy: Iterable[LabelTaxonomy] | None = None,
+    task: AnnotationTask,
+) -> list[Achievement]:
+    """Return records eligible as training data under source governance.
+
+    Layers two extra source-governance checks on top of
+    :func:`eligible_ground_truth`:
+
+    * The record's ``source_id`` must belong to a ``SourceRegistry``
+      entry with ``review_status == VERIFIED``, AND
+    * that entry's ``license`` must not equal ``UNKNOWN``.
+
+    Both conditions are **code-level** eligibility checks. They do
+    **not** independently verify legal compliance. ``review_status ==
+    VERIFIED`` is a human-set flag; the human reviewer is responsible
+    for checking that the documented license / reuse terms are
+    compatible with the source's ``intended_use`` (see
+    ``hybrid_dataset/metadata/SOURCE_REGISTRATION_GUIDE.md``). This
+    function trusts that flag; it does not re-verify compliance.
+
+    Backward-compatibility: :func:`eligible_ground_truth` is unchanged
+    and continues to work without source information. Existing
+    callers of that function see no behavior change.
+
+    Returns ``[]`` for :attr:`AnnotationTask.EXTRACTION_REVIEW` since
+    extraction review has no classification labels.
+    """
+    eligible = eligible_ground_truth(
+        records,
+        primary_taxonomy=primary_taxonomy,
+        domain_taxonomy=domain_taxonomy,
+        task=task,
+    )
+    # The license sentinel comparison is case-insensitive. The schema's
+    # ``license`` field is free text, so a reviewer could write
+    # ``unknown``, ``Unknown``, or ``UNKNOWN`` and intend the same sentinel.
+    # ``SOURCE_REGISTRATION_GUIDE.md`` recommends the canonical upper-case
+    # form; the code additionally normalises here so a case-variant does
+    # NOT quietly admit a record whose license was never reviewed.
+    governed_source_ids: set[str] = {
+        s.source_id
+        for s in sources
+        if s.review_status == ReviewStatus.VERIFIED
+        and s.license.strip().upper() != UNKNOWN_LICENSE
+    }
+    return [r for r in eligible if r.source_id in governed_source_ids]

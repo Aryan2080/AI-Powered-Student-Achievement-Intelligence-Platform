@@ -421,6 +421,57 @@ schemas and the Chunk 4 ingestion loaders:
 Chunk 5 ships zero curated records; adding records is a separate
 human-review PR (see `hybrid_dataset/dataset/ANNOTATION_GUIDELINES.md`).
 
+## Source governance and training-readiness (Chunk 6)
+
+Chunk 6 adds three narrowly scoped capabilities on top of the Chunks
+1–5 contract:
+
+- **`training_ready_subset(records, *, sources, …, task)`** in
+  `nlp_semantic.dataset.validator` — layers two code-level source
+  governance checks on top of `eligible_ground_truth`:
+  the record's source must have `review_status == VERIFIED` **and**
+  `license != "UNKNOWN"`. The existing `eligible_ground_truth`
+  signature and behavior are preserved; Chunk 5 callers see no change.
+  **This function does not independently establish legal compliance.**
+  `review_status == VERIFIED` is a human-set flag; the reviewer is
+  responsible for confirming the documented license and reuse terms are
+  compatible with `intended_use`. See
+  `hybrid_dataset/metadata/SOURCE_REGISTRATION_GUIDE.md`.
+- **`compute_agreement(annotations, *, task)`** in
+  `nlp_semantic.dataset.agreement` — IAA for dual-reviewed records.
+  Collapses same-annotator duplicates by keeping the latest
+  `created_at`; excludes rejected annotations; includes conflicted
+  annotations in agreement but reports conflict counts separately.
+  Reports pairs evaluated, exact agreement rate, Cohen's κ
+  (`primary_type` only; `None` when mathematically undefined — never
+  substituted with 1.0), and mean Jaccard (`domain_tags` only;
+  `jaccard(∅, ∅) = 1.0` by documented convention).
+- **`readiness` CLI subcommand** — assembles validation, approved-label
+  counts, eligible-record counts (via `training_ready_subset`), and
+  agreement into one JSON report with explicit `is_training_ready`
+  booleans per task plus two aggregate top-level fields —
+  `any_task_training_ready` (OR across tasks; the strict-mode gate)
+  and `all_tasks_training_ready` (AND across tasks). The report
+  always carries a
+  human-review disclaimer: CLI success does **not** prove dataset
+  sufficiency for model training. **Default mode exits 0 on completed
+  assessment regardless of readiness; `--strict` opts into exit 1 if
+  machine-checkable criteria are not met.** The strict floor
+  `--min-records-per-approved-label N` (default 1) is an eligibility
+  floor, not a quality threshold.
+
+Chunk 6 does **not**:
+
+- Add fields to any Pydantic model.
+- Promote any taxonomy label.
+- Verify factual correctness of any label.
+- Verify legal compliance of any license beyond trusting the human
+  reviewer's `review_status: verified` flag.
+- Encode a representativeness or class-balance threshold.
+
+Representativeness, factual correctness, and legal compliance remain
+human judgments.
+
 ## Annotator pseudonym convention (Chunk 4)
 
 Annotators are referenced by stable pseudonyms following the

@@ -86,6 +86,20 @@ class SourceRegistry(BaseModel):
     ``str()``/``repr()``). ``from_untrusted`` intercepts the URL
     **before** Pydantic sees it, so no error representation can contain
     the supplied credentials.
+
+    **Chunk 6 convention — what ``review_status: verified`` means.**
+    This schema's ``license`` field is free text (``UNKNOWN`` is the
+    documented sentinel for "we don't know"). The schema does **not**
+    carry an explicit boolean for "the documented license is compatible
+    with the project's intended use". Per the Chunk 6 convention, a
+    human reviewer sets ``review_status: verified`` **only after**
+    confirming (a) the provenance is as claimed and (b) the documented
+    license/reuse terms are compatible with ``intended_use``.
+    Downstream code (``nlp_semantic.dataset.training_ready_subset``)
+    trusts that flag; it does **not** independently establish legal
+    compliance. See
+    ``hybrid_dataset/metadata/SOURCE_REGISTRATION_GUIDE.md`` for the
+    reviewer checklist.
     """
 
     # hide_input_in_errors=True only hides input from str(exc) / repr(exc).

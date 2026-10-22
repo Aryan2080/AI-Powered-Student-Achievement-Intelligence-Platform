@@ -446,3 +446,197 @@ def test_gt_primary_type_requires_primary_taxonomy_kw() -> None:
 def test_gt_domain_tags_requires_domain_taxonomy_kw() -> None:
     with pytest.raises(ValueError, match="domain_taxonomy is required"):
         eligible_ground_truth([], task=AnnotationTask.DOMAIN_TAGS)
+
+
+# ---- training_ready_subset (Chunk 6) ----------------------------------------
+
+
+from nlp_semantic.dataset.validator import training_ready_subset  # noqa: E402
+
+
+def _gt_eligible_record(src: SourceRegistry) -> Achievement:
+    """Build a record that would already pass eligible_ground_truth."""
+    return _rec(
+        src.source_id,
+        primary_type="lbl_hackathon",
+        annotation_status=AnnotationStatusMap(primary_type=AnnotationStatus.VERIFIED),
+    )
+
+
+def test_training_ready_subset_includes_verified_non_unknown_source() -> None:
+    src = _source(license="CC-BY-4.0", review_status=ReviewStatus.VERIFIED)
+    rec = _gt_eligible_record(src)
+    taxonomy = [_primary_label("lbl_hackathon", status=TaxonomyStatus.APPROVED)]
+    out = training_ready_subset(
+        [rec],
+        sources=[src],
+        primary_taxonomy=taxonomy,
+        task=AnnotationTask.PRIMARY_TYPE,
+    )
+    assert [r.achievement_id for r in out] == [rec.achievement_id]
+
+
+def test_training_ready_subset_rejects_unknown_license_source() -> None:
+    src = _source(license=UNKNOWN_LICENSE, review_status=ReviewStatus.VERIFIED)
+    rec = _gt_eligible_record(src)
+    taxonomy = [_primary_label("lbl_hackathon", status=TaxonomyStatus.APPROVED)]
+    out = training_ready_subset(
+        [rec],
+        sources=[src],
+        primary_taxonomy=taxonomy,
+        task=AnnotationTask.PRIMARY_TYPE,
+    )
+    assert out == []
+
+
+def test_training_ready_subset_rejects_unverified_source() -> None:
+    src = _source(license="CC-BY-4.0", review_status=ReviewStatus.UNREVIEWED)
+    rec = _gt_eligible_record(src)
+    taxonomy = [_primary_label("lbl_hackathon", status=TaxonomyStatus.APPROVED)]
+    out = training_ready_subset(
+        [rec],
+        sources=[src],
+        primary_taxonomy=taxonomy,
+        task=AnnotationTask.PRIMARY_TYPE,
+    )
+    assert out == []
+
+
+def test_training_ready_subset_empty_taxonomy_yields_empty_set() -> None:
+    src = _source(license="CC-BY-4.0", review_status=ReviewStatus.VERIFIED)
+    rec = _gt_eligible_record(src)
+    out = training_ready_subset(
+        [rec],
+        sources=[src],
+        primary_taxonomy=[],   # no approved labels at all
+        task=AnnotationTask.PRIMARY_TYPE,
+    )
+    assert out == []
+
+
+def test_training_ready_subset_shipped_dataset_yields_empty_set() -> None:
+    """Chunk 3 taxonomies are all-draft + no sources are registered;
+    the training-ready set must be empty by design.
+    """
+    primary = load_and_validate_taxonomy(
+        REPO_ROOT / "hybrid_dataset" / "labels" / "primary_taxonomy.yaml"
+    )
+    out = training_ready_subset(
+        [],
+        sources=[],
+        primary_taxonomy=primary,
+        task=AnnotationTask.PRIMARY_TYPE,
+    )
+    assert out == []
+
+
+def test_training_ready_subset_eligible_ground_truth_unchanged() -> None:
+    """Explicit backward-compatibility test: the Chunk 5 behavior for
+    eligible_ground_truth is preserved.
+    """
+    src = _source(license=UNKNOWN_LICENSE, review_status=ReviewStatus.UNREVIEWED)
+    rec = _gt_eligible_record(src)
+    # Even with "bad" source governance, eligible_ground_truth doesn't care.
+    gt = eligible_ground_truth(
+        [rec],
+        primary_taxonomy=[_primary_label("lbl_hackathon", status=TaxonomyStatus.APPROVED)],
+        task=AnnotationTask.PRIMARY_TYPE,
+    )
+    assert [r.achievement_id for r in gt] == [rec.achievement_id]
+
+
+# ---- training_ready_subset: DOMAIN_TAGS path --------------------------------
+
+
+def test_training_ready_subset_domain_tags_includes_approved_multilabel() -> None:
+    src = _source(license="CC-BY-4.0", review_status=ReviewStatus.VERIFIED)
+    rec = _rec(
+        src.source_id,
+        domain_tags=["lbl_domain_ai", "lbl_domain_ml"],
+        annotation_status=AnnotationStatusMap(domain_tags=AnnotationStatus.VERIFIED),
+    )
+    taxonomy = [
+        _domain_label("lbl_domain_ai", status=TaxonomyStatus.APPROVED),
+        _domain_label("lbl_domain_ml", status=TaxonomyStatus.APPROVED),
+    ]
+    out = training_ready_subset(
+        [rec],
+        sources=[src],
+        domain_taxonomy=taxonomy,
+        task=AnnotationTask.DOMAIN_TAGS,
+    )
+    assert [r.achievement_id for r in out] == [rec.achievement_id]
+
+
+def test_training_ready_subset_domain_tags_rejects_unknown_license() -> None:
+    src = _source(license=UNKNOWN_LICENSE, review_status=ReviewStatus.VERIFIED)
+    rec = _rec(
+        src.source_id,
+        domain_tags=["lbl_domain_ai"],
+        annotation_status=AnnotationStatusMap(domain_tags=AnnotationStatus.VERIFIED),
+    )
+    taxonomy = [_domain_label("lbl_domain_ai", status=TaxonomyStatus.APPROVED)]
+    out = training_ready_subset(
+        [rec],
+        sources=[src],
+        domain_taxonomy=taxonomy,
+        task=AnnotationTask.DOMAIN_TAGS,
+    )
+    assert out == []
+
+
+def test_training_ready_subset_domain_tags_rejects_one_draft_tag() -> None:
+    src = _source(license="CC-BY-4.0", review_status=ReviewStatus.VERIFIED)
+    rec = _rec(
+        src.source_id,
+        domain_tags=["lbl_domain_ai", "lbl_domain_still_draft"],
+        annotation_status=AnnotationStatusMap(domain_tags=AnnotationStatus.VERIFIED),
+    )
+    taxonomy = [
+        _domain_label("lbl_domain_ai", status=TaxonomyStatus.APPROVED),
+        _domain_label("lbl_domain_still_draft", status=TaxonomyStatus.DRAFT),
+    ]
+    out = training_ready_subset(
+        [rec],
+        sources=[src],
+        domain_taxonomy=taxonomy,
+        task=AnnotationTask.DOMAIN_TAGS,
+    )
+    assert out == []
+
+
+# ---- training_ready_subset: case-insensitive UNKNOWN sentinel ---------------
+
+
+@pytest.mark.parametrize("case_variant", ["UNKNOWN", "Unknown", "unknown", "  unknown  "])
+def test_training_ready_subset_rejects_unknown_license_case_insensitively(
+    case_variant: str,
+) -> None:
+    """UNKNOWN, Unknown, unknown (and whitespace-padded) all reject."""
+    src = _source(license=case_variant, review_status=ReviewStatus.VERIFIED)
+    rec = _gt_eligible_record(src)
+    taxonomy = [_primary_label("lbl_hackathon", status=TaxonomyStatus.APPROVED)]
+    out = training_ready_subset(
+        [rec],
+        sources=[src],
+        primary_taxonomy=taxonomy,
+        task=AnnotationTask.PRIMARY_TYPE,
+    )
+    assert out == [], (
+        f"license case-variant {case_variant!r} must be treated as UNKNOWN"
+    )
+
+
+def test_training_ready_subset_approves_non_unknown_license_strings() -> None:
+    """Non-UNKNOWN strings pass regardless of case."""
+    for license_value in ("CC-BY-4.0", "mit", "Apache-2.0"):
+        src = _source(license=license_value, review_status=ReviewStatus.VERIFIED)
+        rec = _gt_eligible_record(src)
+        taxonomy = [_primary_label("lbl_hackathon", status=TaxonomyStatus.APPROVED)]
+        out = training_ready_subset(
+            [rec],
+            sources=[src],
+            primary_taxonomy=taxonomy,
+            task=AnnotationTask.PRIMARY_TYPE,
+        )
+        assert len(out) == 1, f"license {license_value!r} should pass"

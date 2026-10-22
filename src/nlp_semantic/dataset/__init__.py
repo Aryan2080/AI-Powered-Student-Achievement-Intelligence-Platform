@@ -25,6 +25,7 @@ __all__ = [
     # Validator
     "DatasetValidationReport",
     "eligible_ground_truth",
+    "training_ready_subset",
     "validate_dataset",
     # Duplicates
     "DuplicateGroup",
@@ -39,6 +40,11 @@ __all__ = [
     "SplitResult",
     "generate_splits",
     "write_splits",
+    # Agreement (Chunk 6)
+    "AgreementReport",
+    "Disagreement",
+    "compute_agreement",
+    "find_disagreements",
 ]
 
 _LAZY: dict[str, str] = {
@@ -49,6 +55,7 @@ _LAZY: dict[str, str] = {
     "load_records": "loader",
     "DatasetValidationReport": "validator",
     "eligible_ground_truth": "validator",
+    "training_ready_subset": "validator",
     "validate_dataset": "validator",
     "DuplicateGroup": "duplicates",
     "DuplicateReport": "duplicates",
@@ -60,6 +67,10 @@ _LAZY: dict[str, str] = {
     "SplitResult": "splits",
     "generate_splits": "splits",
     "write_splits": "splits",
+    "AgreementReport": "agreement",
+    "Disagreement": "agreement",
+    "compute_agreement": "agreement",
+    "find_disagreements": "agreement",
 }
 
 
@@ -80,6 +91,12 @@ def __dir__() -> list[str]:
 
 
 if TYPE_CHECKING:  # pragma: no cover - typing-only re-exports
+    from .agreement import (
+        AgreementReport,
+        Disagreement,
+        compute_agreement,
+        find_disagreements,
+    )
     from .duplicates import DuplicateGroup, DuplicateReport, find_duplicates
     from .loader import (
         DatasetError,
@@ -99,5 +116,6 @@ if TYPE_CHECKING:  # pragma: no cover - typing-only re-exports
     from .validator import (
         DatasetValidationReport,
         eligible_ground_truth,
+        training_ready_subset,
         validate_dataset,
     )
