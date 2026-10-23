@@ -26,6 +26,9 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 SHIPPED_MANIFEST = REPO_ROOT / "hybrid_dataset" / "metadata" / "manifest.yaml"
 SHIPPED_SOURCES = REPO_ROOT / "hybrid_dataset" / "metadata" / "sources.yaml"
 
+# Registered via the Chunk 7.3-A.5 conservative source-registration PR.
+SIH_2024_SOURCE_ID = "src_5a8a2998d6f44055a42dcfd8991e4d12"
+
 
 def _manifest_entry_dict(**overrides) -> dict:
     base = {
@@ -73,9 +76,15 @@ def test_shipped_manifest_loads_empty() -> None:
 
 
 def test_shipped_manifest_and_sources_cross_validate() -> None:
+    """Shipped manifest remains empty; shipped sources now carries at
+    least the Chunk 7.3-A.5 SIH entry. Cross-validation must succeed:
+    an empty manifest trivially has no unknown-source references
+    against a non-empty source registry.
+    """
     entries, report = load_and_validate_manifest(SHIPPED_MANIFEST, SHIPPED_SOURCES)
     assert entries == []
-    assert report.entries == []
+    source_registry_ids = {s.source_id for s in report.entries}
+    assert SIH_2024_SOURCE_ID in source_registry_ids
 
 
 # ---- loader shape failures ---------------------------------------------------

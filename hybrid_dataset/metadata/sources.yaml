@@ -29,4 +29,67 @@
 # labeler_<NNN> convention (e.g. labeler_001). Pseudonym -> real identity
 # mapping is NEVER stored in this repository.
 
-[]
+- source_id: src_5a8a2998d6f44055a42dcfd8991e4d12
+  source_name: "Smart India Hackathon 2024 Concludes with Innovative Solutions - PIB Release ID 2085000"
+  source_url: "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2085000&lang=2&reg=48"
+  license: "UNKNOWN"
+  usage_restrictions: |
+    PIB Copyright Policy, quoted verbatim from
+    https://www.pib.gov.in/content/102_2_Copyright-Policy.aspx?reg=3&lang=1
+
+    "Material featured on this website may be reproduced free of charge
+    and there is no need for any prior approval for using the content.
+    The permission to reproduce this material shall not extend to any
+    third-party material. Authorisation to reproduce such material must
+    be obtained from the departments/copyright holders concerned. The
+    material must be reproduced accurately and not used in a derogatory
+    manner or in a misleading context. Wherever the material is being
+    published or issued to others, the source must be prominently
+    acknowledged."
+
+    Observed via browser screenshot capture during Chunk 7.3-A.4 human
+    verification. license field recorded as UNKNOWN pending the
+    Chunk 7.2 two-independent-reviewer sign-off on whether the blanket
+    PIB free-reproduction clause covers this repository's intended_use
+    (non-commercial research dataset of hackathon achievements).
+  collection_date: 2026-10-23
+  original_labels: []
+  intended_use: "primary_type_training_lbl_hackathon"
+  mapping_notes: |
+    Smart India Hackathon 2024 (SIH) - hardware grand finale.
+    Published by PIB Mumbai on 16 December 2024 at 19:40 IST; writing
+    credit "PIB Pune | H.Akude/D.Rane"; Ministry banner "Ministry of
+    Education". Venue: MIT-ADT University (MIT Art, Design, and
+    Technology University), Pune, Maharashtra.
+
+    Scope decision: TEAM-LEVEL hackathon achievements only. The
+    Winners' List enumerates seven teams by team name + institution +
+    state; no individual student names were present in the reviewed
+    screenshots. Dignitaries (judges, officials) are named but are not
+    participants. Do not infer individual records from team membership.
+
+    Ingestion decision: TEXT ONLY. Photographs embedded in the release
+    are plausibly third-party material and are excluded by the PIB
+    policy's explicit third-party-material carve-out; separate
+    permission would be required before any image is ingested.
+
+    Build window: five-day hardware grand finale, which falls within
+    the Chunk 7.1 seven-calendar-day bound for lbl_hackathon.
+
+    Companion first-party corroboration (not registered as separate
+    entries here): PRID 2082460, 2083154, 2083470, 2082700, 2083360,
+    2083376, 2083688, 2084190.
+
+    Unresolved items pending full-page review by two independent
+    reviewers per Chunk 7.2: grand-finale start date; takedown or
+    revocation clause in the copyright policy; policy last-updated
+    date; exact attribution wording (the PIB policy requires
+    acknowledgment but does not prescribe the exact "source" string).
+
+    Initial state is review_status: unreviewed and license: UNKNOWN as
+    the conservative holding registration. Promotion to verified (and
+    population of license with the verbatim summary clause) requires
+    two independent sign-off PR comments posted per the Chunk 7.2
+    template before discussion between reviewers or with the proposer.
+  review_status: unreviewed
+  is_synthetic: false

@@ -27,6 +27,11 @@ from nlp_semantic.ingestion.registry import (
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SHIPPED_SOURCES = REPO_ROOT / "hybrid_dataset" / "metadata" / "sources.yaml"
 
+# Registered via the Chunk 7.3-A.5 conservative source-registration PR.
+# License is intentionally UNKNOWN and review_status is unreviewed until
+# the Chunk 7.2 two-independent-reviewer sign-off process completes.
+SIH_2024_SOURCE_ID = "src_5a8a2998d6f44055a42dcfd8991e4d12"
+
 
 # Sentinel tokens for credential-leak test. These must never appear in any
 # exception's str/repr/args. Chosen so they wouldn't appear in generic
@@ -65,17 +70,33 @@ def _dump(entries: list[dict]) -> str:
 # ---- shipped file ------------------------------------------------------------
 
 
-def test_shipped_sources_file_loads_empty() -> None:
+def test_shipped_sources_file_loads_registered_entries() -> None:
+    """The shipped sources.yaml carries at least the Chunk 7.3-A.5 SIH entry.
+
+    The entry is intentionally registered with ``license = UNKNOWN`` and
+    ``review_status = unreviewed``; promotion to ``verified`` is a human
+    sign-off step tracked separately.
+    """
     entries = load_sources(SHIPPED_SOURCES)
-    assert entries == []
+    ids = source_ids(entries)
+    assert SIH_2024_SOURCE_ID in ids
+    sih = next(e for e in entries if e.source_id == SIH_2024_SOURCE_ID)
+    assert sih.license == UNKNOWN_LICENSE
+    assert sih.review_status == ReviewStatus.UNREVIEWED
+    assert sih.is_synthetic is False
 
 
-def test_shipped_sources_file_validates_without_warnings() -> None:
+def test_shipped_sources_file_validates_with_expected_conservative_advisories() -> None:
+    """Chunk 7.3-A.5's conservative registration intentionally triggers
+    the ``unknown_license_ids`` and ``unverified_source_ids`` advisory
+    lists. These are not failures; they are the expected signal that
+    the Chunk 7.2 two-independent-reviewer sign-off is still pending.
+    """
     report = load_and_validate_sources(SHIPPED_SOURCES)
     assert isinstance(report, SourceLoadReport)
-    assert report.entries == []
-    assert report.unknown_license_ids == []
-    assert report.unverified_source_ids == []
+    assert SIH_2024_SOURCE_ID in source_ids(report.entries)
+    assert SIH_2024_SOURCE_ID in report.unknown_license_ids
+    assert SIH_2024_SOURCE_ID in report.unverified_source_ids
 
 
 # ---- loader shape failures ---------------------------------------------------
