@@ -22,20 +22,41 @@ from tests.dataset.conftest import REPO_ROOT, annotation_dict, record_dict, writ
 # ---- shipped dataset directory (empty) ---------------------------------------
 
 
-def test_shipped_records_dir_loads_empty() -> None:
-    assert load_records(REPO_ROOT / "hybrid_dataset") == []
+def test_shipped_records_dir_loads_sih_pilot() -> None:
+    """Shipped records/ carries the Chunk 7.4-A SIH pilot batch.
+
+    The pilot ships with 7 team-level records, all citing the Chunk
+    7.3-A.5 source and all tentatively labelled `lbl_hackathon` with
+    `annotation_status.primary_type: draft`. Source governance remains
+    conservative (UNKNOWN license, unreviewed), so these records are
+    not training-ready; they are present for workflow verification.
+    """
+    records = load_records(REPO_ROOT / "hybrid_dataset")
+    assert len(records) == 7
+    source_ids_seen = {r.source_id for r in records}
+    assert source_ids_seen == {"src_5a8a2998d6f44055a42dcfd8991e4d12"}
+    primary_types = {r.primary_type for r in records}
+    assert primary_types == {"lbl_hackathon"}
+    primary_statuses = {r.annotation_status.primary_type.value for r in records}
+    assert primary_statuses == {"draft"}
 
 
 def test_shipped_annotations_dir_loads_empty() -> None:
     assert load_annotations(REPO_ROOT / "hybrid_dataset") == []
 
 
-def test_shipped_dataset_load_report_empty() -> None:
+def test_shipped_dataset_load_report_contains_sih_pilot() -> None:
+    """Report reflects the Chunk 7.4-A pilot: 7 records in >=1 batch file;
+    annotations/ still empty.
+    """
     report = load_dataset(REPO_ROOT / "hybrid_dataset")
     assert isinstance(report, DatasetLoadReport)
-    assert report.records == []
+    assert len(report.records) == 7
     assert report.annotations == []
-    assert report.record_files == []
+    assert len(report.record_files) >= 1
+    assert any(
+        "batch_01_sih2024.yaml" in rf for rf in report.record_files
+    )
     assert report.annotation_files == []
 
 

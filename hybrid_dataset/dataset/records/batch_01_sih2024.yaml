@@ -1,0 +1,242 @@
+# Chunk 7.4-A / 7.4-A.1 / 7.4-A.2 — first achievement extraction pilot batch.
+#
+# Seven team-level hackathon records derived from the official PIB
+# announcement about Smart India Hackathon 2024 (hardware grand finale),
+# registered as source src_5a8a2998d6f44055a42dcfd8991e4d12 in Chunk
+# 7.3-A.5.
+#
+# Governance state at creation time:
+#   - Source `review_status: unreviewed`, `license: "UNKNOWN"` → records
+#     cite this source but are NOT training-ready. `training_ready_subset`
+#     correctly excludes them until the source is promoted to `verified`
+#     and `license` is populated.
+#   - All referenced primary_type labels (`lbl_hackathon`) still carry
+#     `status: draft` → records will surface in `draft_label_refs`
+#     advisory warnings during validation; this is expected.
+#   - `annotation_status.primary_type: draft` reflects tentative label
+#     assignment by the extractor (not reviewer-verified).
+#   - `annotation_status.domain_tags: not_started` because the press
+#     release does not publish project titles or descriptions, so
+#     technical-domain tagging would require inference the source does
+#     not support.
+#
+# Evidence basis for `primary_type: lbl_hackathon` (Chunk 7.4-A.1
+# correction note):
+#   The Chunk 7.1 definition of `lbl_hackathon` is EVENT-centric:
+#   participation, placement, or team role in a bounded (<= 7 days)
+#   competitive build event in which participants work toward a
+#   demonstrable prototype. The source directly establishes, for each of
+#   the 7 records:
+#     - The event is Smart India Hackathon 2024 (hardware grand finale).
+#     - The event's build window was 5 days ("The five-day hardware
+#       grand finale was hosted exclusively at MIT-ADT University").
+#     - The event was competitively judged (Winners' List).
+#     - The team is on the Winners' List.
+#   The source does NOT directly establish, for any specific team:
+#     - The specific prototype that team built.
+#     - The project title.
+#     - The problem-statement code.
+#     - The technical merit of their work.
+#   Under the Chunk 7.1 event-centric interpretation, placement at a
+#   bounded-prototype-oriented judged event is sufficient for the label.
+#   The per-team deliverable is an information-extraction concern that
+#   `primary_type` does not require. `annotation_status.primary_type` is
+#   kept at `draft` to signal that no reviewer has verified the
+#   per-team deliverable independently; the label is a tentative
+#   extraction decision resting on event-level evidence only.
+#
+# `achievement_date` semantics (Chunk 7.4-A.2 correction note):
+#   The schema's `achievement_date: date | None` has no code-level
+#   semantic definition. Inspection of ANNOTATION_GUIDELINES.md
+#   (lines 240-251, "fill them when the source makes them unambiguous")
+#   and the shipped Examples A and B (which both use event dates for
+#   short / point-in-time events, not announcement dates) does NOT
+#   establish that "announcement or recognition date" is a supported
+#   substitute for the actual achievement date.
+#   For the SIH 2024 hardware grand finale, the achievement spans a
+#   5-day build window (Dec 12-16, 2024 inclusive by inference from
+#   "five-day" + the Dec 16 ceremony date — but the exact start date is
+#   not independently stated in the source). The single-date schema
+#   therefore cannot unambiguously represent when the achievement
+#   occurred. Per the guidelines' "leave it null otherwise" direction
+#   and the Chunk 7.4-A.2 instruction to not treat announcement date as
+#   achievement date without supporting convention, `achievement_date`
+#   is set to `null` on every record in this batch. The ceremony date
+#   (16 December 2024) is preserved verbatim in each record's
+#   `achievement_text` as prose provenance.
+#
+# Every field is grounded in the PIB screenshot evidence captured in
+# Chunk 7.3-A.4. No individual student names are included; records are
+# team-level only. Project titles, problem-statement codes, and the
+# exact event start date are not asserted.
+
+- achievement_id: ach_766cc3af7a694f78889cdc10863b17cb
+  source_id: src_5a8a2998d6f44055a42dcfd8991e4d12
+  source_record_id: "pib-prid-2085000-coal-jagarama007"
+  achievement_text: >-
+    Team Jagarama007 (Sri Sairam Engineering College, Kanchipuram,
+    Tamil Nadu) won the Smart India Hackathon 2024 hardware grand
+    finale in the Ministry of Coal problem-statement category. The
+    five-day hardware grand finale concluded at MIT-ADT University,
+    Pune, Maharashtra, with winners formally declared at the closing
+    ceremony on 16 December 2024. Each winning team received a one
+    lakh rupee cash prize from the Government of India.
+  primary_type: lbl_hackathon
+  domain_tags: []
+  level: "national"
+  outcome: "winner"
+  event_name: "Smart India Hackathon 2024 (Hardware Grand Finale)"
+  organization: "Sri Sairam Engineering College, Kanchipuram, Tamil Nadu"
+  achievement_date: null
+  skills: []
+  annotation_status:
+    primary_type: draft
+    domain_tags: not_started
+  is_synthetic: false
+
+- achievement_id: ach_e4b1879e000e4f91b5c7189212cdbb6d
+  source_id: src_5a8a2998d6f44055a42dcfd8991e4d12
+  source_record_id: "pib-prid-2085000-mohua-voltaces"
+  achievement_text: >-
+    Team VoltAces (National Institute of Technology, Hamirpur) won
+    the Smart India Hackathon 2024 hardware grand finale in the
+    Ministry of Housing and Urban Affairs problem-statement category.
+    The five-day hardware grand finale concluded at MIT-ADT
+    University, Pune, Maharashtra, with winners formally declared at
+    the closing ceremony on 16 December 2024. Each winning team
+    received a one lakh rupee cash prize from the Government of India.
+  primary_type: lbl_hackathon
+  domain_tags: []
+  level: "national"
+  outcome: "winner"
+  event_name: "Smart India Hackathon 2024 (Hardware Grand Finale)"
+  organization: "National Institute of Technology, Hamirpur"
+  achievement_date: null
+  skills: []
+  annotation_status:
+    primary_type: draft
+    domain_tags: not_started
+  is_synthetic: false
+
+- achievement_id: ach_891254703afb4bbdaab55b946d85047b
+  source_id: src_5a8a2998d6f44055a42dcfd8991e4d12
+  source_record_id: "pib-prid-2085000-mohua-mavericks"
+  achievement_text: >-
+    Team Mavericks (National Institute of Engineering, Mysuru,
+    Karnataka) won the Smart India Hackathon 2024 hardware grand
+    finale in the Ministry of Housing and Urban Affairs
+    problem-statement category. The five-day hardware grand finale
+    concluded at MIT-ADT University, Pune, Maharashtra, with winners
+    formally declared at the closing ceremony on 16 December 2024.
+    Each winning team received a one lakh rupee cash prize from the
+    Government of India.
+  primary_type: lbl_hackathon
+  domain_tags: []
+  level: "national"
+  outcome: "winner"
+  event_name: "Smart India Hackathon 2024 (Hardware Grand Finale)"
+  organization: "National Institute of Engineering, Mysuru, Karnataka"
+  achievement_date: null
+  skills: []
+  annotation_status:
+    primary_type: draft
+    domain_tags: not_started
+  is_synthetic: false
+
+- achievement_id: ach_0d791e5be579428ba34f9d1f19bed967
+  source_id: src_5a8a2998d6f44055a42dcfd8991e4d12
+  source_record_id: "pib-prid-2085000-mohua-the-olympians"
+  achievement_text: >-
+    Team The Olympians (Swami Keshvanand Institute of Technology,
+    Management, Jaipur, Rajasthan) won the Smart India Hackathon 2024
+    hardware grand finale in the Ministry of Housing and Urban Affairs
+    problem-statement category. The five-day hardware grand finale
+    concluded at MIT-ADT University, Pune, Maharashtra, with winners
+    formally declared at the closing ceremony on 16 December 2024.
+    Each winning team received a one lakh rupee cash prize from the
+    Government of India.
+  primary_type: lbl_hackathon
+  domain_tags: []
+  level: "national"
+  outcome: "winner"
+  event_name: "Smart India Hackathon 2024 (Hardware Grand Finale)"
+  organization: "Swami Keshvanand Institute of Technology, Management, Jaipur, Rajasthan"
+  achievement_date: null
+  skills: []
+  annotation_status:
+    primary_type: draft
+    domain_tags: not_started
+  is_synthetic: false
+
+- achievement_id: ach_9e2fc52c07ee459da700c9c4e9692501
+  source_id: src_5a8a2998d6f44055a42dcfd8991e4d12
+  source_record_id: "pib-prid-2085000-mohua-paradox-innovator"
+  achievement_text: >-
+    Team Paradox Innovator (Heritage Institute of Technology, North
+    24 Parganas, West Bengal) won the Smart India Hackathon 2024
+    hardware grand finale in the Ministry of Housing and Urban Affairs
+    problem-statement category. The five-day hardware grand finale
+    concluded at MIT-ADT University, Pune, Maharashtra, with winners
+    formally declared at the closing ceremony on 16 December 2024.
+    Each winning team received a one lakh rupee cash prize from the
+    Government of India.
+  primary_type: lbl_hackathon
+  domain_tags: []
+  level: "national"
+  outcome: "winner"
+  event_name: "Smart India Hackathon 2024 (Hardware Grand Finale)"
+  organization: "Heritage Institute of Technology, North 24 Parganas, West Bengal"
+  achievement_date: null
+  skills: []
+  annotation_status:
+    primary_type: draft
+    domain_tags: not_started
+  is_synthetic: false
+
+- achievement_id: ach_483f29b3a5eb47bc92bf87d44d0b59ad
+  source_id: src_5a8a2998d6f44055a42dcfd8991e4d12
+  source_record_id: "pib-prid-2085000-mohua-rail-manics"
+  achievement_text: >-
+    Team Rail Manics (Indian Institute of Technology, Kharagpur) won
+    the Smart India Hackathon 2024 hardware grand finale in the
+    Ministry of Housing and Urban Affairs problem-statement category.
+    The five-day hardware grand finale concluded at MIT-ADT
+    University, Pune, Maharashtra, with winners formally declared at
+    the closing ceremony on 16 December 2024. Each winning team
+    received a one lakh rupee cash prize from the Government of India.
+  primary_type: lbl_hackathon
+  domain_tags: []
+  level: "national"
+  outcome: "winner"
+  event_name: "Smart India Hackathon 2024 (Hardware Grand Finale)"
+  organization: "Indian Institute of Technology, Kharagpur"
+  achievement_date: null
+  skills: []
+  annotation_status:
+    primary_type: draft
+    domain_tags: not_started
+  is_synthetic: false
+
+- achievement_id: ach_ebb1dce69e3b4a18a85976375d9b8439
+  source_id: src_5a8a2998d6f44055a42dcfd8991e4d12
+  source_record_id: "pib-prid-2085000-mohua-nidaan-7-0"
+  achievement_text: >-
+    Team Nidaan 7.0 (Muzaffarpur Institute of Technology, Bihar) won
+    the Smart India Hackathon 2024 hardware grand finale in the
+    Ministry of Housing and Urban Affairs problem-statement category.
+    The five-day hardware grand finale concluded at MIT-ADT
+    University, Pune, Maharashtra, with winners formally declared at
+    the closing ceremony on 16 December 2024. Each winning team
+    received a one lakh rupee cash prize from the Government of India.
+  primary_type: lbl_hackathon
+  domain_tags: []
+  level: "national"
+  outcome: "winner"
+  event_name: "Smart India Hackathon 2024 (Hardware Grand Finale)"
+  organization: "Muzaffarpur Institute of Technology, Bihar"
+  achievement_date: null
+  skills: []
+  annotation_status:
+    primary_type: draft
+    domain_tags: not_started
+  is_synthetic: false

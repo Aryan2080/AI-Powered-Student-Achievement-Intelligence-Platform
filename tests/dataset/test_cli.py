@@ -97,13 +97,20 @@ def test_cli_unknown_subcommand_errors_with_exit_2() -> None:
 # ---- validate ---------------------------------------------------------------
 
 
-def test_cli_validate_happy_path_on_shipped_dataset() -> None:
-    """The shipped dataset is empty but structurally valid."""
+def test_cli_validate_happy_path_on_shipped_sih_pilot() -> None:
+    """Shipped dataset carries the Chunk 7.4-A SIH pilot (7 records).
+
+    Structural validation must pass with zero fatal findings but
+    non-zero advisory count (draft-label references for each record +
+    UNKNOWN license + unverified source for the Chunk 7.3-A.5 source).
+    """
     proc = _run(["validate", str(REPO_ROOT / "hybrid_dataset")])
     assert proc.returncode == 0, proc.stderr
     data = json.loads(proc.stdout)
-    assert data["load"]["records"] == 0
+    assert data["load"]["records"] == 7
     assert data["validation"]["is_valid"] is True
+    assert data["validation"]["fatal_count"] == 0
+    assert data["validation"]["advisory_count"] >= 1
     assert "ok" in proc.stderr
 
 
@@ -131,12 +138,16 @@ def test_cli_validate_fatal_findings_exit_1(tmp_path: Path) -> None:
 # ---- stats ------------------------------------------------------------------
 
 
-def test_cli_stats_on_shipped_dataset_exits_0() -> None:
+def test_cli_stats_on_shipped_sih_pilot_exits_0() -> None:
+    """Stats on the shipped dataset counts the 7 SIH pilot records, all
+    at `primary_type == lbl_hackathon`.
+    """
     proc = _run(["stats", str(REPO_ROOT / "hybrid_dataset")])
     assert proc.returncode == 0, proc.stderr
     data = json.loads(proc.stdout)
-    assert data["total_records"] == 0
-    assert "records=0" in proc.stderr
+    assert data["total_records"] == 7
+    assert data["primary_type_counts"].get("lbl_hackathon") == 7
+    assert "records=7" in proc.stderr
 
 
 def test_cli_stats_counts_small_dataset(tmp_path: Path) -> None:
