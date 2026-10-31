@@ -75,8 +75,22 @@ hybrid_dataset/processed/*
 hybrid_dataset/metadata/ocr_output/
 hybrid_dataset/metadata/embeddings/
 
+# Reviewer-supplied evidence (Chunk 7.41). Contents stay LOCAL;
+# only the structural marker is tracked. Mirrors the
+# hybrid_dataset/raw/* policy. Reviewers may override on a
+# per-file basis with `git add -f` for files they confirm are
+# PII-free; see reviews/README.md §5 for the policy.
+reviews/evidence/*
+!reviews/evidence/.gitkeep
+
 # --- Model checkpoints / large binary artifacts ---
-models/
+models/*
+!models/achievement_categorizer_v1.0.1.joblib
+!models/achievement_categorizer_v1.0.1.json
+!models/achievement_classifier_v1.0.1.joblib
+!models/achievement_classifier_v1.0.1.json
+!models/candidate_sentence_transformer_categorizer.joblib
+!models/candidate_sentence_transformer_categorizer.json
 checkpoints/
 *.ckpt
 *.pt
@@ -85,6 +99,7 @@ checkpoints/
 *.h5
 *.onnx
 *.npy
+!data/embeddings/**/*.npy
 *.npz
 *.parquet
 *.feather

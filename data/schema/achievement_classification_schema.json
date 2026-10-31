@@ -1,0 +1,192 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AchievementClassificationRecord",
+  "description": "Schema for the primary achievement classification dataset in the AI-Powered Student Achievement Intelligence Platform.",
+  "type": "object",
+  "required": [
+    "achievement_id",
+    "achievement_text",
+    "normalized_text",
+    "category",
+    "domain",
+    "level",
+    "outcome",
+    "source_type",
+    "annotation_status",
+    "labeler_id",
+    "quality_status",
+    "record_origin",
+    "generation_id",
+    "synthetic_status"
+  ],
+  "properties": {
+    "achievement_id": {
+      "type": "string",
+      "pattern": "^ACH\\d{6}$"
+    },
+    "achievement_text": {
+      "type": "string",
+      "minLength": 20
+    },
+    "normalized_text": {
+      "type": "string",
+      "minLength": 20
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "HACKATHON",
+        "COMPETITION",
+        "RESEARCH_PUBLICATION",
+        "PATENT",
+        "INTERNSHIP",
+        "CERTIFICATION",
+        "PROJECT",
+        "WORKSHOP",
+        "CONFERENCE",
+        "LEADERSHIP",
+        "SPORTS",
+        "CULTURAL",
+        "VOLUNTEERING",
+        "OTHER"
+      ]
+    },
+    "domain": {
+      "type": "string"
+    },
+    "level": {
+      "type": "string",
+      "enum": [
+        "COLLEGE",
+        "UNIVERSITY",
+        "LOCAL",
+        "DISTRICT",
+        "STATE",
+        "NATIONAL",
+        "INTERNATIONAL",
+        "ORGANIZATIONAL",
+        "PROFESSIONAL",
+        "OTHER",
+        "UNKNOWN"
+      ]
+    },
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "PARTICIPATION",
+        "COMPLETION",
+        "WINNER",
+        "FIRST_PLACE",
+        "SECOND_PLACE",
+        "THIRD_PLACE",
+        "FINALIST",
+        "PRESENTED",
+        "PUBLISHED",
+        "GRANTED",
+        "FILED",
+        "LEADERSHIP",
+        "RECOGNITION",
+        "OTHER",
+        "UNKNOWN"
+      ]
+    },
+    "event_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "organization": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "achievement_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "rank": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "skills": {
+      "type": "string"
+    },
+    "source_type": {
+      "type": "string"
+    },
+    "evidence_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "annotation_status": {
+      "type": "string",
+      "enum": [
+        "AUTO_GENERATED",
+        "HUMAN_REVIEWED",
+        "NEEDS_REVIEW",
+        "REJECTED"
+      ]
+    },
+    "labeler_id": {
+      "type": "string"
+    },
+    "quality_status": {
+      "type": "string",
+      "enum": [
+        "VALIDATED",
+        "NEEDS_REVIEW",
+        "REJECTED"
+      ]
+    },
+    "record_origin": {
+      "type": "string",
+      "enum": [
+        "SYNTHETIC",
+        "REAL_SOURCE"
+      ]
+    },
+    "generation_id": {
+      "type": "string"
+    },
+    "generation_method": {
+      "type": "string"
+    },
+    "source_license": {
+      "type": "string"
+    },
+    "source_url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_access_date": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "synthetic_status": {
+      "type": "string",
+      "enum": [
+        "EXPLICITLY_SYNTHETIC",
+        "REAL"
+      ]
+    },
+    "validation_flags": {
+      "type": "string"
+    }
+  }
+}

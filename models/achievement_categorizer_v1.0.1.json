@@ -1,0 +1,73 @@
+{
+  "model_type": "BinaryRelevanceLogisticRegression",
+  "model_version": "1.0.1",
+  "created_at": "2026-10-27T03:00:27.977298+00:00",
+  "trained_at": "2026-10-27T03:00:28.391142+00:00",
+  "train_samples": 1078,
+  "val_samples": 231,
+  "feature_count": 5000,
+  "thresholds": {
+    "lbl_domain_ai": 0.4,
+    "lbl_domain_ml": 0.625,
+    "lbl_domain_nlp": 0.575,
+    "lbl_domain_cv": 0.6,
+    "lbl_domain_security": 0.6,
+    "lbl_domain_systems": 0.5,
+    "lbl_domain_web": 0.55,
+    "lbl_domain_data": 0.425,
+    "lbl_domain_hardware": 0.4,
+    "lbl_domain_other": 0.25
+  },
+  "validation_f1_per_tag": {
+    "lbl_domain_ai": 0.7665,
+    "lbl_domain_ml": 0.4857,
+    "lbl_domain_nlp": 0.5,
+    "lbl_domain_cv": 0.5294,
+    "lbl_domain_security": 0.5405,
+    "lbl_domain_systems": 0.7656,
+    "lbl_domain_web": 0.549,
+    "lbl_domain_data": 0.6977,
+    "lbl_domain_hardware": 0.7042,
+    "lbl_domain_other": 1.0
+  },
+  "hyperparameters": {
+    "ngram_range": [
+      1,
+      2
+    ],
+    "max_features": 5000,
+    "C": 1.0,
+    "random_state": 42
+  },
+  "taxonomy_version": "1.0.0",
+  "dataset_version": "achievement_dataset_v1.0.1",
+  "label_order": [
+    "lbl_domain_ai",
+    "lbl_domain_ml",
+    "lbl_domain_nlp",
+    "lbl_domain_cv",
+    "lbl_domain_security",
+    "lbl_domain_systems",
+    "lbl_domain_web",
+    "lbl_domain_data",
+    "lbl_domain_hardware",
+    "lbl_domain_other"
+  ],
+  "training_split_reference": "data/splits/categorization_train.csv",
+  "validation_split_reference": "data/splits/categorization_validation.csv",
+  "test_split_reference": "data/splits/categorization_test.csv",
+  "test_evaluation_summary": {
+    "micro_f1": 0.6487,
+    "macro_f1": 0.564,
+    "hamming_loss": 0.1922,
+    "exact_match": 0.3333
+  },
+  "reviewed_subset_evaluation_summary": {
+    "sample_size": 45,
+    "micro_f1": 0.7692,
+    "macro_f1": 0.7942,
+    "hamming_loss": 0.1333,
+    "exact_match": 0.4
+  },
+  "limitations": "Evaluated on multi-label targets derived from master synthetic templates and 45-sample manually reviewed reference subset. Real unconstrained student evidence may exhibit higher vocabulary drift."
+}

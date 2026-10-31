@@ -1,4 +1,10 @@
 [tool.pytest.ini_options]
 minversion = "7.0"
 testpaths = ["tests"]
-pythonpath = ["src"]
+# Chunk 7.24: "." was added so the repository-local `tests` regular
+# package (created by `tests/__init__.py` in Chunk 7.24) resolves ahead
+# of an unrelated `tests` namespace installed in the user's Python
+# site-packages. Without "." on sys.path the repo-local `tests` is not
+# importable at all; without `tests/__init__.py` the site-packages
+# orphan wins even with "." first.
+pythonpath = ["src", "."]

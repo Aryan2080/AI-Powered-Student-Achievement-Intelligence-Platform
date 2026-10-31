@@ -1,0 +1,757 @@
+{
+  "top_features": {
+    "lbl_domain_ai": [
+      [
+        "learning",
+        1.902
+      ],
+      [
+        "deep",
+        1.423
+      ],
+      [
+        "deep learning",
+        1.087
+      ],
+      [
+        "as",
+        0.965
+      ],
+      [
+        "tensorflow",
+        0.925
+      ],
+      [
+        "edge",
+        0.923
+      ],
+      [
+        "language",
+        0.913
+      ],
+      [
+        "reinforcement",
+        0.908
+      ],
+      [
+        "reinforcement learning",
+        0.908
+      ],
+      [
+        "autonomous",
+        0.886
+      ]
+    ],
+    "lbl_domain_ml": [
+      [
+        "learning",
+        3.296
+      ],
+      [
+        "deep",
+        2.179
+      ],
+      [
+        "tensorflow",
+        1.694
+      ],
+      [
+        "reinforcement",
+        1.631
+      ],
+      [
+        "reinforcement learning",
+        1.631
+      ],
+      [
+        "deep learning",
+        1.606
+      ],
+      [
+        "pytorch",
+        1.454
+      ],
+      [
+        "scikit learn",
+        1.347
+      ],
+      [
+        "scikit",
+        1.347
+      ],
+      [
+        "learn",
+        1.347
+      ]
+    ],
+    "lbl_domain_nlp": [
+      [
+        "spacy",
+        2.694
+      ],
+      [
+        "language",
+        2.434
+      ],
+      [
+        "natural",
+        2.044
+      ],
+      [
+        "natural language",
+        2.044
+      ],
+      [
+        "language processing",
+        2.044
+      ],
+      [
+        "processing",
+        1.496
+      ],
+      [
+        "alignment",
+        0.923
+      ],
+      [
+        "model alignment",
+        0.923
+      ],
+      [
+        "and rag",
+        0.923
+      ],
+      [
+        "rag",
+        0.923
+      ]
+    ],
+    "lbl_domain_cv": [
+      [
+        "computer vision",
+        3.019
+      ],
+      [
+        "vision",
+        3.019
+      ],
+      [
+        "computer",
+        2.425
+      ],
+      [
+        "opencv",
+        2.245
+      ],
+      [
+        "deep learning",
+        1.883
+      ],
+      [
+        "deep",
+        1.54
+      ],
+      [
+        "with edge",
+        1.324
+      ],
+      [
+        "nvidia",
+        1.26
+      ],
+      [
+        "microsoft",
+        1.231
+      ],
+      [
+        "opencv and",
+        1.2
+      ]
+    ],
+    "lbl_domain_security": [
+      [
+        "cybersecurity",
+        3.288
+      ],
+      [
+        "security",
+        1.872
+      ],
+      [
+        "cryptography",
+        1.65
+      ],
+      [
+        "penetration testing",
+        1.345
+      ],
+      [
+        "penetration",
+        1.345
+      ],
+      [
+        "ctf invitational",
+        1.334
+      ],
+      [
+        "national cybersecurity",
+        1.334
+      ],
+      [
+        "cybersecurity ctf",
+        1.334
+      ],
+      [
+        "ctf",
+        1.334
+      ],
+      [
+        "network security",
+        1.314
+      ]
+    ],
+    "lbl_domain_systems": [
+      [
+        "cloud",
+        1.265
+      ],
+      [
+        "kubernetes",
+        1.051
+      ],
+      [
+        "microservices",
+        1.043
+      ],
+      [
+        "embedded",
+        0.866
+      ],
+      [
+        "fpga",
+        0.865
+      ],
+      [
+        "linux",
+        0.858
+      ],
+      [
+        "algorithmic",
+        0.809
+      ],
+      [
+        "high",
+        0.763
+      ],
+      [
+        "speed",
+        0.736
+      ],
+      [
+        "using",
+        0.702
+      ]
+    ],
+    "lbl_domain_web": [
+      [
+        "meta",
+        1.083
+      ],
+      [
+        "using",
+        1.026
+      ],
+      [
+        "blockchain",
+        1.024
+      ],
+      [
+        "js",
+        1.023
+      ],
+      [
+        "full",
+        1.016
+      ],
+      [
+        "stack",
+        1.016
+      ],
+      [
+        "full stack",
+        1.016
+      ],
+      [
+        "react",
+        0.99
+      ],
+      [
+        "solidity",
+        0.935
+      ],
+      [
+        "web",
+        0.915
+      ]
+    ],
+    "lbl_domain_data": [
+      [
+        "apache",
+        1.4
+      ],
+      [
+        "data",
+        1.193
+      ],
+      [
+        "flink",
+        1.099
+      ],
+      [
+        "sql",
+        0.897
+      ],
+      [
+        "as",
+        0.882
+      ],
+      [
+        "apache spark",
+        0.837
+      ],
+      [
+        "spark",
+        0.837
+      ],
+      [
+        "analytics",
+        0.8
+      ],
+      [
+        "intern",
+        0.777
+      ],
+      [
+        "kafka",
+        0.761
+      ]
+    ],
+    "lbl_domain_hardware": [
+      [
+        "embedded",
+        1.568
+      ],
+      [
+        "robotics",
+        1.211
+      ],
+      [
+        "linux",
+        1.148
+      ],
+      [
+        "fpga",
+        1.14
+      ],
+      [
+        "system",
+        0.962
+      ],
+      [
+        "ros",
+        0.928
+      ],
+      [
+        "design",
+        0.926
+      ],
+      [
+        "autonomous",
+        0.923
+      ],
+      [
+        "patent",
+        0.91
+      ],
+      [
+        "hardware",
+        0.795
+      ]
+    ],
+    "lbl_domain_other": [
+      [
+        "inter",
+        1.975
+      ],
+      [
+        "tournament",
+        1.949
+      ],
+      [
+        "the tournament",
+        1.571
+      ],
+      [
+        "university",
+        1.564
+      ],
+      [
+        "state",
+        1.477
+      ],
+      [
+        "the",
+        1.29
+      ],
+      [
+        "arts",
+        1.211
+      ],
+      [
+        "match",
+        1.174
+      ],
+      [
+        "third",
+        1.155
+      ],
+      [
+        "collegiate",
+        1.153
+      ]
+    ]
+  },
+  "provenance_summary": {
+    "lbl_domain_ai": {
+      "source_domain": 4,
+      "skill": 4,
+      "text_cue": 1,
+      "total_pos": 9,
+      "source_domain_only": 4,
+      "pct_source_domain_only": 44.4
+    },
+    "lbl_domain_ml": {
+      "source_domain": 0,
+      "skill": 0,
+      "text_cue": 0,
+      "total_pos": 0,
+      "source_domain_only": 0,
+      "pct_source_domain_only": NaN
+    },
+    "lbl_domain_nlp": {
+      "source_domain": 0,
+      "skill": 0,
+      "text_cue": 0,
+      "total_pos": 0,
+      "source_domain_only": 0,
+      "pct_source_domain_only": NaN
+    },
+    "lbl_domain_cv": {
+      "source_domain": 0,
+      "skill": 0,
+      "text_cue": 0,
+      "total_pos": 0,
+      "source_domain_only": 0,
+      "pct_source_domain_only": NaN
+    },
+    "lbl_domain_security": {
+      "source_domain": 20,
+      "skill": 23,
+      "text_cue": 17,
+      "total_pos": 24,
+      "source_domain_only": 0,
+      "pct_source_domain_only": 0.0
+    },
+    "lbl_domain_systems": {
+      "source_domain": 39,
+      "skill": 45,
+      "text_cue": 20,
+      "total_pos": 55,
+      "source_domain_only": 10,
+      "pct_source_domain_only": 18.2
+    },
+    "lbl_domain_web": {
+      "source_domain": 15,
+      "skill": 37,
+      "text_cue": 11,
+      "total_pos": 39,
+      "source_domain_only": 2,
+      "pct_source_domain_only": 5.1
+    },
+    "lbl_domain_data": {
+      "source_domain": 19,
+      "skill": 69,
+      "text_cue": 5,
+      "total_pos": 71,
+      "source_domain_only": 2,
+      "pct_source_domain_only": 2.8
+    },
+    "lbl_domain_hardware": {
+      "source_domain": 1,
+      "skill": 1,
+      "text_cue": 0,
+      "total_pos": 2,
+      "source_domain_only": 1,
+      "pct_source_domain_only": 50.0
+    },
+    "lbl_domain_other": {
+      "source_domain": 220,
+      "skill": 0,
+      "text_cue": 0,
+      "total_pos": 220,
+      "source_domain_only": 220,
+      "pct_source_domain_only": 100.0
+    }
+  },
+  "test_dissection": [
+    {
+      "achievement_id": "ACH000891",
+      "text": "Presented an interactive research poster at the All-India Conference on Sustainable Engineering Innovations (2023). Showcased benchmark comparisons of Reinforcement Learning algorithms to over 156 visiting delegates and faculty researchers.",
+      "gold_tags": [
+        "lbl_domain_ai",
+        "lbl_domain_hardware",
+        "lbl_domain_ml"
+      ],
+      "pred_tags": [
+        "lbl_domain_ai",
+        "lbl_domain_data",
+        "lbl_domain_hardware",
+        "lbl_domain_security"
+      ],
+      "exact_match": false,
+      "tp": [
+        "lbl_domain_ai",
+        "lbl_domain_hardware"
+      ],
+      "fp": [
+        "lbl_domain_data",
+        "lbl_domain_security"
+      ],
+      "fn": [
+        "lbl_domain_ml"
+      ],
+      "tag_scores": {
+        "lbl_domain_ai": 0.5848,
+        "lbl_domain_ml": 0.572,
+        "lbl_domain_nlp": 0.2199,
+        "lbl_domain_cv": 0.3366,
+        "lbl_domain_security": 0.7109,
+        "lbl_domain_systems": 0.4753,
+        "lbl_domain_web": 0.4321,
+        "lbl_domain_data": 0.6505,
+        "lbl_domain_hardware": 0.4668,
+        "lbl_domain_other": 0.1221
+      }
+    },
+    {
+      "achievement_id": "ACH000376",
+      "text": "Patent application published by World Intellectual Property Organization (WIPO - PCT) (App No. 2021333049): 'Method and System for Automated Dynamic Bandwidth Allocation in High-Density IoT Mesh Topologies', conceptualized and prototyped in collaboration with mentors at Cadence Design Systems R&D using Quality Assurance.",
+      "gold_tags": [
+        "lbl_domain_ai",
+        "lbl_domain_nlp"
+      ],
+      "pred_tags": [
+        "lbl_domain_ai",
+        "lbl_domain_data",
+        "lbl_domain_hardware",
+        "lbl_domain_systems",
+        "lbl_domain_web"
+      ],
+      "exact_match": false,
+      "tp": [
+        "lbl_domain_ai"
+      ],
+      "fp": [
+        "lbl_domain_data",
+        "lbl_domain_hardware",
+        "lbl_domain_systems",
+        "lbl_domain_web"
+      ],
+      "fn": [
+        "lbl_domain_nlp"
+      ],
+      "tag_scores": {
+        "lbl_domain_ai": 0.4122,
+        "lbl_domain_ml": 0.3051,
+        "lbl_domain_nlp": 0.1442,
+        "lbl_domain_cv": 0.2099,
+        "lbl_domain_security": 0.1338,
+        "lbl_domain_systems": 0.5653,
+        "lbl_domain_web": 0.8266,
+        "lbl_domain_data": 0.5276,
+        "lbl_domain_hardware": 0.6525,
+        "lbl_domain_other": 0.0619
+      }
+    },
+    {
+      "achievement_id": "ACH000645",
+      "text": "Achieved professional industry credential: Certified Information Systems Security Professional Associate (CISSP) (ISC2, Verification ID: ISC-822303). Completed 40+ hours of coursework, hands-on lab evaluations, and a 3-hour invigilated technical evaluation with a score of 94%.",
+      "gold_tags": [
+        "lbl_domain_security"
+      ],
+      "pred_tags": [
+        "lbl_domain_security",
+        "lbl_domain_systems"
+      ],
+      "exact_match": false,
+      "tp": [
+        "lbl_domain_security"
+      ],
+      "fp": [
+        "lbl_domain_systems"
+      ],
+      "fn": [],
+      "tag_scores": {
+        "lbl_domain_ai": 0.2621,
+        "lbl_domain_ml": 0.2697,
+        "lbl_domain_nlp": 0.1375,
+        "lbl_domain_cv": 0.3197,
+        "lbl_domain_security": 0.7286,
+        "lbl_domain_systems": 0.5188,
+        "lbl_domain_web": 0.2044,
+        "lbl_domain_data": 0.2514,
+        "lbl_domain_hardware": 0.3063,
+        "lbl_domain_other": 0.0679
+      }
+    },
+    {
+      "achievement_id": "ACH000364",
+      "text": "Patent application published by World Intellectual Property Organization (WIPO - PCT) (App No. 2024629663): 'A Fault-Tolerant Edge Computing Architecture for Real-Time Robotic Anomaly Intervention', conceptualized and prototyped in collaboration with mentors at Applied Materials Nano-Manufacturing Lab using AWS.",
+      "gold_tags": [
+        "lbl_domain_systems"
+      ],
+      "pred_tags": [
+        "lbl_domain_ai",
+        "lbl_domain_data",
+        "lbl_domain_hardware",
+        "lbl_domain_systems",
+        "lbl_domain_web"
+      ],
+      "exact_match": false,
+      "tp": [
+        "lbl_domain_systems"
+      ],
+      "fp": [
+        "lbl_domain_ai",
+        "lbl_domain_data",
+        "lbl_domain_hardware",
+        "lbl_domain_web"
+      ],
+      "fn": [],
+      "tag_scores": {
+        "lbl_domain_ai": 0.5336,
+        "lbl_domain_ml": 0.419,
+        "lbl_domain_nlp": 0.2612,
+        "lbl_domain_cv": 0.521,
+        "lbl_domain_security": 0.2185,
+        "lbl_domain_systems": 0.6197,
+        "lbl_domain_web": 0.6443,
+        "lbl_domain_data": 0.7197,
+        "lbl_domain_hardware": 0.6428,
+        "lbl_domain_other": 0.0636
+      }
+    },
+    {
+      "achievement_id": "ACH001075",
+      "text": "Served as Editor-in-Chief of Faculty of Engineering Annual Technical Journal. Mentored junior engineering students in Elasticsearch, initiated peer study groups, and established collaborative industry guest speaker sessions with senior engineering leaders during the 2022-2023 tenure.",
+      "gold_tags": [
+        "lbl_domain_data",
+        "lbl_domain_systems"
+      ],
+      "pred_tags": [
+        "lbl_domain_ai",
+        "lbl_domain_data",
+        "lbl_domain_hardware"
+      ],
+      "exact_match": false,
+      "tp": [
+        "lbl_domain_data"
+      ],
+      "fp": [
+        "lbl_domain_ai",
+        "lbl_domain_hardware"
+      ],
+      "fn": [
+        "lbl_domain_systems"
+      ],
+      "tag_scores": {
+        "lbl_domain_ai": 0.7673,
+        "lbl_domain_ml": 0.5197,
+        "lbl_domain_nlp": 0.4644,
+        "lbl_domain_cv": 0.1437,
+        "lbl_domain_security": 0.4457,
+        "lbl_domain_systems": 0.2803,
+        "lbl_domain_web": 0.3769,
+        "lbl_domain_data": 0.6097,
+        "lbl_domain_hardware": 0.404,
+        "lbl_domain_other": 0.0866
+      }
+    },
+    {
+      "achievement_id": "ACH000230",
+      "text": "Published a peer-reviewed research paper titled 'Federated Differential Privacy in Edge IoT' in ACM International Conference on Information and Knowledge Management (CIKM). Conducted extensive ablation studies using GraphQL and Large Language Models, demonstrating a 8.2% improvement in F1-score over existing published baselines.",
+      "gold_tags": [
+        "lbl_domain_ai",
+        "lbl_domain_hardware",
+        "lbl_domain_systems",
+        "lbl_domain_web"
+      ],
+      "pred_tags": [
+        "lbl_domain_ai",
+        "lbl_domain_data",
+        "lbl_domain_hardware",
+        "lbl_domain_nlp",
+        "lbl_domain_security",
+        "lbl_domain_systems"
+      ],
+      "exact_match": false,
+      "tp": [
+        "lbl_domain_ai",
+        "lbl_domain_hardware",
+        "lbl_domain_systems"
+      ],
+      "fp": [
+        "lbl_domain_data",
+        "lbl_domain_nlp",
+        "lbl_domain_security"
+      ],
+      "fn": [
+        "lbl_domain_web"
+      ],
+      "tag_scores": {
+        "lbl_domain_ai": 0.7693,
+        "lbl_domain_ml": 0.5748,
+        "lbl_domain_nlp": 0.6526,
+        "lbl_domain_cv": 0.5454,
+        "lbl_domain_security": 0.7943,
+        "lbl_domain_systems": 0.6208,
+        "lbl_domain_web": 0.4046,
+        "lbl_domain_data": 0.455,
+        "lbl_domain_hardware": 0.5537,
+        "lbl_domain_other": 0.075
+      }
+    },
+    {
+      "achievement_id": "ACH001538",
+      "text": "Recognized with the Alumni Endowment Fellowship Award for exceptional overall academic integrity, resilience, and scholastic merit at International Institute of Information Technology, Bangalore.",
+      "gold_tags": [],
+      "pred_tags": [],
+      "exact_match": true,
+      "tp": [],
+      "fp": [],
+      "fn": [],
+      "tag_scores": {
+        "lbl_domain_ai": 0.1942,
+        "lbl_domain_ml": 0.1499,
+        "lbl_domain_nlp": 0.1519,
+        "lbl_domain_cv": 0.1606,
+        "lbl_domain_security": 0.1386,
+        "lbl_domain_systems": 0.1321,
+        "lbl_domain_web": 0.1907,
+        "lbl_domain_data": 0.191,
+        "lbl_domain_hardware": 0.2004,
+        "lbl_domain_other": 0.1246
+      }
+    }
+  ]
+}

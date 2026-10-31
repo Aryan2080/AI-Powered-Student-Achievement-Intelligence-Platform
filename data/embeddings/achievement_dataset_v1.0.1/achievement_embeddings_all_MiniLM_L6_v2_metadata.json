@@ -1,0 +1,14 @@
+{
+  "dataset_version": "achievement_dataset_v1.0.1",
+  "model_name": "all-MiniLM-L6-v2",
+  "embedding_dim": 384,
+  "normalized": true,
+  "generation_date": "2026-10-26",
+  "generation_device": "cpu",
+  "record_count": 1540,
+  "dtype": "float32",
+  "files": {
+    "embeddings_npy": "achievement_embeddings_all_MiniLM_L6_v2.npy",
+    "record_ids_json": "achievement_embeddings_all_MiniLM_L6_v2_record_ids.json"
+  }
+}

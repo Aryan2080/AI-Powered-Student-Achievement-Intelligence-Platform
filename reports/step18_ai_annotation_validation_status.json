@@ -1,0 +1,131 @@
+{
+  "step": "Step 22 — Metric Integrity Audit and Formal Evaluation Report",
+  "timestamp": "2026-10-28T17:25:00.000000+00:00",
+  "role": "Member 1 — NLP & Semantic Intelligence Engineer",
+  "branch": "feature/nlp-semantic",
+  "git_head": "c8c1b8084ff9d15955e0b456d9eccbe9c4cf6d90",
+  "evaluation_state": "VALIDATION_COMPLETE",
+  "can_score": true,
+  "blocker_details": null,
+  "dataset_preservation": {
+    "dataset_name": "achievement_dataset_v1.0.1",
+    "file_path": "D:\\SUPERVISED PROJECT\\AI-Powered-Student-Achievement-Intelligence-Platform\\data\\processed\\achievement_classification_dataset.csv",
+    "sha256": "1a62b8d8b56bd94df27d8c40ff86ef892b7d50e0c6bb92ff4f69882596b27ddc",
+    "expected_sha256": "1a62b8d8b56bd94df27d8c40ff86ef892b7d50e0c6bb92ff4f69882596b27ddc",
+    "is_preserved": true
+  },
+  "model_preservation": {
+    "categorizer_file": "D:\\SUPERVISED PROJECT\\AI-Powered-Student-Achievement-Intelligence-Platform\\models\\achievement_categorizer_v1.0.1.joblib",
+    "categorizer_sha256": "e0f514a4286752948c069c43dda6626af9e4ace926ab899334d12af77353ddb3",
+    "classifier_file": "D:\\SUPERVISED PROJECT\\AI-Powered-Student-Achievement-Intelligence-Platform\\models\\achievement_classifier_v1.0.1.joblib",
+    "classifier_sha256": "1359534562ced43eca0309c33a25cc630ad1eef95f1a94a8e7ffdc9fc7eed2cd",
+    "is_preserved": true
+  },
+  "gold_corpus_preservation": {
+    "gold_task_file": "D:\\SUPERVISED PROJECT\\AI-Powered-Student-Achievement-Intelligence-Platform\\data\\annotations\\domain_categorization_gold_annotation_task.jsonl",
+    "verified_reference_records_count": 7,
+    "verified_reference_records_preserved": true,
+    "ai_proposals_promoted_to_gold": 0
+  },
+  "sample_validation_audit": {
+    "blind_csv_path": "D:\\SUPERVISED PROJECT\\AI-Powered-Student-Achievement-Intelligence-Platform\\data\\annotations\\ai_assisted\\domain_categorization_validation_sample_blind.csv",
+    "blind_csv_sha256": "7c2fd5f04bddc938d4b4f42ad8b9fbe94ee09aa250fb3bcc20d0d7d4fd70a4e2",
+    "key_jsonl_path": "D:\\SUPERVISED PROJECT\\AI-Powered-Student-Achievement-Intelligence-Platform\\data\\annotations\\ai_assisted\\domain_categorization_validation_sample_key.jsonl",
+    "key_jsonl_sha256": "831ae47d2af689a3d9ff31c8288647eb6226c2a97cd87478ed63d284b94b7011",
+    "id_integrity": {
+      "expected_count": 30,
+      "unique_ids_found": 30,
+      "ids_match_key": true
+    },
+    "reviewer_completion": {
+      "total_records": 30,
+      "completed_count": 30,
+      "pending_count": 0,
+      "adjudicated_count": 2,
+      "adjudicated_records": ["ACH000155", "ACH000537"]
+    },
+    "taxonomy_compliance": {
+      "canonical_tag_count": 10,
+      "invalid_tags_detected": 0
+    }
+  },
+  "verified_evaluation_metrics": {
+    "sample_size": 30,
+    "total_binary_decisions": 300,
+    "exact_match_count": 11,
+    "exact_match_ratio": 0.3667,
+    "hamming_loss": 0.0933,
+    "micro_metrics": {
+      "tp": 31,
+      "fp": 15,
+      "fn": 13,
+      "tn": 241,
+      "precision": 0.6739,
+      "recall": 0.7045,
+      "f1": 0.6889
+    },
+    "macro_metrics": {
+      "convention_1_vacuous_zero_support": {
+        "description": "Evaluator default: lbl_domain_nlp (support=0, fp=0) assigned vacuous 1.0; averaged across all 10 classes",
+        "precision": 0.7483,
+        "recall": 0.7286,
+        "f1": 0.7108
+      },
+      "convention_2_zero_division_zero": {
+        "description": "Scikit-learn default (zero_division=0.0): lbl_domain_nlp (support=0) assigned 0.0; averaged across all 10 classes",
+        "precision": 0.6483,
+        "recall": 0.6286,
+        "f1": 0.6108
+      },
+      "convention_3_support_filtered": {
+        "description": "Active classes only: averaged strictly across the 9 classes with positive ground-truth support",
+        "precision": 0.7204,
+        "recall": 0.6984,
+        "f1": 0.6787
+      },
+      "convention_4_support_weighted": {
+        "description": "Support-weighted: weighted by ground-truth support (44 total label instances)",
+        "precision": 0.7011,
+        "recall": 0.7045,
+        "f1": 0.6759
+      }
+    },
+    "per_tag_metrics": {
+      "lbl_domain_ai": {"tag_name": "Artificial Intelligence", "support": 4, "tp": 3, "fp": 2, "fn": 1, "tn": 24, "precision": 0.6, "recall": 0.75, "f1": 0.6667},
+      "lbl_domain_cv": {"tag_name": "Computer Vision", "support": 2, "tp": 2, "fp": 0, "fn": 0, "tn": 28, "precision": 1.0, "recall": 1.0, "f1": 1.0},
+      "lbl_domain_data": {"tag_name": "Data Engineering & Analytics", "support": 7, "tp": 3, "fp": 3, "fn": 4, "tn": 20, "precision": 0.5, "recall": 0.4286, "f1": 0.4615},
+      "lbl_domain_hardware": {"tag_name": "Hardware & IoT", "support": 6, "tp": 6, "fp": 3, "fn": 0, "tn": 21, "precision": 0.6667, "recall": 1.0, "f1": 0.8},
+      "lbl_domain_ml": {"tag_name": "Machine Learning", "support": 3, "tp": 1, "fp": 3, "fn": 2, "tn": 24, "precision": 0.25, "recall": 0.3333, "f1": 0.2857},
+      "lbl_domain_nlp": {"tag_name": "Natural Language Processing", "support": 0, "tp": 0, "fp": 0, "fn": 0, "tn": 30, "precision": 1.0, "recall": 1.0, "f1": 1.0, "note": "Zero positive support in sample; precision/recall vacuously 1.0 under Convention 1"},
+      "lbl_domain_other": {"tag_name": "Other Domain (Non-Computing)", "support": 4, "tp": 1, "fp": 0, "fn": 3, "tn": 26, "precision": 1.0, "recall": 0.25, "f1": 0.4},
+      "lbl_domain_security": {"tag_name": "Cybersecurity & Privacy", "support": 1, "tp": 1, "fp": 0, "fn": 0, "tn": 29, "precision": 1.0, "recall": 1.0, "f1": 1.0},
+      "lbl_domain_systems": {"tag_name": "Systems, Cloud & Architecture", "support": 14, "tp": 12, "fp": 3, "fn": 2, "tn": 13, "precision": 0.8, "recall": 0.8571, "f1": 0.8276},
+      "lbl_domain_web": {"tag_name": "Web Development & APIs", "support": 3, "tp": 2, "fp": 1, "fn": 1, "tn": 26, "precision": 0.6667, "recall": 0.6667, "f1": 0.6667}
+    },
+    "zero_tag_metrics": {
+      "support": 0,
+      "tp": 0,
+      "fp": 4,
+      "fn": 0,
+      "tn": 26,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "explanation": "Human ground truth assigned lbl_domain_other to non-computing claims; AI proposed zero tags ([]) on 4 non-computing records resulting in 4 false positives against explicit empty set"
+    }
+  },
+  "output_artifacts": {
+    "validation_report_md": "reports/step18_ai_annotation_validation_report.md",
+    "validation_status_json": "reports/step18_ai_annotation_validation_status.json",
+    "comparison_record_csv": "reports/step18_validation_record_comparison.csv"
+  },
+  "governance_compliance": {
+    "ai_proposals_status": "VALIDATED_BENCHMARKED_FOR_ASSISTANCE",
+    "production_thresholds_tuned": false,
+    "production_models_retrained": false,
+    "production_readiness_claimed": false,
+    "completion_criterion_met": true,
+    "autonomous_acceptance_permitted": false,
+    "recommendation": "Deploy AI pre-annotation strictly as a human-reviewed assistance queue for the remaining 138 pending records. Autonomous acceptance is disallowed due to 9.33% Hamming loss and lower recall on data/ML domains."
+  }
+}

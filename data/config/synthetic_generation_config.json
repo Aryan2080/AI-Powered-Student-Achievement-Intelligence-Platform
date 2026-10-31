@@ -1,0 +1,68 @@
+{
+  "generation_id": "GEN_v1_seed42_20261025",
+  "random_seed": 42,
+  "target_per_category": 110,
+  "num_categories": 14,
+  "expected_total": 1540,
+  "generation_strategy": "SCENARIO_BASED",
+  "categories": [
+    "HACKATHON",
+    "COMPETITION",
+    "RESEARCH_PUBLICATION",
+    "PATENT",
+    "INTERNSHIP",
+    "CERTIFICATION",
+    "PROJECT",
+    "WORKSHOP",
+    "CONFERENCE",
+    "LEADERSHIP",
+    "SPORTS",
+    "CULTURAL",
+    "VOLUNTEERING",
+    "OTHER"
+  ],
+  "controlled_vocabularies": {
+    "levels": [
+      "COLLEGE",
+      "UNIVERSITY",
+      "LOCAL",
+      "DISTRICT",
+      "STATE",
+      "NATIONAL",
+      "INTERNATIONAL",
+      "ORGANIZATIONAL",
+      "PROFESSIONAL",
+      "OTHER",
+      "UNKNOWN"
+    ],
+    "outcomes": [
+      "PARTICIPATION",
+      "COMPLETION",
+      "WINNER",
+      "FIRST_PLACE",
+      "SECOND_PLACE",
+      "THIRD_PLACE",
+      "FINALIST",
+      "PRESENTED",
+      "PUBLISHED",
+      "GRANTED",
+      "FILED",
+      "LEADERSHIP",
+      "RECOGNITION",
+      "OTHER",
+      "UNKNOWN"
+    ]
+  },
+  "linguistic_variation": [
+    "Formal Institutional Tone",
+    "Concise Resume Bullet Points",
+    "Detailed Technical Narrative",
+    "Award Citation Prose",
+    "Credential Verification Summary"
+  ],
+  "metadata_leakage_controls": [
+    "Neutral Achievement IDs (ACH######)",
+    "No category names in event or organization names",
+    "Exclusion of metadata fields from classifier training inputs"
+  ]
+}

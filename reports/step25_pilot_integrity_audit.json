@@ -1,0 +1,337 @@
+{
+  "audit_metadata": {
+    "step": "Step 25 \u2014 Step 24 Integrity Verification and Scaling Readiness",
+    "timestamp": "2026-10-28T20:05:50.992609+00:00",
+    "role": "Senior NLP/ML Engineer & Dataset Quality Auditor (Member 1)",
+    "branch": "feature/nlp-semantic",
+    "git_head": "c8c1b8084ff9d15955e0b456d9eccbe9c4cf6d90",
+    "audit_verdict": "VERIFIED_READY_FOR_STEP_26",
+    "final_decision": "READY FOR STEP 26"
+  },
+  "asset_integrity_verification": {
+    "master_dataset": {
+      "file_path": "data\\processed\\achievement_classification_dataset.csv",
+      "expected_sha256": "1a62b8d8b56bd94df27d8c40ff86ef892b7d50e0c6bb92ff4f69882596b27ddc",
+      "actual_sha256": "1a62b8d8b56bd94df27d8c40ff86ef892b7d50e0c6bb92ff4f69882596b27ddc",
+      "is_preserved": true
+    },
+    "production_categorizer": {
+      "file_path": "models\\achievement_categorizer_v1.0.1.joblib",
+      "expected_sha256": "e0f514a4286752948c069c43dda6626af9e4ace926ab899334d12af77353ddb3",
+      "actual_sha256": "e0f514a4286752948c069c43dda6626af9e4ace926ab899334d12af77353ddb3",
+      "is_preserved": true
+    },
+    "production_classifier": {
+      "file_path": "models\\achievement_classifier_v1.0.1.joblib",
+      "expected_sha256": "1359534562ced43eca0309c33a25cc630ad1eef95f1a94a8e7ffdc9fc7eed2cd",
+      "actual_sha256": "1359534562ced43eca0309c33a25cc630ad1eef95f1a94a8e7ffdc9fc7eed2cd",
+      "is_preserved": true
+    },
+    "blind_validation_sample_csv": {
+      "file_path": "data\\annotations\\ai_assisted\\domain_categorization_validation_sample_blind.csv",
+      "expected_sha256": "7c2fd5f04bddc938d4b4f42ad8b9fbe94ee09aa250fb3bcc20d0d7d4fd70a4e2",
+      "actual_sha256": "7c2fd5f04bddc938d4b4f42ad8b9fbe94ee09aa250fb3bcc20d0d7d4fd70a4e2",
+      "is_preserved": true
+    },
+    "blind_validation_sample_key": {
+      "file_path": "data\\annotations\\ai_assisted\\domain_categorization_validation_sample_key.jsonl",
+      "expected_sha256": "831ae47d2af689a3d9ff31c8288647eb6226c2a97cd87478ed63d284b94b7011",
+      "actual_sha256": "831ae47d2af689a3d9ff31c8288647eb6226c2a97cd87478ed63d284b94b7011",
+      "is_preserved": true
+    },
+    "gold_annotation_task_jsonl": {
+      "file_path": "data\\annotations\\domain_categorization_gold_annotation_task.jsonl",
+      "expected_sha256": "34b6fd7007c738fff120631e5203a479401cebc72406d102d9f86e09163e2fb7",
+      "actual_sha256": "34b6fd7007c738fff120631e5203a479401cebc72406d102d9f86e09163e2fb7",
+      "is_preserved": true
+    },
+    "train_split_csv": {
+      "file_path": "data\\splits\\train.csv",
+      "expected_sha256": "c5dc7c224cd98f17760f391cfb096867f50110860c8cf7341c5780eab371b635",
+      "actual_sha256": "c5dc7c224cd98f17760f391cfb096867f50110860c8cf7341c5780eab371b635",
+      "is_preserved": true
+    },
+    "validation_split_csv": {
+      "file_path": "data\\splits\\validation.csv",
+      "expected_sha256": "2b1afd584020ab234a4d3794ca99585ffdd640999fe188ccde73969216c337c9",
+      "actual_sha256": "2b1afd584020ab234a4d3794ca99585ffdd640999fe188ccde73969216c337c9",
+      "is_preserved": true
+    },
+    "test_split_csv": {
+      "file_path": "data\\splits\\test.csv",
+      "expected_sha256": "88445ea36d71223d8943e14aa96c30818f0682db5c9b32a82aa6ddba53120ac5",
+      "actual_sha256": "88445ea36d71223d8943e14aa96c30818f0682db5c9b32a82aa6ddba53120ac5",
+      "is_preserved": true
+    },
+    "pilot_queue_csv": {
+      "file_path": "data\\annotations\\ai_assisted\\pilot\\domain_categorization_pilot_queue.csv",
+      "expected_sha256": "0733247370a4914b6dafbcb49e8623d51a5cb4beb6d2f905f4221f5e0e3641c9",
+      "actual_sha256": "0733247370a4914b6dafbcb49e8623d51a5cb4beb6d2f905f4221f5e0e3641c9",
+      "is_preserved": true
+    },
+    "pilot_manifest_json": {
+      "file_path": "data\\annotations\\ai_assisted\\pilot\\domain_categorization_pilot_manifest.json",
+      "expected_sha256": "30443fd54265f676abcd62cd9d0ae24cbe26e8bd50322b074c699f32bda166a8",
+      "actual_sha256": "30443fd54265f676abcd62cd9d0ae24cbe26e8bd50322b074c699f32bda166a8",
+      "is_preserved": true
+    }
+  },
+  "pilot_cohort_verification": {
+    "total_records": 25,
+    "unique_record_ids": 25,
+    "manifest_sequence_concordance": true,
+    "disjoint_from_blind_validation_sample_30": true,
+    "disjoint_from_certified_reference_standards_7": true,
+    "held_out_test_split_confinement": true,
+    "reviewer_attribution": "Aryan",
+    "status_attribute": "HUMAN_APPROVED",
+    "status_compatibility_handling": "VALIDATED_WITHOUT_DATA_MUTATION"
+  },
+  "decision_metrics_audit": {
+    "reported_counts": {
+      "total_records": 25,
+      "accept_count": 12,
+      "modify_count": 13,
+      "reject_count": 0,
+      "unresolved_count": 0,
+      "accept_rate": 0.48,
+      "modify_rate": 0.52,
+      "reject_rate": 0.0,
+      "unresolved_rate": 0.0
+    },
+    "recomputed_counts": {
+      "total_records": 25,
+      "accept_count": 12,
+      "modify_count": 13,
+      "reject_count": 0,
+      "unresolved_count": 0,
+      "accept_rate": 0.48,
+      "modify_rate": 0.52,
+      "reject_rate": 0.0,
+      "unresolved_rate": 0.0
+    },
+    "concordance": true
+  },
+  "multilabel_metrics_audit": {
+    "reported_metrics": {
+      "sample_size": 25,
+      "total_binary_decisions": 250,
+      "total_binary_errors": 22,
+      "exact_match_count": 12,
+      "exact_match_ratio": 0.48,
+      "hamming_loss": 0.088,
+      "micro_metrics": {
+        "tp": 34,
+        "fp": 12,
+        "fn": 10,
+        "tn": 194,
+        "precision": 0.7391,
+        "recall": 0.7727,
+        "f1": 0.7556
+      },
+      "macro_metrics": {
+        "active_classes": {
+          "active_class_count": 10,
+          "precision": 0.5733,
+          "recall": 0.5917,
+          "f1": 0.5662
+        },
+        "all_classes_zero_div_zero": {
+          "class_count": 10,
+          "precision": 0.5733,
+          "recall": 0.5917,
+          "f1": 0.5662
+        },
+        "support_weighted": {
+          "total_support_instances": 44,
+          "precision": 0.7447,
+          "recall": 0.7727,
+          "f1": 0.7472
+        }
+      },
+      "per_tag_metrics": {
+        "lbl_domain_ai": {
+          "tag_name": "Artificial Intelligence",
+          "support": 4,
+          "tp": 2,
+          "fp": 3,
+          "fn": 2,
+          "tn": 18,
+          "precision": 0.4,
+          "recall": 0.5,
+          "f1": 0.4444
+        },
+        "lbl_domain_ml": {
+          "tag_name": "Machine Learning",
+          "support": 4,
+          "tp": 1,
+          "fp": 2,
+          "fn": 3,
+          "tn": 19,
+          "precision": 0.3333,
+          "recall": 0.25,
+          "f1": 0.2857
+        },
+        "lbl_domain_nlp": {
+          "tag_name": "Natural Language Processing",
+          "support": 1,
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "tn": 23,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "lbl_domain_cv": {
+          "tag_name": "Computer Vision",
+          "support": 1,
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 24,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "lbl_domain_security": {
+          "tag_name": "Cybersecurity & Privacy",
+          "support": 4,
+          "tp": 4,
+          "fp": 2,
+          "fn": 0,
+          "tn": 19,
+          "precision": 0.6667,
+          "recall": 1.0,
+          "f1": 0.8
+        },
+        "lbl_domain_systems": {
+          "tag_name": "Systems, Cloud & Architecture",
+          "support": 12,
+          "tp": 11,
+          "fp": 0,
+          "fn": 1,
+          "tn": 13,
+          "precision": 1.0,
+          "recall": 0.9167,
+          "f1": 0.9565
+        },
+        "lbl_domain_web": {
+          "tag_name": "Web Development & APIs",
+          "support": 4,
+          "tp": 3,
+          "fp": 3,
+          "fn": 1,
+          "tn": 18,
+          "precision": 0.5,
+          "recall": 0.75,
+          "f1": 0.6
+        },
+        "lbl_domain_data": {
+          "tag_name": "Data Engineering & Analytics",
+          "support": 5,
+          "tp": 5,
+          "fp": 1,
+          "fn": 0,
+          "tn": 19,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "f1": 0.9091
+        },
+        "lbl_domain_hardware": {
+          "tag_name": "Hardware & IoT",
+          "support": 7,
+          "tp": 7,
+          "fp": 0,
+          "fn": 0,
+          "tn": 18,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "lbl_domain_other": {
+          "tag_name": "Other Domain (Non-Computing)",
+          "support": 2,
+          "tp": 1,
+          "fp": 0,
+          "fn": 1,
+          "tn": 23,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667
+        }
+      }
+    },
+    "mathematical_consistency": true,
+    "summary_table": {
+      "exact_match_ratio": 0.48,
+      "hamming_loss": 0.088,
+      "micro_precision": 0.7391,
+      "micro_recall": 0.7727,
+      "micro_f1": 0.7556,
+      "macro_f1_active_10_classes": 0.5662,
+      "support_weighted_f1": 0.7472,
+      "total_binary_decisions": 250,
+      "total_binary_errors": 22,
+      "tp": 34,
+      "fp": 12,
+      "fn": 10,
+      "tn": 194
+    }
+  },
+  "disagreement_analysis_audit": {
+    "total_disagreements": 13,
+    "tags_removed_by_reviewer_ai_false_alarms": {
+      "lbl_domain_web": 3,
+      "lbl_domain_ai": 3,
+      "lbl_domain_nlp": 1,
+      "lbl_domain_security": 2,
+      "lbl_domain_ml": 2,
+      "lbl_domain_data": 1
+    },
+    "tags_added_by_reviewer_ai_misses": {
+      "lbl_domain_ai": 2,
+      "lbl_domain_cv": 1,
+      "lbl_domain_ml": 3,
+      "lbl_domain_nlp": 1,
+      "lbl_domain_systems": 1,
+      "lbl_domain_other": 1,
+      "lbl_domain_web": 1
+    },
+    "concordance_with_csv": true,
+    "none_semantics_verification": {
+      "none_treated_as_empty_set": true,
+      "lbl_domain_other_strictly_distinct": true,
+      "invalid_tags_detected": 0
+    }
+  },
+  "review_effort_timing_audit": {
+    "timing_data_present": false,
+    "status": "UNAVAILABLE_NOT_RECORDED",
+    "zero_fabrication_enforced": true,
+    "step24_report_remediation": {
+      "efficiency_claims_removed": true,
+      "speed_improvements_claim_rescinded": true,
+      "explicit_scaffolding_only_framing_applied": true
+    }
+  },
+  "regression_tests_status": {
+    "test_suite": "tests/test_pilot_evaluator.py",
+    "tests_passed": 12,
+    "tests_failed": 0,
+    "combined_with_blind_validator_tests": 24,
+    "combined_pass_rate": "100%"
+  },
+  "downstream_scaling_governance": {
+    "target_corpus": 113,
+    "master_task_total": 175,
+    "status": "READY_FOR_STEP_26",
+    "operational_conditions": [
+      "Mandatory 100% human-in-the-loop review; zero autonomous gold promotion.",
+      "Enforce AI vs. ML disambiguation protocol (reject AI/ML tags on framework name alone without model training).",
+      "Enforce strict web evidence grounding (disqualify hackathon tracks and unverified dashboards).",
+      "Train reviewers on compound multi-domain achievements to prevent AI false negatives."
+    ],
+    "next_action": "Present this audit report to the project owner. Upon explicit authorization, proceed to Step 26 to initialize the 113-record expansion queue with pre-populated AI scaffolds under strict human-in-the-loop review protocols."
+  }
+}

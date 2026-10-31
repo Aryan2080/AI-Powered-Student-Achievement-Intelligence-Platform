@@ -1,0 +1,263 @@
+{
+  "taxonomy_name": "Primary Student Achievement Taxonomy",
+  "taxonomy_version": "1.0.0",
+  "num_categories": 14,
+  "task_name": "primary_type",
+  "categories": [
+    {
+      "label": "HACKATHON",
+      "display_name": "Hackathon",
+      "definition": "Event-centric achievement: participation, placement, or team role in a competitive, bounded build event with a defined build window of up to seven calendar days, in which participants work toward a demonstrable software or hardware prototype, implementation, or minimum viable product.",
+      "inclusion_rules": [
+        "In-person or virtual hackathons with a defined build window of up to seven calendar days",
+        "Role-based participation (developer, designer, team lead) and placement (winner, runner-up, finalist)",
+        "The deliverable at the end of the build window must be a demonstrable software or hardware prototype"
+      ],
+      "exclusion_rules": [
+        "Events whose defined build window exceeds seven calendar days belong to PROJECT or COMPETITION",
+        "Algorithmic contests primarily judged through scored solutions or benchmark performance belong to COMPETITION",
+        "Workshops with no competitive build/judging belong to WORKSHOP"
+      ],
+      "examples": [
+        "Won 1st place out of 140 teams at Smart India Hackathon 2024 (Hardware Grand Finale)",
+        "Finalist at HackXelerate 48-Hour Open Hackathon building an edge computer vision prototype"
+      ]
+    },
+    {
+      "label": "COMPETITION",
+      "display_name": "Competition",
+      "definition": "Event-centric achievement: participation or placement in a judged competition whose primary deliverable is a scored, ranked, or formally judged submission or result (e.g. algorithmic solutions against test cases, models on benchmarks, case briefs, debates, or design contests).",
+      "inclusion_rules": [
+        "Programming, data-science, or ML challenges with scored or ranked submissions (ACM-ICPC, Kaggle)",
+        "Case competitions, debate, moot court, Model UN, or design contests adjudicated by judges",
+        "Olympiads, quiz championships, or named competitive events with formal placements"
+      ],
+      "exclusion_rules": [
+        "Time-boxed events (<= 7 days) whose primary deliverable is a demonstrable prototype belong to HACKATHON",
+        "Sports competitions belong to SPORTS; cultural performance contests belong to CULTURAL"
+      ],
+      "examples": [
+        "Clinched First Place in ACM-ICPC Asia Regional Preliminary Contest",
+        "Secured Bronze Medal in National Undergraduate Data Science Challenge"
+      ]
+    },
+    {
+      "label": "RESEARCH_PUBLICATION",
+      "display_name": "Research Publication",
+      "definition": "Authorship (first, co-, or named contributor) on a peer-reviewed paper, preprint, journal article, workshop paper, or technical report that reports original research.",
+      "inclusion_rules": [
+        "Peer-reviewed conference and journal papers",
+        "Workshop papers at major venues",
+        "arXiv or similar archival preprints with student as named author"
+      ],
+      "exclusion_rules": [
+        "Course term papers not submitted to an academic venue belong to PROJECT",
+        "Patents belong to PATENT"
+      ],
+      "examples": [
+        "Published a peer-reviewed research paper in IEEE Transactions on Artificial Intelligence",
+        "First author on study accepted for publication in ACM CIKM Proceedings"
+      ]
+    },
+    {
+      "label": "PATENT",
+      "display_name": "Patent",
+      "definition": "A granted or filed patent or utility model naming the student as inventor or co-inventor.",
+      "inclusion_rules": [
+        "Granted patents (national or international)",
+        "Filed patent applications with a published application number",
+        "Utility models filed with a government patent office"
+      ],
+      "exclusion_rules": [
+        "Trade secrets or internal invention disclosures without a filing",
+        "Published papers describing an invention without a patent filing belong to RESEARCH_PUBLICATION"
+      ],
+      "examples": [
+        "Co-inventor on patent application #202411012345 filed with the Indian Patent Office",
+        "Granted utility patent from USPTO for an intelligent energy harvesting circuit"
+      ]
+    },
+    {
+      "label": "INTERNSHIP",
+      "display_name": "Internship",
+      "definition": "A time-bounded professional work engagement at a company, lab, research group, or non-profit — paid or unpaid — undertaken while the student is enrolled.",
+      "inclusion_rules": [
+        "Industry internships at private companies or startups",
+        "Research internships at academic labs or national labs",
+        "Virtual or remote structured internships"
+      ],
+      "exclusion_rules": [
+        "Full-time post-graduation employment",
+        "Course-credit projects supervised only by university faculty belong to PROJECT",
+        "Certification programs belong to CERTIFICATION"
+      ],
+      "examples": [
+        "Completed a 10-week on-site internship as Software Engineering Intern at Siemens Technology India",
+        "Earned Outstanding Intern Performance Rating during 6-month Data Engineering internship"
+      ]
+    },
+    {
+      "label": "CERTIFICATION",
+      "display_name": "Certification",
+      "definition": "Completion of a credentialed training program issuing a formal certificate from a recognized provider, platform, or professional body.",
+      "inclusion_rules": [
+        "Industry certifications (AWS, GCP, Azure, Red Hat, Cisco, Kubernetes)",
+        "Platform-issued course certificates with verifiable credential identifiers (Coursera, DeepLearning.AI)",
+        "Professional body credentials (PMP, PSM I)"
+      ],
+      "exclusion_rules": [
+        "Participation certificate from a hackathon belongs to HACKATHON",
+        "Internship completion letters belong to INTERNSHIP",
+        "Workshop attendance badges without formal proctored assessment belong to WORKSHOP"
+      ],
+      "examples": [
+        "Passed proctored exam for AWS Certified Solutions Architect - Associate",
+        "Earned Google Cloud Professional Data Engineer certification credential"
+      ]
+    },
+    {
+      "label": "PROJECT",
+      "display_name": "Project",
+      "definition": "Artifact-centric achievement: a substantive piece of implementation, investigation, or development (code, system, hardware, report, or open-source contribution) with a describable objective, non-trivial scope, and documented deliverable.",
+      "inclusion_rules": [
+        "Capstone or final-year major undergraduate projects",
+        "Independently developed open-source software repositories or substantive merged pull requests",
+        "Technical hardware/software systems completed by student organizations"
+      ],
+      "exclusion_rules": [
+        "Event-centric achievements belong to HACKATHON, COMPETITION, or INTERNSHIP",
+        "Published papers reporting a project belong to RESEARCH_PUBLICATION; patents belong to PATENT",
+        "Routine toy tutorials without original contribution"
+      ],
+      "examples": [
+        "Engineered an autonomous agricultural drone survey platform as our final year capstone project",
+        "Developed and open-sourced a high-performance vector indexing microservice with 1,200+ GitHub stars"
+      ]
+    },
+    {
+      "label": "WORKSHOP",
+      "display_name": "Workshop",
+      "definition": "Participation in a workshop, bootcamp, tutorial, or short training event (hours to a few days) focused on skills transfer rather than competition or formal credentialing.",
+      "inclusion_rules": [
+        "In-person or virtual technical workshops organized by universities or industry",
+        "Short training bootcamps that do not issue a formal industry credential",
+        "Conference-colocated tutorials and hands-on masterclasses"
+      ],
+      "exclusion_rules": [
+        "Formally credentialed courses issuing proctored certifications belong to CERTIFICATION",
+        "Competitive build bootcamps with judged rankings belong to HACKATHON"
+      ],
+      "examples": [
+        "Completed 3-day practical workshop on Advanced Cyber Threat Hunting Intensive conducted by Cisco Systems",
+        "Attended 5-day hands-on training on Enterprise Microservices Architecture with Kubernetes"
+      ]
+    },
+    {
+      "label": "CONFERENCE",
+      "display_name": "Conference",
+      "definition": "Attendance, oral presentation, poster, demo, or named role at an academic or professional conference, without a corresponding peer-reviewed paper claimed as the achievement.",
+      "inclusion_rules": [
+        "Delivered a talk, poster, or demo at an academic conference",
+        "Student volunteer or organizing-committee technical lead",
+        "Official student delegate attending on a competitive travel scholarship"
+      ],
+      "exclusion_rules": [
+        "A peer-reviewed archival paper at the same conference belongs to RESEARCH_PUBLICATION",
+        "Colocated hackathons belong to HACKATHON"
+      ],
+      "examples": [
+        "Presented an interactive research poster at IEEE International Conference on Advanced Computing",
+        "Served as Student Technical Coordinator for National Symposium on VLSI"
+      ]
+    },
+    {
+      "label": "LEADERSHIP",
+      "display_name": "Leadership",
+      "definition": "A named leadership, officer, or coordinator role in a student organization, campus body, chapter of a professional society, or major event-organizing team.",
+      "inclusion_rules": [
+        "President, secretary, treasurer, or named officer of a recognized student organization",
+        "Student chapter chair of a professional society (ACM, IEEE, GDSC)",
+        "Lead convener or chief organizer of an inter-collegiate conference or festival"
+      ],
+      "exclusion_rules": [
+        "Team participation without a designated leadership role",
+        "Technical contribution inside a project belongs to PROJECT"
+      ],
+      "examples": [
+        "Elected President of the ACM Student Chapter for the 2023-2024 academic session",
+        "Served as Lead Organizer for Annual National Collegiate Technical Fest"
+      ]
+    },
+    {
+      "label": "SPORTS",
+      "display_name": "Sports",
+      "definition": "Participation, representation, or placement in an organized athletic activity at university, state, national, or higher competitive levels.",
+      "inclusion_rules": [
+        "Team membership at inter-college, inter-university, state, or national tournaments",
+        "Individual sports placements, medals, and rankings (badminton, athletics, chess, swimming)",
+        "Named tournament MVP or squad captain"
+      ],
+      "exclusion_rules": [
+        "Casual recreational gym activity without structured tournament participation",
+        "E-sports contests belong to COMPETITION"
+      ],
+      "examples": [
+        "Won Gold Medal in badminton at All-India Inter-University Tournament",
+        "Captained the university basketball team to victory in State Collegiate Championship"
+      ]
+    },
+    {
+      "label": "CULTURAL",
+      "display_name": "Cultural",
+      "definition": "Participation, performance, or placement in a cultural, artistic, literary, musical, or theatrical activity.",
+      "inclusion_rules": [
+        "Music, dance, theatre, film, fine arts, photography, or debate performances",
+        "Placement in inter-collegiate or national cultural festivals",
+        "Creative writing or poetry slam recognition"
+      ],
+      "exclusion_rules": [
+        "Technical festival competitions belong to HACKATHON or COMPETITION",
+        "Leadership of a cultural society belongs to LEADERSHIP"
+      ],
+      "examples": [
+        "Awarded First Prize in Classical Vocal Music at National Inter-University Youth Cultural Festival",
+        "Secured 2nd Position in Bharatanatyam Dance at State Collegiate Festival"
+      ]
+    },
+    {
+      "label": "VOLUNTEERING",
+      "display_name": "Volunteering",
+      "definition": "Sustained or event-based volunteering with a non-profit, NGO, civic body, or community initiative where the primary purpose is community service.",
+      "inclusion_rules": [
+        "Service with an NGO, non-profit, or community civic initiative",
+        "Teaching assistant or tutoring roles done for underprivileged outreach programs",
+        "Disaster relief or public health awareness drives"
+      ],
+      "exclusion_rules": [
+        "Paid internships with defined deliverables belong to INTERNSHIP",
+        "Student club officer duties belong to LEADERSHIP"
+      ],
+      "examples": [
+        "Completed 80 verified hours of community service with Pratham Education Initiative teaching digital literacy",
+        "Recognized as Volunteer of the Quarter by Goonj for leading youth flood relief mission"
+      ]
+    },
+    {
+      "label": "OTHER",
+      "display_name": "Other",
+      "definition": "Catch-all for legitimate achievements that do not fit the thirteen specific primary categories (e.g. academic convocation medals, scholastic merit scholarships, fellowships, international student exchanges, dean's honors).",
+      "inclusion_rules": [
+        "Scholastic honors, university gold medals, and academic rank awards",
+        "Government or university merit scholarships and fellowships",
+        "International academic exchange residencies"
+      ],
+      "exclusion_rules": [
+        "Do not use OTHER to bypass resolving an ambiguous record that fits a primary category"
+      ],
+      "examples": [
+        "Received University Gold Medal for securing Rank 1 across all 8 semesters of B.Tech program",
+        "Conferred National Merit Scholarship for Academic Excellence by Ministry of Education"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1383 @@
+{
+  "manifest_version": "1.0.0",
+  "generated_at": "2026-10-27T02:01:41.076327+00:00",
+  "benchmark_dataset": {
+    "source_path": "data/annotations/extraction_evaluation_samples.jsonl",
+    "total_samples": 75,
+    "synthetic_status": {
+      "EXPLICITLY_SYNTHETIC": 75
+    },
+    "template_breakdown": {
+      "CERTIFICATE": 47,
+      "INTERNSHIP_LETTER": 10,
+      "PUBLICATION_METADATA": 9,
+      "CONFERENCE_PROGRAM": 9
+    },
+    "quality_conditions": {
+      "CLEAN": 37,
+      "NOISY_SPACING": 19,
+      "OCR_PUNCTUATION_ARTIFACT": 10,
+      "CASE_INSENSITIVE": 9
+    },
+    "category_distribution": {
+      "HACKATHON": 10,
+      "CERTIFICATION": 10,
+      "INTERNSHIP": 10,
+      "RESEARCH_PUBLICATION": 9,
+      "COMPETITION": 9,
+      "WORKSHOP": 9,
+      "CONFERENCE": 9,
+      "SPORTS": 9
+    }
+  },
+  "field_level_performance": {
+    "EVENT_NAME": {
+      "support": 75,
+      "correct": 75,
+      "accuracy": 1.0
+    },
+    "ORGANIZATION": {
+      "support": 75,
+      "correct": 75,
+      "accuracy": 1.0
+    },
+    "RANK": {
+      "support": 75,
+      "correct": 75,
+      "accuracy": 1.0
+    },
+    "LEVEL": {
+      "support": 75,
+      "correct": 75,
+      "accuracy": 1.0
+    },
+    "OUTCOME": {
+      "support": 75,
+      "correct": 75,
+      "accuracy": 1.0
+    },
+    "DATE": {
+      "support": 75,
+      "correct": 75,
+      "accuracy": 1.0
+    },
+    "CATEGORY": {
+      "support": 75,
+      "correct": 75,
+      "accuracy": 1.0
+    }
+  },
+  "performance_by_template": {
+    "CERTIFICATE": {
+      "support": 47,
+      "all_fields_correct": 47,
+      "accuracy": 1.0
+    },
+    "INTERNSHIP_LETTER": {
+      "support": 10,
+      "all_fields_correct": 10,
+      "accuracy": 1.0
+    },
+    "PUBLICATION_METADATA": {
+      "support": 9,
+      "all_fields_correct": 9,
+      "accuracy": 1.0
+    },
+    "CONFERENCE_PROGRAM": {
+      "support": 9,
+      "all_fields_correct": 9,
+      "accuracy": 1.0
+    }
+  },
+  "performance_by_quality_condition": {
+    "CLEAN": {
+      "support": 37,
+      "all_fields_correct": 37,
+      "accuracy": 1.0
+    },
+    "NOISY_SPACING": {
+      "support": 19,
+      "all_fields_correct": 19,
+      "accuracy": 1.0
+    },
+    "OCR_PUNCTUATION_ARTIFACT": {
+      "support": 10,
+      "all_fields_correct": 10,
+      "accuracy": 1.0
+    },
+    "CASE_INSENSITIVE": {
+      "support": 9,
+      "all_fields_correct": 9,
+      "accuracy": 1.0
+    }
+  },
+  "classification_performance": {
+    "total_evaluated": 75,
+    "correct_predictions": 75,
+    "accuracy": 1.0,
+    "by_category": {
+      "HACKATHON": {
+        "support": 10,
+        "correct": 10,
+        "accuracy": 1.0
+      },
+      "CERTIFICATION": {
+        "support": 10,
+        "correct": 10,
+        "accuracy": 1.0
+      },
+      "INTERNSHIP": {
+        "support": 10,
+        "correct": 10,
+        "accuracy": 1.0
+      },
+      "RESEARCH_PUBLICATION": {
+        "support": 9,
+        "correct": 9,
+        "accuracy": 1.0
+      },
+      "COMPETITION": {
+        "support": 9,
+        "correct": 9,
+        "accuracy": 1.0
+      },
+      "WORKSHOP": {
+        "support": 9,
+        "correct": 9,
+        "accuracy": 1.0
+      },
+      "CONFERENCE": {
+        "support": 9,
+        "correct": 9,
+        "accuracy": 1.0
+      },
+      "SPORTS": {
+        "support": 9,
+        "correct": 9,
+        "accuracy": 1.0
+      }
+    }
+  },
+  "review_routing_audit": {
+    "routing_summary": {
+      "auto_accepted_clean": 0,
+      "auto_accepted_noisy": 10,
+      "review_required_clean": 37,
+      "review_required_noisy": 28,
+      "false_auto_accepts": 0
+    },
+    "false_auto_acceptance_rate": 0.0,
+    "total_review_required": 65,
+    "total_auto_accepted": 10
+  },
+  "confidence_semantics_audit": {
+    "field_confidence": {
+      "type": "Heuristic Confidence Score",
+      "range": "[0.00, 1.00]",
+      "basis": "Lexical cue hierarchy, boundary regex strength, and source completeness.",
+      "calibrated": false
+    },
+    "classification_confidence": {
+      "type": "Calibrated Class Probability",
+      "range": "[0.00, 1.00]",
+      "basis": "Logistic Regression predict_proba with balanced class weighting over TF-IDF features.",
+      "calibrated": true
+    }
+  },
+  "date_semantics_audit": {
+    "event_date": "Date on which competition, hackathon, or conference took place (cues: 'held on', 'conducted on').",
+    "issue_date": "Date on which certificate or award document was formally signed/issued (cues: 'issued on', 'date of issue').",
+    "conflict_policy": "Contradictory dates for the same event timeline automatically trigger review_required=True."
+  },
+  "sample_evaluations": [
+    {
+      "document_id": "DOC_EVAL_0001",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "HACKATHON",
+      "predicted_category": "HACKATHON",
+      "classifier_confidence": 0.13980629627617377,
+      "field_confidence": 0.9466666666666667,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.14) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 1,
+      "skills_f1": 0.5
+    },
+    {
+      "document_id": "DOC_EVAL_0002",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "NOISY_SPACING",
+      "category": "CERTIFICATION",
+      "predicted_category": "CERTIFICATION",
+      "classifier_confidence": 0.41496834347298245,
+      "field_confidence": 0.9416666666666668,
+      "review_required": false,
+      "review_reasons": [],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 4,
+      "skills_f1": 0.8571
+    },
+    {
+      "document_id": "DOC_EVAL_0003",
+      "document_type": "INTERNSHIP_LETTER",
+      "quality_condition": "OCR_PUNCTUATION_ARTIFACT",
+      "category": "INTERNSHIP",
+      "predicted_category": "INTERNSHIP",
+      "classifier_confidence": 0.25232761593343367,
+      "field_confidence": 0.9083333333333333,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.25) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 4,
+      "skills_f1": 0.8571
+    },
+    {
+      "document_id": "DOC_EVAL_0004",
+      "document_type": "PUBLICATION_METADATA",
+      "quality_condition": "CLEAN",
+      "category": "RESEARCH_PUBLICATION",
+      "predicted_category": "RESEARCH_PUBLICATION",
+      "classifier_confidence": 0.24134871356526877,
+      "field_confidence": 0.8799999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document.",
+        "Classifier confidence (0.24) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 0.8
+    },
+    {
+      "document_id": "DOC_EVAL_0005",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "NOISY_SPACING",
+      "category": "COMPETITION",
+      "predicted_category": "COMPETITION",
+      "classifier_confidence": 0.13314079651497043,
+      "field_confidence": 0.9466666666666667,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.13) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 3,
+      "skills_f1": 1.0
+    },
+    {
+      "document_id": "DOC_EVAL_0006",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "WORKSHOP",
+      "predicted_category": "WORKSHOP",
+      "classifier_confidence": 0.3589712759583481,
+      "field_confidence": 0.875,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 0.8
+    },
+    {
+      "document_id": "DOC_EVAL_0007",
+      "document_type": "CONFERENCE_PROGRAM",
+      "quality_condition": "CASE_INSENSITIVE",
+      "category": "CONFERENCE",
+      "predicted_category": "CONFERENCE",
+      "classifier_confidence": 0.31675295077758014,
+      "field_confidence": 0.8849999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.32) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 1.0
+    },
+    {
+      "document_id": "DOC_EVAL_0008",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "SPORTS",
+      "predicted_category": "SPORTS",
+      "classifier_confidence": 0.35821153323791594,
+      "field_confidence": 0.8799999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 0,
+      "skills_f1": 0.0
+    },
+    {
+      "document_id": "DOC_EVAL_0009",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "HACKATHON",
+      "predicted_category": "HACKATHON",
+      "classifier_confidence": 0.14213579216649908,
+      "field_confidence": 0.9466666666666667,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.14) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 1,
+      "skills_f1": 0.5
+    },
+    {
+      "document_id": "DOC_EVAL_0010",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "NOISY_SPACING",
+      "category": "CERTIFICATION",
+      "predicted_category": "CERTIFICATION",
+      "classifier_confidence": 0.40631177735547913,
+      "field_confidence": 0.9416666666666668,
+      "review_required": false,
+      "review_reasons": [],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 4,
+      "skills_f1": 0.8571
+    },
+    {
+      "document_id": "DOC_EVAL_0011",
+      "document_type": "INTERNSHIP_LETTER",
+      "quality_condition": "OCR_PUNCTUATION_ARTIFACT",
+      "category": "INTERNSHIP",
+      "predicted_category": "INTERNSHIP",
+      "classifier_confidence": 0.24601895885572678,
+      "field_confidence": 0.9083333333333333,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.25) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 4,
+      "skills_f1": 0.8571
+    },
+    {
+      "document_id": "DOC_EVAL_0012",
+      "document_type": "PUBLICATION_METADATA",
+      "quality_condition": "CLEAN",
+      "category": "RESEARCH_PUBLICATION",
+      "predicted_category": "RESEARCH_PUBLICATION",
+      "classifier_confidence": 0.2370410575102032,
+      "field_confidence": 0.8799999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document.",
+        "Classifier confidence (0.24) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 0.8
+    },
+    {
+      "document_id": "DOC_EVAL_0013",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "NOISY_SPACING",
+      "category": "COMPETITION",
+      "predicted_category": "COMPETITION",
+      "classifier_confidence": 0.13289735194783905,
+      "field_confidence": 0.9466666666666667,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.13) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 3,
+      "skills_f1": 1.0
+    },
+    {
+      "document_id": "DOC_EVAL_0014",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "WORKSHOP",
+      "predicted_category": "WORKSHOP",
+      "classifier_confidence": 0.3549394443018085,
+      "field_confidence": 0.875,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 0.8
+    },
+    {
+      "document_id": "DOC_EVAL_0015",
+      "document_type": "CONFERENCE_PROGRAM",
+      "quality_condition": "CASE_INSENSITIVE",
+      "category": "CONFERENCE",
+      "predicted_category": "CONFERENCE",
+      "classifier_confidence": 0.3200572131829217,
+      "field_confidence": 0.8849999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.32) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 1.0
+    },
+    {
+      "document_id": "DOC_EVAL_0016",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "SPORTS",
+      "predicted_category": "SPORTS",
+      "classifier_confidence": 0.356608946164661,
+      "field_confidence": 0.8799999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 0,
+      "skills_f1": 0.0
+    },
+    {
+      "document_id": "DOC_EVAL_0017",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "HACKATHON",
+      "predicted_category": "HACKATHON",
+      "classifier_confidence": 0.13887112080381997,
+      "field_confidence": 0.9466666666666667,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.14) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 1,
+      "skills_f1": 0.5
+    },
+    {
+      "document_id": "DOC_EVAL_0018",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "NOISY_SPACING",
+      "category": "CERTIFICATION",
+      "predicted_category": "CERTIFICATION",
+      "classifier_confidence": 0.4063999247983244,
+      "field_confidence": 0.9416666666666668,
+      "review_required": false,
+      "review_reasons": [],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 4,
+      "skills_f1": 0.8571
+    },
+    {
+      "document_id": "DOC_EVAL_0019",
+      "document_type": "INTERNSHIP_LETTER",
+      "quality_condition": "OCR_PUNCTUATION_ARTIFACT",
+      "category": "INTERNSHIP",
+      "predicted_category": "INTERNSHIP",
+      "classifier_confidence": 0.24616552205030973,
+      "field_confidence": 0.9083333333333333,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.25) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 4,
+      "skills_f1": 0.8571
+    },
+    {
+      "document_id": "DOC_EVAL_0020",
+      "document_type": "PUBLICATION_METADATA",
+      "quality_condition": "CLEAN",
+      "category": "RESEARCH_PUBLICATION",
+      "predicted_category": "RESEARCH_PUBLICATION",
+      "classifier_confidence": 0.23705406666375858,
+      "field_confidence": 0.8799999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document.",
+        "Classifier confidence (0.24) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 0.8
+    },
+    {
+      "document_id": "DOC_EVAL_0021",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "NOISY_SPACING",
+      "category": "COMPETITION",
+      "predicted_category": "COMPETITION",
+      "classifier_confidence": 0.1353506078440863,
+      "field_confidence": 0.9466666666666667,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.14) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 3,
+      "skills_f1": 1.0
+    },
+    {
+      "document_id": "DOC_EVAL_0022",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "WORKSHOP",
+      "predicted_category": "WORKSHOP",
+      "classifier_confidence": 0.35484468183790047,
+      "field_confidence": 0.875,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 0.8
+    },
+    {
+      "document_id": "DOC_EVAL_0023",
+      "document_type": "CONFERENCE_PROGRAM",
+      "quality_condition": "CASE_INSENSITIVE",
+      "category": "CONFERENCE",
+      "predicted_category": "CONFERENCE",
+      "classifier_confidence": 0.31900241594334194,
+      "field_confidence": 0.8849999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.32) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 1.0
+    },
+    {
+      "document_id": "DOC_EVAL_0024",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "SPORTS",
+      "predicted_category": "SPORTS",
+      "classifier_confidence": 0.3597810070752114,
+      "field_confidence": 0.8799999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 0,
+      "skills_f1": 0.0
+    },
+    {
+      "document_id": "DOC_EVAL_0025",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "HACKATHON",
+      "predicted_category": "HACKATHON",
+      "classifier_confidence": 0.14070468978992753,
+      "field_confidence": 0.9466666666666667,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.14) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 1,
+      "skills_f1": 0.5
+    },
+    {
+      "document_id": "DOC_EVAL_0026",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "NOISY_SPACING",
+      "category": "CERTIFICATION",
+      "predicted_category": "CERTIFICATION",
+      "classifier_confidence": 0.4064906172941605,
+      "field_confidence": 0.9416666666666668,
+      "review_required": false,
+      "review_reasons": [],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 4,
+      "skills_f1": 0.8571
+    },
+    {
+      "document_id": "DOC_EVAL_0027",
+      "document_type": "INTERNSHIP_LETTER",
+      "quality_condition": "OCR_PUNCTUATION_ARTIFACT",
+      "category": "INTERNSHIP",
+      "predicted_category": "INTERNSHIP",
+      "classifier_confidence": 0.24626654180662705,
+      "field_confidence": 0.9083333333333333,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.25) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 4,
+      "skills_f1": 0.8571
+    },
+    {
+      "document_id": "DOC_EVAL_0028",
+      "document_type": "PUBLICATION_METADATA",
+      "quality_condition": "CLEAN",
+      "category": "RESEARCH_PUBLICATION",
+      "predicted_category": "RESEARCH_PUBLICATION",
+      "classifier_confidence": 0.23711821625119817,
+      "field_confidence": 0.8799999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document.",
+        "Classifier confidence (0.24) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 0.8
+    },
+    {
+      "document_id": "DOC_EVAL_0029",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "NOISY_SPACING",
+      "category": "COMPETITION",
+      "predicted_category": "COMPETITION",
+      "classifier_confidence": 0.1337861494516974,
+      "field_confidence": 0.9466666666666667,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.13) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 3,
+      "skills_f1": 1.0
+    },
+    {
+      "document_id": "DOC_EVAL_0030",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "WORKSHOP",
+      "predicted_category": "WORKSHOP",
+      "classifier_confidence": 0.35404008550797234,
+      "field_confidence": 0.875,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 0.8
+    },
+    {
+      "document_id": "DOC_EVAL_0031",
+      "document_type": "CONFERENCE_PROGRAM",
+      "quality_condition": "CASE_INSENSITIVE",
+      "category": "CONFERENCE",
+      "predicted_category": "CONFERENCE",
+      "classifier_confidence": 0.3198169066388693,
+      "field_confidence": 0.8849999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.32) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 1.0
+    },
+    {
+      "document_id": "DOC_EVAL_0032",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "SPORTS",
+      "predicted_category": "SPORTS",
+      "classifier_confidence": 0.3574288993474556,
+      "field_confidence": 0.8799999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 0,
+      "skills_f1": 0.0
+    },
+    {
+      "document_id": "DOC_EVAL_0033",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "HACKATHON",
+      "predicted_category": "HACKATHON",
+      "classifier_confidence": 0.14001003894840441,
+      "field_confidence": 0.9466666666666667,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.14) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 1,
+      "skills_f1": 0.5
+    },
+    {
+      "document_id": "DOC_EVAL_0034",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "NOISY_SPACING",
+      "category": "CERTIFICATION",
+      "predicted_category": "CERTIFICATION",
+      "classifier_confidence": 0.40635980385491566,
+      "field_confidence": 0.9416666666666668,
+      "review_required": false,
+      "review_reasons": [],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 4,
+      "skills_f1": 0.8571
+    },
+    {
+      "document_id": "DOC_EVAL_0035",
+      "document_type": "INTERNSHIP_LETTER",
+      "quality_condition": "OCR_PUNCTUATION_ARTIFACT",
+      "category": "INTERNSHIP",
+      "predicted_category": "INTERNSHIP",
+      "classifier_confidence": 0.24645550477098763,
+      "field_confidence": 0.9083333333333333,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.25) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 4,
+      "skills_f1": 0.8571
+    },
+    {
+      "document_id": "DOC_EVAL_0036",
+      "document_type": "PUBLICATION_METADATA",
+      "quality_condition": "CLEAN",
+      "category": "RESEARCH_PUBLICATION",
+      "predicted_category": "RESEARCH_PUBLICATION",
+      "classifier_confidence": 0.23720235438941156,
+      "field_confidence": 0.8799999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document.",
+        "Classifier confidence (0.24) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 0.8
+    },
+    {
+      "document_id": "DOC_EVAL_0037",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "NOISY_SPACING",
+      "category": "COMPETITION",
+      "predicted_category": "COMPETITION",
+      "classifier_confidence": 0.13491884609613408,
+      "field_confidence": 0.9466666666666667,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.13) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 3,
+      "skills_f1": 1.0
+    },
+    {
+      "document_id": "DOC_EVAL_0038",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "WORKSHOP",
+      "predicted_category": "WORKSHOP",
+      "classifier_confidence": 0.3556711055049559,
+      "field_confidence": 0.875,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 0.8
+    },
+    {
+      "document_id": "DOC_EVAL_0039",
+      "document_type": "CONFERENCE_PROGRAM",
+      "quality_condition": "CASE_INSENSITIVE",
+      "category": "CONFERENCE",
+      "predicted_category": "CONFERENCE",
+      "classifier_confidence": 0.3135708513270933,
+      "field_confidence": 0.8849999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.31) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 1.0
+    },
+    {
+      "document_id": "DOC_EVAL_0040",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "SPORTS",
+      "predicted_category": "SPORTS",
+      "classifier_confidence": 0.3569887566733112,
+      "field_confidence": 0.8799999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 0,
+      "skills_f1": 0.0
+    },
+    {
+      "document_id": "DOC_EVAL_0041",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "HACKATHON",
+      "predicted_category": "HACKATHON",
+      "classifier_confidence": 0.13980629627617377,
+      "field_confidence": 0.9466666666666667,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.14) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 1,
+      "skills_f1": 0.5
+    },
+    {
+      "document_id": "DOC_EVAL_0042",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "NOISY_SPACING",
+      "category": "CERTIFICATION",
+      "predicted_category": "CERTIFICATION",
+      "classifier_confidence": 0.41496834347298245,
+      "field_confidence": 0.9416666666666668,
+      "review_required": false,
+      "review_reasons": [],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 4,
+      "skills_f1": 0.8571
+    },
+    {
+      "document_id": "DOC_EVAL_0043",
+      "document_type": "INTERNSHIP_LETTER",
+      "quality_condition": "OCR_PUNCTUATION_ARTIFACT",
+      "category": "INTERNSHIP",
+      "predicted_category": "INTERNSHIP",
+      "classifier_confidence": 0.25232761593343367,
+      "field_confidence": 0.9083333333333333,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.25) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 4,
+      "skills_f1": 0.8571
+    },
+    {
+      "document_id": "DOC_EVAL_0044",
+      "document_type": "PUBLICATION_METADATA",
+      "quality_condition": "CLEAN",
+      "category": "RESEARCH_PUBLICATION",
+      "predicted_category": "RESEARCH_PUBLICATION",
+      "classifier_confidence": 0.24134871356526877,
+      "field_confidence": 0.8799999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document.",
+        "Classifier confidence (0.24) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 0.8
+    },
+    {
+      "document_id": "DOC_EVAL_0045",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "NOISY_SPACING",
+      "category": "COMPETITION",
+      "predicted_category": "COMPETITION",
+      "classifier_confidence": 0.13314079651497043,
+      "field_confidence": 0.9466666666666667,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.13) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 3,
+      "skills_f1": 1.0
+    },
+    {
+      "document_id": "DOC_EVAL_0046",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "WORKSHOP",
+      "predicted_category": "WORKSHOP",
+      "classifier_confidence": 0.3589712759583481,
+      "field_confidence": 0.875,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 0.8
+    },
+    {
+      "document_id": "DOC_EVAL_0047",
+      "document_type": "CONFERENCE_PROGRAM",
+      "quality_condition": "CASE_INSENSITIVE",
+      "category": "CONFERENCE",
+      "predicted_category": "CONFERENCE",
+      "classifier_confidence": 0.31675295077758014,
+      "field_confidence": 0.8849999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.32) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 1.0
+    },
+    {
+      "document_id": "DOC_EVAL_0048",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "SPORTS",
+      "predicted_category": "SPORTS",
+      "classifier_confidence": 0.35821153323791594,
+      "field_confidence": 0.8799999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 0,
+      "skills_f1": 0.0
+    },
+    {
+      "document_id": "DOC_EVAL_0049",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "HACKATHON",
+      "predicted_category": "HACKATHON",
+      "classifier_confidence": 0.14213579216649908,
+      "field_confidence": 0.9466666666666667,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.14) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 1,
+      "skills_f1": 0.5
+    },
+    {
+      "document_id": "DOC_EVAL_0050",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "NOISY_SPACING",
+      "category": "CERTIFICATION",
+      "predicted_category": "CERTIFICATION",
+      "classifier_confidence": 0.40631177735547913,
+      "field_confidence": 0.9416666666666668,
+      "review_required": false,
+      "review_reasons": [],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 4,
+      "skills_f1": 0.8571
+    },
+    {
+      "document_id": "DOC_EVAL_0051",
+      "document_type": "INTERNSHIP_LETTER",
+      "quality_condition": "OCR_PUNCTUATION_ARTIFACT",
+      "category": "INTERNSHIP",
+      "predicted_category": "INTERNSHIP",
+      "classifier_confidence": 0.24601895885572678,
+      "field_confidence": 0.9083333333333333,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.25) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 4,
+      "skills_f1": 0.8571
+    },
+    {
+      "document_id": "DOC_EVAL_0052",
+      "document_type": "PUBLICATION_METADATA",
+      "quality_condition": "CLEAN",
+      "category": "RESEARCH_PUBLICATION",
+      "predicted_category": "RESEARCH_PUBLICATION",
+      "classifier_confidence": 0.2370410575102032,
+      "field_confidence": 0.8799999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document.",
+        "Classifier confidence (0.24) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 0.8
+    },
+    {
+      "document_id": "DOC_EVAL_0053",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "NOISY_SPACING",
+      "category": "COMPETITION",
+      "predicted_category": "COMPETITION",
+      "classifier_confidence": 0.13289735194783905,
+      "field_confidence": 0.9466666666666667,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.13) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 3,
+      "skills_f1": 1.0
+    },
+    {
+      "document_id": "DOC_EVAL_0054",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "WORKSHOP",
+      "predicted_category": "WORKSHOP",
+      "classifier_confidence": 0.3549394443018085,
+      "field_confidence": 0.875,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 0.8
+    },
+    {
+      "document_id": "DOC_EVAL_0055",
+      "document_type": "CONFERENCE_PROGRAM",
+      "quality_condition": "CASE_INSENSITIVE",
+      "category": "CONFERENCE",
+      "predicted_category": "CONFERENCE",
+      "classifier_confidence": 0.3200572131829217,
+      "field_confidence": 0.8849999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.32) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 1.0
+    },
+    {
+      "document_id": "DOC_EVAL_0056",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "SPORTS",
+      "predicted_category": "SPORTS",
+      "classifier_confidence": 0.356608946164661,
+      "field_confidence": 0.8799999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 0,
+      "skills_f1": 0.0
+    },
+    {
+      "document_id": "DOC_EVAL_0057",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "HACKATHON",
+      "predicted_category": "HACKATHON",
+      "classifier_confidence": 0.13887112080381997,
+      "field_confidence": 0.9466666666666667,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.14) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 1,
+      "skills_f1": 0.5
+    },
+    {
+      "document_id": "DOC_EVAL_0058",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "NOISY_SPACING",
+      "category": "CERTIFICATION",
+      "predicted_category": "CERTIFICATION",
+      "classifier_confidence": 0.4063999247983244,
+      "field_confidence": 0.9416666666666668,
+      "review_required": false,
+      "review_reasons": [],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 4,
+      "skills_f1": 0.8571
+    },
+    {
+      "document_id": "DOC_EVAL_0059",
+      "document_type": "INTERNSHIP_LETTER",
+      "quality_condition": "OCR_PUNCTUATION_ARTIFACT",
+      "category": "INTERNSHIP",
+      "predicted_category": "INTERNSHIP",
+      "classifier_confidence": 0.24616552205030973,
+      "field_confidence": 0.9083333333333333,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.25) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 4,
+      "skills_f1": 0.8571
+    },
+    {
+      "document_id": "DOC_EVAL_0060",
+      "document_type": "PUBLICATION_METADATA",
+      "quality_condition": "CLEAN",
+      "category": "RESEARCH_PUBLICATION",
+      "predicted_category": "RESEARCH_PUBLICATION",
+      "classifier_confidence": 0.23705406666375858,
+      "field_confidence": 0.8799999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document.",
+        "Classifier confidence (0.24) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 0.8
+    },
+    {
+      "document_id": "DOC_EVAL_0061",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "NOISY_SPACING",
+      "category": "COMPETITION",
+      "predicted_category": "COMPETITION",
+      "classifier_confidence": 0.1353506078440863,
+      "field_confidence": 0.9466666666666667,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.14) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 3,
+      "skills_f1": 1.0
+    },
+    {
+      "document_id": "DOC_EVAL_0062",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "WORKSHOP",
+      "predicted_category": "WORKSHOP",
+      "classifier_confidence": 0.35484468183790047,
+      "field_confidence": 0.875,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 0.8
+    },
+    {
+      "document_id": "DOC_EVAL_0063",
+      "document_type": "CONFERENCE_PROGRAM",
+      "quality_condition": "CASE_INSENSITIVE",
+      "category": "CONFERENCE",
+      "predicted_category": "CONFERENCE",
+      "classifier_confidence": 0.31900241594334194,
+      "field_confidence": 0.8849999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.32) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 1.0
+    },
+    {
+      "document_id": "DOC_EVAL_0064",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "SPORTS",
+      "predicted_category": "SPORTS",
+      "classifier_confidence": 0.3597810070752114,
+      "field_confidence": 0.8799999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 0,
+      "skills_f1": 0.0
+    },
+    {
+      "document_id": "DOC_EVAL_0065",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "HACKATHON",
+      "predicted_category": "HACKATHON",
+      "classifier_confidence": 0.14070468978992753,
+      "field_confidence": 0.9466666666666667,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.14) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 1,
+      "skills_f1": 0.5
+    },
+    {
+      "document_id": "DOC_EVAL_0066",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "NOISY_SPACING",
+      "category": "CERTIFICATION",
+      "predicted_category": "CERTIFICATION",
+      "classifier_confidence": 0.4064906172941605,
+      "field_confidence": 0.9416666666666668,
+      "review_required": false,
+      "review_reasons": [],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 4,
+      "skills_f1": 0.8571
+    },
+    {
+      "document_id": "DOC_EVAL_0067",
+      "document_type": "INTERNSHIP_LETTER",
+      "quality_condition": "OCR_PUNCTUATION_ARTIFACT",
+      "category": "INTERNSHIP",
+      "predicted_category": "INTERNSHIP",
+      "classifier_confidence": 0.24626654180662705,
+      "field_confidence": 0.9083333333333333,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.25) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 4,
+      "skills_f1": 0.8571
+    },
+    {
+      "document_id": "DOC_EVAL_0068",
+      "document_type": "PUBLICATION_METADATA",
+      "quality_condition": "CLEAN",
+      "category": "RESEARCH_PUBLICATION",
+      "predicted_category": "RESEARCH_PUBLICATION",
+      "classifier_confidence": 0.23711821625119817,
+      "field_confidence": 0.8799999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document.",
+        "Classifier confidence (0.24) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 0.8
+    },
+    {
+      "document_id": "DOC_EVAL_0069",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "NOISY_SPACING",
+      "category": "COMPETITION",
+      "predicted_category": "COMPETITION",
+      "classifier_confidence": 0.1337861494516974,
+      "field_confidence": 0.9466666666666667,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.13) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 3,
+      "skills_f1": 1.0
+    },
+    {
+      "document_id": "DOC_EVAL_0070",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "WORKSHOP",
+      "predicted_category": "WORKSHOP",
+      "classifier_confidence": 0.35404008550797234,
+      "field_confidence": 0.875,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 0.8
+    },
+    {
+      "document_id": "DOC_EVAL_0071",
+      "document_type": "CONFERENCE_PROGRAM",
+      "quality_condition": "CASE_INSENSITIVE",
+      "category": "CONFERENCE",
+      "predicted_category": "CONFERENCE",
+      "classifier_confidence": 0.3198169066388693,
+      "field_confidence": 0.8849999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.32) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 2,
+      "skills_f1": 1.0
+    },
+    {
+      "document_id": "DOC_EVAL_0072",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "SPORTS",
+      "predicted_category": "SPORTS",
+      "classifier_confidence": 0.3574288993474556,
+      "field_confidence": 0.8799999999999999,
+      "review_required": true,
+      "review_reasons": [
+        "No student or recipient name detected on evidence document."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 0,
+      "skills_f1": 0.0
+    },
+    {
+      "document_id": "DOC_EVAL_0073",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "CLEAN",
+      "category": "HACKATHON",
+      "predicted_category": "HACKATHON",
+      "classifier_confidence": 0.14001003894840441,
+      "field_confidence": 0.9466666666666667,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.14) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 1,
+      "skills_f1": 0.5
+    },
+    {
+      "document_id": "DOC_EVAL_0074",
+      "document_type": "CERTIFICATE",
+      "quality_condition": "NOISY_SPACING",
+      "category": "CERTIFICATION",
+      "predicted_category": "CERTIFICATION",
+      "classifier_confidence": 0.40635980385491566,
+      "field_confidence": 0.9416666666666668,
+      "review_required": false,
+      "review_reasons": [],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 4,
+      "skills_f1": 0.8571
+    },
+    {
+      "document_id": "DOC_EVAL_0075",
+      "document_type": "INTERNSHIP_LETTER",
+      "quality_condition": "OCR_PUNCTUATION_ARTIFACT",
+      "category": "INTERNSHIP",
+      "predicted_category": "INTERNSHIP",
+      "classifier_confidence": 0.24645550477098763,
+      "field_confidence": 0.9083333333333333,
+      "review_required": true,
+      "review_reasons": [
+        "Classifier confidence (0.25) is below minimum threshold (0.35)."
+      ],
+      "all_key_fields_ok": true,
+      "skills_extracted_count": 4,
+      "skills_f1": 0.8571
+    }
+  ]
+}

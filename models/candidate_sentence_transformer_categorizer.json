@@ -1,0 +1,30 @@
+{
+  "model_type": "DenseSentenceTransformerLogisticRegression",
+  "model_version": "candidate-st-1.0.0",
+  "embedding_model": "all-MiniLM-L6-v2",
+  "embedding_dim": 384,
+  "thresholds": {
+    "lbl_domain_ai": 0.2,
+    "lbl_domain_ml": 0.2,
+    "lbl_domain_nlp": 0.25,
+    "lbl_domain_cv": 0.225,
+    "lbl_domain_security": 0.45,
+    "lbl_domain_systems": 0.3,
+    "lbl_domain_web": 0.475,
+    "lbl_domain_data": 0.2,
+    "lbl_domain_hardware": 0.275,
+    "lbl_domain_other": 0.425
+  },
+  "validation_f1": {
+    "lbl_domain_ai": 0.5652,
+    "lbl_domain_ml": 0.2529,
+    "lbl_domain_nlp": 0.1953,
+    "lbl_domain_cv": 0.1014,
+    "lbl_domain_security": 0.2675,
+    "lbl_domain_systems": 0.5846,
+    "lbl_domain_web": 0.3394,
+    "lbl_domain_data": 0.5145,
+    "lbl_domain_hardware": 0.5081,
+    "lbl_domain_other": 0.2766
+  }
+}

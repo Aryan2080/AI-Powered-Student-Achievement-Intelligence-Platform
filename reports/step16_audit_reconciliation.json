@@ -1,0 +1,137 @@
+{
+  "audit_timestamp": "2026-10-27T15:05:00.000000+00:00",
+  "git_branch": "feature/nlp-semantic",
+  "starting_head": "c8c1b80",
+  "ending_head": "c8c1b80",
+  "working_tree_status": "uncommitted_preserved",
+  "cryptographic_hashes": {
+    "data/processed/achievement_classification_dataset.csv": {
+      "sha256": "1a62b8d8b56bd94df27d8c40ff86ef892b7d50e0c6bb92ff4f69882596b27ddc",
+      "size_bytes": 1413407,
+      "status": "VERIFIED_FROZEN"
+    },
+    "models/achievement_categorizer_v1.0.1.joblib": {
+      "sha256": "e0f514a4286752948c069c43dda6626af9e4ace926ab899334d12af77353ddb3",
+      "size_bytes": 296149,
+      "status": "VERIFIED_AUTHENTIC_PRODUCTION"
+    },
+    "models/achievement_classifier_v1.0.1.joblib": {
+      "sha256": "1359534562ced43eca0309c33a25cc630ad1eef95f1a94a8e7ffdc9fc7eed2cd",
+      "size_bytes": 443429,
+      "status": "VERIFIED_AUTHENTIC_PRODUCTION"
+    },
+    "data/splits/train.csv": {
+      "sha256": "c5dc7c224cd98f17760f391cfb096867f50110860c8cf7341c5780eab371b635",
+      "size_bytes": 989410,
+      "status": "VERIFIED_FROZEN"
+    },
+    "data/splits/validation.csv": {
+      "sha256": "2b1afd584020ab234a4d3794ca99585ffdd640999fe188ccde73969216c337c9",
+      "size_bytes": 211843,
+      "status": "VERIFIED_FROZEN"
+    },
+    "data/splits/test.csv": {
+      "sha256": "88445ea36d71223d8943e14aa96c30818f0682db5c9b32a82aa6ddba53120ac5",
+      "size_bytes": 212824,
+      "status": "VERIFIED_FROZEN"
+    },
+    "data/annotations/domain_categorization_annotation_task_pristine.csv": {
+      "sha256": "cd19ef09bb837bdba2fb2b3db0bd7137b82033855afc00506031a602180e1974",
+      "size_bytes": 82211,
+      "status": "VERIFIED_PRISTINE_BACKUP"
+    },
+    "data/annotations/domain_categorization_gold_annotation_task.jsonl": {
+      "sha256": "34b6fd7007c738fff120631e5203a479401cebc72406d102d9f86e09163e2fb7",
+      "size_bytes": 157986,
+      "status": "VERIFIED_TASK_CORPUS"
+    }
+  },
+  "discrepancy_reconciliation": {
+    "categorizer_hash_discrepancy": {
+      "documented_hash_step12_to_14": "f488667a4d5386008b8b0825316dbb962dc2fb9c35d9494aa82a20807bca74e6",
+      "verified_disk_hash": "e0f514a4286752948c069c43dda6626af9e4ace926ab899334d12af77353ddb3",
+      "verified_file_size": 296149,
+      "creation_timestamp_utc": "2026-10-27T03:02:36.118510+00:00",
+      "origin_step": "Step 10",
+      "resolution_findings": "Forensic audit confirms the file models/achievement_categorizer_v1.0.1.joblib was created during Step 10 and verified in Step 11 audit as e0f514a4.... During Step 12 report drafting, an authoring transcription error introduced f488667a... into report markdown tables without hashing the actual file on disk. No artifact with hash f488667a... ever existed on disk or in Git history. The binary model artifact has remained bitwise identical and intact since Step 10.",
+      "status": "RESOLVED_DOCUMENTATION_TYPO_CONFIRMED"
+    }
+  },
+  "confidence_tier_reconciliation": {
+    "production_code_boundaries": {
+      "high": "margin >= +0.15",
+      "medium": "+0.05 <= margin < +0.15",
+      "low_margin": "0.00 <= margin < +0.05",
+      "near_boundary_negative_uncertainty": "-0.05 < margin < 0.00"
+    },
+    "step12_report_description": "high >= +0.20, medium +0.05 to +0.20, low 0.00 to +0.05",
+    "step15_report_description": "high >= +0.25, medium +0.10 to +0.25, low < +0.10",
+    "reconciliation_resolution": "Preserved production implementation exactly. Documented discrepancies in prior reports. Added formal regression test in tests/test_categorization.py."
+  },
+  "status_transition_reconciliation": {
+    "statuses_defined": [
+      "PENDING_HUMAN_REVIEW",
+      "ANNOTATOR_AGREEMENT",
+      "AWAITING_ADJUDICATION",
+      "VERIFIED",
+      "REJECTED"
+    ],
+    "separation_of_agreement_and_adjudication": "Annotators agreeing on tags without uncertainty transition record to ANNOTATOR_AGREEMENT. Records remain unverified until lead adjudicator explicitly verifies them (VERIFIED) with mandatory adjudicator identity and notes. Uncertain records are routed to AWAITING_ADJUDICATION even if tag sets match."
+  },
+  "independent_evaluation_checks": {
+    "evaluated_records_count": 7,
+    "excluded_pending_count": 168,
+    "overall_metrics": {
+      "micro_precision": 0.3600,
+      "micro_recall": 0.6923,
+      "micro_f1": 0.4737,
+      "macro_precision": 0.2542,
+      "macro_recall": 0.5833,
+      "macro_f1": 0.3408,
+      "hamming_loss": 0.2857,
+      "exact_match_ratio": 0.1429
+    },
+    "supported_tags": [
+      "lbl_domain_ai",
+      "lbl_domain_ml",
+      "lbl_domain_nlp",
+      "lbl_domain_security",
+      "lbl_domain_systems",
+      "lbl_domain_web",
+      "lbl_domain_data",
+      "lbl_domain_hardware"
+    ],
+    "zero_support_tags": [
+      "lbl_domain_cv",
+      "lbl_domain_other"
+    ],
+    "confidence_tier_counts": {
+      "HIGH": 11,
+      "MEDIUM": 10,
+      "LOW_MARGIN": 4
+    },
+    "confidence_tier_precision": {
+      "HIGH": 0.3636,
+      "MEDIUM": 0.4000,
+      "LOW_MARGIN": 0.2500
+    },
+    "sample_size_assessment": "PROVISIONAL_INADEQUATE",
+    "sample_size_warning": "Evaluated on N=7 verified records. Sample size is below the recommended threshold (N=50) for statistically significant production sign-off. A total of 168 records remain pending human review."
+  },
+  "test_suite_results": {
+    "workflow_tests_passed": 27,
+    "categorization_tests_passed": 17,
+    "total_workflow_and_categorization": 44,
+    "full_suite_passed": 910,
+    "full_suite_skipped": 5,
+    "full_suite_failed": 0
+  },
+  "human_annotation_readiness": {
+    "total_task_records": 175,
+    "certified_verified_records": 7,
+    "pending_human_review_records": 168,
+    "pristine_backup_verified": true,
+    "independent_blind_fields_verified": true,
+    "blockers": "Awaiting genuine independent reviews from human annotator A and annotator B on 168 records in data/annotations/domain_categorization_annotation_task.csv."
+  }
+}

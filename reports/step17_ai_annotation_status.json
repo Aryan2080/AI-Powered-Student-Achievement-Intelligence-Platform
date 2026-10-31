@@ -1,0 +1,83 @@
+{
+  "step": "Step 17 \u2014 Balanced AI-Assisted Domain Annotation",
+  "timestamp": "2026-10-27T17:55:44.298813+00:00",
+  "role": "Member 1 \u2014 NLP & Semantic Intelligence Engineer",
+  "branch": "feature/nlp-semantic",
+  "git_head": "c8c1b8084ff9d15955e0b456d9eccbe9c4cf6d90",
+  "dataset_preservation": {
+    "dataset_name": "achievement_dataset_v1.0.1",
+    "file_path": "data\\processed\\achievement_classification_dataset.csv",
+    "sha256": "1a62b8d8b56bd94df27d8c40ff86ef892b7d50e0c6bb92ff4f69882596b27ddc",
+    "expected_sha256": "1a62b8d8b56bd94df27d8c40ff86ef892b7d50e0c6bb92ff4f69882596b27ddc",
+    "is_preserved": true
+  },
+  "model_preservation": {
+    "categorizer_file": "models\\achievement_categorizer_v1.0.1.joblib",
+    "categorizer_sha256": "e0f514a4286752948c069c43dda6626af9e4ace926ab899334d12af77353ddb3",
+    "classifier_file": "models\\achievement_classifier_v1.0.1.joblib",
+    "classifier_sha256": "1359534562ced43eca0309c33a25cc630ad1eef95f1a94a8e7ffdc9fc7eed2cd",
+    "is_preserved": true
+  },
+  "task_corpus_summary": {
+    "gold_task_file": "data\\annotations\\domain_categorization_gold_annotation_task.jsonl",
+    "total_task_records": 175,
+    "verified_reference_records_preserved": 7,
+    "pending_records_processed": 168
+  },
+  "ai_annotation_execution": {
+    "model_identifier": "sentence-transformers/all-MiniLM-L6-v2+evidence-rules-v1.0",
+    "model_provider": "LocalTransformerSemanticProvider",
+    "llm_api_configured": false,
+    "prompt_version": "v1.0_evidence_grounded",
+    "taxonomy_version": "1.0.0",
+    "total_proposals_generated": 168,
+    "zero_tag_proposals_count": 26,
+    "zero_tag_percentage": 15.48,
+    "uncertain_proposals_count": 16,
+    "uncertain_percentage": 9.52,
+    "tag_distribution": {
+      "lbl_domain_ai": 26,
+      "lbl_domain_ml": 18,
+      "lbl_domain_nlp": 8,
+      "lbl_domain_cv": 5,
+      "lbl_domain_security": 24,
+      "lbl_domain_systems": 72,
+      "lbl_domain_web": 21,
+      "lbl_domain_data": 32,
+      "lbl_domain_hardware": 46,
+      "lbl_domain_other": 7
+    }
+  },
+  "validation_sample": {
+    "sample_size": 30,
+    "random_seed": 42,
+    "stratification_categories_count": 11,
+    "blind_csv_path": "data\\annotations\\ai_assisted\\domain_categorization_validation_sample_blind.csv",
+    "blind_csv_sha256": "82208555dbbdc84428336a7222c7a39b6dfd22befc6a225291ca60942594d7c3",
+    "key_jsonl_path": "data\\annotations\\ai_assisted\\domain_categorization_validation_sample_key.jsonl",
+    "key_jsonl_sha256": "831ae47d2af689a3d9ff31c8288647eb6226c2a97cd87478ed63d284b94b7011",
+    "isolation_verified": true
+  },
+  "output_artifacts": {
+    "domain_categorization_ai_proposals_jsonl": {
+      "path": "data\\annotations\\ai_assisted\\domain_categorization_ai_proposals.jsonl",
+      "sha256": "1bf21ec09e2c1407df9834e2315d29a870bd319c9ccfd3d0bbcd4d75148acd9f",
+      "record_count": 168
+    },
+    "domain_categorization_ai_proposals_csv": {
+      "path": "data\\annotations\\ai_assisted\\domain_categorization_ai_proposals.csv",
+      "sha256": "763d5751c95620ab5206cd0c248ad4b4978d481755b1883a14e9ff690cbdac04",
+      "data_row_count": 168
+    },
+    "ai_annotation_run_metadata_json": {
+      "path": "data\\annotations\\ai_assisted\\ai_annotation_run_metadata.json",
+      "sha256": "59d61f4f6195ce72d59182456d3567bf1278c613cab906e2b629095839830a32"
+    }
+  },
+  "governance_status": {
+    "overall_status": "READY_FOR_HUMAN_VALIDATION",
+    "review_status_applied": "PENDING_HUMAN_VALIDATION",
+    "gold_ground_truth_promoted": 0,
+    "governance_rule": "Strict prohibition of unvalidated AI proposals entering gold ground truth."
+  }
+}

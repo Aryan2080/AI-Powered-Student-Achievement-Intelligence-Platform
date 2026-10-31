@@ -1,0 +1,33 @@
+{
+  "run_timestamp": "2026-10-27T17:53:20.617866+00:00",
+  "model_identifier": "sentence-transformers/all-MiniLM-L6-v2+evidence-rules-v1.0",
+  "model_provider": "LocalTransformerSemanticProvider",
+  "llm_api_configured": false,
+  "prompt_version": "v1.0_evidence_grounded",
+  "taxonomy_version": "1.0.0",
+  "total_pending_records": 168,
+  "total_proposals_generated": 168,
+  "resumed_from_cache_count": 0,
+  "failed_records_count": 0,
+  "zero_tag_proposals_count": 26,
+  "uncertain_proposals_count": 16,
+  "tag_distribution": {
+    "lbl_domain_ai": 26,
+    "lbl_domain_ml": 18,
+    "lbl_domain_nlp": 8,
+    "lbl_domain_cv": 5,
+    "lbl_domain_security": 24,
+    "lbl_domain_systems": 72,
+    "lbl_domain_web": 21,
+    "lbl_domain_data": 32,
+    "lbl_domain_hardware": 46,
+    "lbl_domain_other": 7
+  },
+  "verified_reference_records_preserved": 7,
+  "output_files": {
+    "proposals_jsonl": "data\\annotations\\ai_assisted\\domain_categorization_ai_proposals.jsonl",
+    "proposals_csv": "data\\annotations\\ai_assisted\\domain_categorization_ai_proposals.csv",
+    "metadata_json": "data\\annotations\\ai_assisted\\ai_annotation_run_metadata.json"
+  },
+  "governance_note": "AI proposals are strictly assistive hypotheses (review_status=PENDING_HUMAN_VALIDATION) and must never be treated as certified ground truth without independent human validation."
+}

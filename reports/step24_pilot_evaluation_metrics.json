@@ -1,0 +1,250 @@
+{
+  "step": "Step 24 \u2014 Controlled AI-Assisted Annotation Pilot Evaluation",
+  "timestamp": "2026-10-28T19:32:52.928852+00:00",
+  "role": "Senior NLP/ML Engineer & Dataset Quality Auditor (Member 1)",
+  "branch": "feature/nlp-semantic",
+  "reviewer": "Aryan",
+  "sample_size": 25,
+  "preflight_verification": {
+    "verified": true,
+    "sample_size": 25,
+    "reviewer_name": "Aryan",
+    "disjoint_from_blind_eval": true,
+    "disjoint_from_verified_ref": true,
+    "ids": [
+      "ACH000019",
+      "ACH000033",
+      "ACH000075",
+      "ACH000118",
+      "ACH000199",
+      "ACH000241",
+      "ACH000288",
+      "ACH000299",
+      "ACH000332",
+      "ACH000359",
+      "ACH000469",
+      "ACH000510",
+      "ACH000529",
+      "ACH000594",
+      "ACH000649",
+      "ACH000678",
+      "ACH000685",
+      "ACH000707",
+      "ACH000787",
+      "ACH000827",
+      "ACH000898",
+      "ACH000903",
+      "ACH001015",
+      "ACH001085",
+      "ACH001109"
+    ]
+  },
+  "artifact_hashes": {
+    "pilot_queue_csv": "0733247370a4914b6dafbcb49e8623d51a5cb4beb6d2f905f4221f5e0e3641c9",
+    "pilot_manifest_json": "30443fd54265f676abcd62cd9d0ae24cbe26e8bd50322b074c699f32bda166a8",
+    "master_dataset_csv": "1a62b8d8b56bd94df27d8c40ff86ef892b7d50e0c6bb92ff4f69882596b27ddc",
+    "categorizer_model": "e0f514a4286752948c069c43dda6626af9e4ace926ab899334d12af77353ddb3",
+    "classifier_model": "1359534562ced43eca0309c33a25cc630ad1eef95f1a94a8e7ffdc9fc7eed2cd"
+  },
+  "decision_metrics": {
+    "total_records": 25,
+    "accept_count": 12,
+    "modify_count": 13,
+    "reject_count": 0,
+    "unresolved_count": 0,
+    "accept_rate": 0.48,
+    "modify_rate": 0.52,
+    "reject_rate": 0.0,
+    "unresolved_rate": 0.0
+  },
+  "multilabel_metrics": {
+    "sample_size": 25,
+    "total_binary_decisions": 250,
+    "total_binary_errors": 22,
+    "exact_match_count": 12,
+    "exact_match_ratio": 0.48,
+    "hamming_loss": 0.088,
+    "micro_metrics": {
+      "tp": 34,
+      "fp": 12,
+      "fn": 10,
+      "tn": 194,
+      "precision": 0.7391,
+      "recall": 0.7727,
+      "f1": 0.7556
+    },
+    "macro_metrics": {
+      "active_classes": {
+        "active_class_count": 10,
+        "precision": 0.5733,
+        "recall": 0.5917,
+        "f1": 0.5662
+      },
+      "all_classes_zero_div_zero": {
+        "class_count": 10,
+        "precision": 0.5733,
+        "recall": 0.5917,
+        "f1": 0.5662
+      },
+      "support_weighted": {
+        "total_support_instances": 44,
+        "precision": 0.7447,
+        "recall": 0.7727,
+        "f1": 0.7472
+      }
+    },
+    "per_tag_metrics": {
+      "lbl_domain_ai": {
+        "tag_name": "Artificial Intelligence",
+        "support": 4,
+        "tp": 2,
+        "fp": 3,
+        "fn": 2,
+        "tn": 18,
+        "precision": 0.4,
+        "recall": 0.5,
+        "f1": 0.4444
+      },
+      "lbl_domain_ml": {
+        "tag_name": "Machine Learning",
+        "support": 4,
+        "tp": 1,
+        "fp": 2,
+        "fn": 3,
+        "tn": 19,
+        "precision": 0.3333,
+        "recall": 0.25,
+        "f1": 0.2857
+      },
+      "lbl_domain_nlp": {
+        "tag_name": "Natural Language Processing",
+        "support": 1,
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "tn": 23,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "lbl_domain_cv": {
+        "tag_name": "Computer Vision",
+        "support": 1,
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "tn": 24,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "lbl_domain_security": {
+        "tag_name": "Cybersecurity & Privacy",
+        "support": 4,
+        "tp": 4,
+        "fp": 2,
+        "fn": 0,
+        "tn": 19,
+        "precision": 0.6667,
+        "recall": 1.0,
+        "f1": 0.8
+      },
+      "lbl_domain_systems": {
+        "tag_name": "Systems, Cloud & Architecture",
+        "support": 12,
+        "tp": 11,
+        "fp": 0,
+        "fn": 1,
+        "tn": 13,
+        "precision": 1.0,
+        "recall": 0.9167,
+        "f1": 0.9565
+      },
+      "lbl_domain_web": {
+        "tag_name": "Web Development & APIs",
+        "support": 4,
+        "tp": 3,
+        "fp": 3,
+        "fn": 1,
+        "tn": 18,
+        "precision": 0.5,
+        "recall": 0.75,
+        "f1": 0.6
+      },
+      "lbl_domain_data": {
+        "tag_name": "Data Engineering & Analytics",
+        "support": 5,
+        "tp": 5,
+        "fp": 1,
+        "fn": 0,
+        "tn": 19,
+        "precision": 0.8333,
+        "recall": 1.0,
+        "f1": 0.9091
+      },
+      "lbl_domain_hardware": {
+        "tag_name": "Hardware & IoT",
+        "support": 7,
+        "tp": 7,
+        "fp": 0,
+        "fn": 0,
+        "tn": 18,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "lbl_domain_other": {
+        "tag_name": "Other Domain (Non-Computing)",
+        "support": 2,
+        "tp": 1,
+        "fp": 0,
+        "fn": 1,
+        "tn": 23,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6667
+      }
+    }
+  },
+  "disagreement_summary": {
+    "total_disagreements": 13,
+    "tags_removed_by_reviewer_ai_false_alarms": {
+      "lbl_domain_web": 3,
+      "lbl_domain_ai": 3,
+      "lbl_domain_nlp": 1,
+      "lbl_domain_security": 2,
+      "lbl_domain_ml": 2,
+      "lbl_domain_data": 1
+    },
+    "tags_added_by_reviewer_ai_misses": {
+      "lbl_domain_ai": 2,
+      "lbl_domain_cv": 1,
+      "lbl_domain_ml": 3,
+      "lbl_domain_nlp": 1,
+      "lbl_domain_systems": 1,
+      "lbl_domain_other": 1,
+      "lbl_domain_web": 1
+    }
+  },
+  "review_effort": {
+    "timing_data_present": false,
+    "status": "UNAVAILABLE_NOT_RECORDED",
+    "message": "Review time was not captured during reviewer session; no values fabricated.",
+    "total_records_timed": 0,
+    "mean_seconds_per_record": null,
+    "median_seconds_per_record": null,
+    "min_seconds": null,
+    "max_seconds": null
+  },
+  "recommendation": {
+    "status": "READY_WITH_CONDITIONS",
+    "target_candidate_pool": 113,
+    "core_verdict": "The AI-assisted human-in-the-loop workflow is viable and provides substantial scaffolding (48% exact acceptance, 0% complete rejections, 75.56% micro F1), but autonomous acceptance remains strictly forbidden due to a 52% modification rate and domain-specific confusion.",
+    "mandatory_conditions": [
+      "Mandatory 100% human-in-the-loop verification; zero autonomous label promotion.",
+      "Reinforce disambiguation protocols between Artificial Intelligence and Machine Learning.",
+      "Enforce strict evidence grounding for Web Development & APIs (exclude hackathon tracks and generic portals).",
+      "Explicitly train reviewers on identifying multi-domain achievements to prevent AI false negatives."
+    ]
+  }
+}

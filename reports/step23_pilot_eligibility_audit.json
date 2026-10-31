@@ -1,0 +1,31 @@
+{
+  "audit_timestamp": "2026-10-28T17:30:00Z",
+  "project": "AI-Powered Student Achievement Intelligence Platform",
+  "subsystem": "NLP & Semantic Intelligence (Member 1)",
+  "branch": "feature/nlp-semantic",
+  "git_head": "c8c1b8084ff9d15955e0b456d9eccbe9c4cf6d90",
+  "audit_status": "ELIGIBILITY_VERIFIED",
+  "corpus_breakdown": {
+    "master_task_total": 175,
+    "verified_gold_reference": 7,
+    "unreviewed_pending_total": 168,
+    "evaluated_blind_validation_sample": 30,
+    "remaining_pending_candidate_pool": 138,
+    "pilot_selection_count": 25,
+    "post_pilot_remaining_pending": 113
+  },
+  "disjointness_checks": {
+    "pilot_in_candidate_pool": true,
+    "pilot_disjoint_from_evaluation_sample": true,
+    "pilot_disjoint_from_gold_reference": true,
+    "all_records_in_test_split": true
+  },
+  "source_files": {
+    "proposals_csv": "data/annotations/ai_assisted/domain_categorization_ai_proposals.csv",
+    "proposals_jsonl": "data/annotations/ai_assisted/domain_categorization_ai_proposals.jsonl",
+    "gold_task_jsonl": "data/annotations/domain_categorization_gold_annotation_task.jsonl",
+    "blind_sample_csv": "data/annotations/ai_assisted/domain_categorization_validation_sample_blind.csv",
+    "pilot_queue_csv": "data/annotations/ai_assisted/pilot/domain_categorization_pilot_queue.csv",
+    "pilot_manifest_json": "data/annotations/ai_assisted/pilot/domain_categorization_pilot_manifest.json"
+  }
+}

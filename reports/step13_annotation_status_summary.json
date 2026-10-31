@@ -1,0 +1,195 @@
+{
+  "evaluation_timestamp": "2026-10-27T11:49:34.300529+00:00",
+  "task_file": "data\\annotations\\domain_categorization_gold_annotation_task.jsonl",
+  "model_file": "models\\achievement_categorizer_v1.0.1.joblib",
+  "model_version": "1.0.1",
+  "corpus_status": {
+    "total_records": 175,
+    "verified_records": 7,
+    "pending_records": 168,
+    "is_provisional_sample": true,
+    "sample_size_assessment": "PROVISIONAL_INADEQUATE",
+    "warning": "Evaluated on N=7 verified records. Sample size is below the recommended threshold (N=50) for statistically significant production sign-off. A total of 168 records remain pending human review."
+  },
+  "overall_metrics": {
+    "micro_precision": 0.36,
+    "micro_recall": 0.6923,
+    "micro_f1": 0.4737,
+    "macro_precision": 0.2542,
+    "macro_recall": 0.5833,
+    "macro_f1": 0.3408,
+    "hamming_loss": 0.2857,
+    "exact_matches": 1,
+    "exact_match_ratio": 0.1429
+  },
+  "confidence_tier_performance": {
+    "tier_predictions": {
+      "HIGH": 11,
+      "MEDIUM": 10,
+      "LOW_MARGIN": 4
+    },
+    "tier_precision": {
+      "HIGH": 0.3636,
+      "MEDIUM": 0.4,
+      "LOW_MARGIN": 0.25
+    }
+  },
+  "per_tag_metrics": [
+    {
+      "tag": "lbl_domain_ai",
+      "name": "Artificial intelligence",
+      "support": 3,
+      "true_positives": 3,
+      "false_positives": 2,
+      "false_negatives": 0,
+      "true_negatives": 2,
+      "precision": 0.6,
+      "recall": 1.0,
+      "f1_score": 0.75,
+      "threshold": 0.4
+    },
+    {
+      "tag": "lbl_domain_ml",
+      "name": "Machine learning",
+      "support": 1,
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 1,
+      "true_negatives": 6,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "threshold": 0.625
+    },
+    {
+      "tag": "lbl_domain_nlp",
+      "name": "Natural language processing",
+      "support": 1,
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 1,
+      "true_negatives": 5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "threshold": 0.575
+    },
+    {
+      "tag": "lbl_domain_cv",
+      "name": "Computer vision",
+      "support": 0,
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "true_negatives": 7,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "threshold": 0.6
+    },
+    {
+      "tag": "lbl_domain_security",
+      "name": "Security",
+      "support": 1,
+      "true_positives": 1,
+      "false_positives": 2,
+      "false_negatives": 0,
+      "true_negatives": 4,
+      "precision": 0.3333,
+      "recall": 1.0,
+      "f1_score": 0.5,
+      "threshold": 0.6
+    },
+    {
+      "tag": "lbl_domain_systems",
+      "name": "Systems & Cloud",
+      "support": 3,
+      "true_positives": 2,
+      "false_positives": 2,
+      "false_negatives": 1,
+      "true_negatives": 2,
+      "precision": 0.5,
+      "recall": 0.6667,
+      "f1_score": 0.5714,
+      "threshold": 0.5
+    },
+    {
+      "tag": "lbl_domain_web",
+      "name": "Web and application",
+      "support": 1,
+      "true_positives": 0,
+      "false_positives": 2,
+      "false_negatives": 1,
+      "true_negatives": 4,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "threshold": 0.55
+    },
+    {
+      "tag": "lbl_domain_data",
+      "name": "Data engineering and analytics",
+      "support": 1,
+      "true_positives": 1,
+      "false_positives": 4,
+      "false_negatives": 0,
+      "true_negatives": 2,
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1_score": 0.3333,
+      "threshold": 0.425
+    },
+    {
+      "tag": "lbl_domain_hardware",
+      "name": "Hardware and embedded systems",
+      "support": 2,
+      "true_positives": 2,
+      "false_positives": 3,
+      "false_negatives": 0,
+      "true_negatives": 2,
+      "precision": 0.4,
+      "recall": 1.0,
+      "f1_score": 0.5714,
+      "threshold": 0.4
+    },
+    {
+      "tag": "lbl_domain_other",
+      "name": "Other domain (Non-computing)",
+      "support": 0,
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "true_negatives": 7,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "threshold": 0.25
+    }
+  ],
+  "inter_annotator_agreement": {
+    "has_sufficient_data": true,
+    "completed_dual_annotations": 7,
+    "mean_jaccard_similarity": 1.0,
+    "exact_agreement_ratio": 1.0,
+    "per_tag_kappa": {
+      "lbl_domain_ai": 1.0,
+      "lbl_domain_ml": 1.0,
+      "lbl_domain_nlp": 1.0,
+      "lbl_domain_cv": 1.0,
+      "lbl_domain_security": 1.0,
+      "lbl_domain_systems": 1.0,
+      "lbl_domain_web": 1.0,
+      "lbl_domain_data": 1.0,
+      "lbl_domain_hardware": 1.0,
+      "lbl_domain_other": 1.0
+    },
+    "macro_kappa": 1.0
+  },
+  "disagreement_and_queue": {
+    "resolved_verified_count": 7,
+    "awaiting_reviews_count": 168,
+    "agreed_count": 0,
+    "disagreed_count": 0,
+    "queue_length": 0
+  }
+}

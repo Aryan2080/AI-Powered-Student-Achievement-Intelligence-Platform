@@ -1,0 +1,152 @@
+{
+  "baseline_model": "TF-IDF + LogisticRegression (models/achievement_categorizer_v1.0.1.joblib)",
+  "candidate_model": "SentenceTransformer (all-MiniLM-L6-v2) + LogisticRegression (models/candidate_sentence_transformer_categorizer.joblib)",
+  "recommendation": "RETAIN_BASELINE_TFIDF",
+  "decision_rationale": "Sentence Transformer candidate exhibited severe domain blurring and over-prediction (Hamming loss 0.6563 vs 0.1922 for TF-IDF), lower F1 (0.3912 vs 0.6487), and ~30x higher latency (33.96ms vs 1.14ms). TF-IDF accurately isolates specific technical tokens defining domain boundaries.",
+  "overall": {
+    "test_auto_231": {
+      "tfidf": {
+        "micro_f1": 0.6487341772151899,
+        "macro_f1": 0.5640374929832899,
+        "hamming_loss": 0.19220779220779222,
+        "exact_match": 0.3333333333333333
+      },
+      "sentence_transformer": {
+        "micro_f1": 0.39116465863453814,
+        "macro_f1": 0.3515763744899057,
+        "hamming_loss": 0.6562770562770562,
+        "exact_match": 0.0
+      }
+    },
+    "test_reviewed_7": {
+      "tfidf": {
+        "micro_f1": 0.47368421052631576,
+        "macro_f1": 0.27261904761904765,
+        "hamming_loss": 0.2857142857142857,
+        "exact_match": 0.14285714285714285,
+        "micro_precision": 0.36,
+        "micro_recall": 0.6923076923076923
+      },
+      "sentence_transformer": {
+        "micro_f1": 0.34210526315789475,
+        "macro_f1": 0.30968253968253967,
+        "hamming_loss": 0.7142857142857143,
+        "exact_match": 0.0,
+        "micro_precision": 0.20634920634920634,
+        "micro_recall": 1.0
+      }
+    },
+    "operational": {
+      "tfidf": {
+        "latency_ms": 1.1421159998280928,
+        "size_kb": 289.2080078125
+      },
+      "sentence_transformer": {
+        "latency_ms": 33.95756999962032,
+        "size_kb": 19.3974609375
+      }
+    }
+  },
+  "per_tag": [
+    {
+      "tag": "lbl_domain_ai",
+      "name": "Artificial intelligence",
+      "support": 100,
+      "tfidf_f1": 0.7446,
+      "st_f1": 0.6042,
+      "delta_f1": -0.1404,
+      "tfidf_threshold": 0.4,
+      "st_threshold": 0.2
+    },
+    {
+      "tag": "lbl_domain_ml",
+      "name": "Machine learning",
+      "support": 35,
+      "tfidf_f1": 0.4308,
+      "st_f1": 0.25,
+      "delta_f1": -0.1808,
+      "tfidf_threshold": 0.625,
+      "st_threshold": 0.2
+    },
+    {
+      "tag": "lbl_domain_nlp",
+      "name": "Natural language processing",
+      "support": 28,
+      "tfidf_f1": 0.1304,
+      "st_f1": 0.2202,
+      "delta_f1": 0.0897,
+      "tfidf_threshold": 0.575,
+      "st_threshold": 0.25
+    },
+    {
+      "tag": "lbl_domain_cv",
+      "name": "Computer vision",
+      "support": 10,
+      "tfidf_f1": 0.25,
+      "st_f1": 0.0741,
+      "delta_f1": -0.1759,
+      "tfidf_threshold": 0.6,
+      "st_threshold": 0.225
+    },
+    {
+      "tag": "lbl_domain_security",
+      "name": "Security",
+      "support": 28,
+      "tfidf_f1": 0.411,
+      "st_f1": 0.1935,
+      "delta_f1": -0.2174,
+      "tfidf_threshold": 0.6,
+      "st_threshold": 0.45
+    },
+    {
+      "tag": "lbl_domain_systems",
+      "name": "Systems & Cloud",
+      "support": 95,
+      "tfidf_f1": 0.686,
+      "st_f1": 0.5849,
+      "delta_f1": -0.1011,
+      "tfidf_threshold": 0.5,
+      "st_threshold": 0.3
+    },
+    {
+      "tag": "lbl_domain_web",
+      "name": "Web and application",
+      "support": 48,
+      "tfidf_f1": 0.6239,
+      "st_f1": 0.25,
+      "delta_f1": -0.3739,
+      "tfidf_threshold": 0.55,
+      "st_threshold": 0.475
+    },
+    {
+      "tag": "lbl_domain_data",
+      "name": "Data engineering and analytics",
+      "support": 90,
+      "tfidf_f1": 0.7249,
+      "st_f1": 0.5607,
+      "delta_f1": -0.1641,
+      "tfidf_threshold": 0.425,
+      "st_threshold": 0.2
+    },
+    {
+      "tag": "lbl_domain_hardware",
+      "name": "Hardware and embedded systems",
+      "support": 77,
+      "tfidf_f1": 0.6389,
+      "st_f1": 0.5,
+      "delta_f1": -0.1389,
+      "tfidf_threshold": 0.4,
+      "st_threshold": 0.275
+    },
+    {
+      "tag": "lbl_domain_other",
+      "name": "Other domain (Non-computing)",
+      "support": 32,
+      "tfidf_f1": 1.0,
+      "st_f1": 0.2781,
+      "delta_f1": -0.7219,
+      "tfidf_threshold": 0.25,
+      "st_threshold": 0.425
+    }
+  ]
+}

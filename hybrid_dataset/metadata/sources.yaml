@@ -93,3 +93,104 @@
     template before discussion between reviewers or with the proposer.
   review_status: unreviewed
   is_synthetic: false
+
+- source_id: src_08ee850ba4b54d1b81cdbd652809b613
+  source_name: "arXiv"
+  source_url: "https://arxiv.org/"
+  license: "CC0-1.0"
+  usage_restrictions: |
+    arXiv metadata license, verbatim from
+    https://info.arxiv.org/help/license/index.html :
+
+      "A Creative Commons CC0 1.0 Universal Public Domain Dedication
+      will apply to all metadata."
+
+    Evidence URLs re-verified on this entry's collection_date:
+      - https://info.arxiv.org/help/license/index.html
+      - https://info.arxiv.org/help/api/tou.html
+
+    CC0 SCOPE: descriptive metadata only (title, abstract, authors
+    public byline, identifiers, categories, DOI/journal_ref/comment,
+    dates). Full governance:
+    hybrid_dataset/metadata/arxiv_governance_decisions.md
+
+    OFFICIAL METADATA ENDPOINTS (project policy, Chunk 7.18 Rev 1):
+      - https://export.arxiv.org/api/query
+      - https://oaipmh.arxiv.org/oai
+    HTML scraping of /abs, /pdf, /src, /html, /format is DISALLOWED;
+    `validate_metadata_endpoint` rejects such URLs if invoked.
+    Policy surface only; no ingestion yet.
+
+    RATE LIMIT (verbatim, API ToU): "make no more than one request
+    every three seconds, and limit requests to a single connection
+    at a time." Applies collectively across all machines. Code
+    enforcement (rate_limit.py) is PROCESS-LOCAL (Chunk 7.20 shared
+    default coordinator); global cross-machine guarantee NOT
+    SATISFIED by code (operator discipline required).
+
+    NOT AUTHORIZED: full-text PDFs, TeX/source files, figures,
+    hosting/serving arXiv e-prints, article redistribution.
+    Verbatim arXiv Bulk Data: "We are thus unable to grant others
+    the right to distribute arXiv articles." Any future full-text
+    use requires a SEPARATE SourceRegistry entry.
+
+    ACKNOWLEDGMENT (project convention): "Thank you to arXiv for
+    use of its open access interoperability". CC0 waives
+    attribution legally. TRADEMARK: no implied arXiv endorsement.
+
+    PRIVACY: public byline + arXiv paper ID only. Submitter contact
+    emails: redaction policy via `redact_contact_emails` (Chunk 7.18
+    Rev 4); no logger today - policy surface, not enforced.
+
+    This registration does NOT initiate any API request or
+    collection; collection is gated by a future review.
+  collection_date: 2026-10-23
+  original_labels: []
+  intended_use: "primary_type_training_lbl_research_pub_metadata_only"
+  mapping_notes: |
+    arXiv.org - scholarly research metadata repository and API.
+    Registration covers DESCRIPTIVE METADATA ONLY under CC0.
+
+    CHUNK 7.18 GOVERNANCE: Mohan's revision implemented in
+      src/nlp_semantic/ingestion/arxiv_governance.py (policies)
+      src/nlp_semantic/ingestion/rate_limit.py (rate limiter)
+    Full detail: hybrid_dataset/metadata/arxiv_governance_decisions.md
+
+    STUDENT-ID: arXiv does NOT identify authors as students.
+    Sanctioned student-link entry point:
+    authorize_student_link(record, evidence) requires at least one
+    of (orcid_verified, institutional_email_verified,
+    advisor_verified) per Chunk 7.18 Rev 3. Name similarity,
+    affiliation, and author position are NEVER sufficient. The
+    Chunk 7.11 five-stage review still applies per-record.
+
+    PRIMARY-TYPE: records are candidates for lbl_research_pub
+    (currently status: draft; separate Chunk 7.2 promotion
+    required). Records without a VERIFIED DOI or journal
+    reference are classified unrefereed_preprint (Chunk 7.18
+    Rev 3); verification is per-record external, not inferred
+    from arXiv record, date, title, authors, or abstract.
+
+    WITHDRAWALS: `is_withdrawn()` flags withdrawn/retracted
+    patterns in comments. Future ingestion MUST exclude flagged
+    papers (policy obligation; no ingestion today).
+
+    DOMAIN-TAGS: arXiv categories (cs.CL, cs.LG, cs.CV, ...) are
+    REVIEWER HINTS, NOT auto-applied. Per-paper human review per
+    Chunk 6 agreement protocol. Empty domain_tags with verified
+    status is legitimate per Chunk 6 Jaccard-empty-set.
+
+    VERSIONING: dedup key for Achievement.source_record_id is
+    the BASE arXiv ID ("arxiv-<id>"); version lives in a
+    per-record YAML comment, not a schema field.
+
+    PER-PAPER LICENSE: ArxivMetadataRecord.per_paper_license_uri
+    = None means UNKNOWN; CC0 metadata scope does NOT grant
+    full-text redistribution (Chunk 7.18 Rev 2).
+
+    ROW 1 ONLY: Step 1 of Chunk 7.13 §5 eight-step chain.
+    Promotion to review_status: verified requires a new human
+    review of Chunk 7.18 revisions and two independent sign-offs
+    per SOURCE_REGISTRATION_GUIDE.md.
+  review_status: unreviewed
+  is_synthetic: false

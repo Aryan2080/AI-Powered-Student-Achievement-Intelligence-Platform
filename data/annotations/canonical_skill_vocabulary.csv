@@ -1,0 +1,117 @@
+skill_id,canonical_skill,aliases,skill_domain,description,vocabulary_source,normalization_status
+SKL_0001,Python,"python,py,python3",Software Engineering,"High-level general-purpose programming language widely used in AI, data science, and web systems.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0002,Java,"java,jdk,java se",Software Engineering,Object-oriented programming language designed for enterprise and distributed systems.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0003,C++,"c++,cpp",Systems & Hardware,High-performance compiled systems programming language.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0004,C#,"c#,c-sharp,csharp",Software Engineering,"Modern, object-oriented language developed by Microsoft for .NET.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0005,Rust,"rust,rust-lang",Systems & Hardware,"Systems language focused on memory safety, concurrency, and high performance.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0006,Go,"golang,go language,go",Cloud & Infrastructure,Statically typed concurrent programming language developed by Google.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0007,TypeScript,"typescript,ts",Web & Mobile,Statically typed superset of JavaScript compiling to plain JavaScript.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0008,JavaScript,"javascript,js",Web & Mobile,Dynamic web scripting language for browser and server runtimes.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0009,Kotlin,kotlin,Mobile Development,Modern cross-platform statically typed language targeting JVM and Android.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0010,Swift,swift,Mobile Development,General-purpose compiled programming language developed by Apple for iOS and macOS.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0011,R,"r language,r",Data Science,Programming language and environment for statistical computing and graphics.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0012,MATLAB,matlab,Data Science,Proprietary multi-paradigm programming language and numeric computing environment.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0013,Bash,"bash,shell scripting",DevOps & Cloud,Unix shell and command language.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0014,OOP,"oop,object-oriented programming",Software Engineering,Programming paradigm based on the concept of objects and classes.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0015,SQL,"sql,ansi-sql",Data Engineering,"Standard language for storing, manipulating and retrieving data in relational databases.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0016,PostgreSQL,"postgres,postgresql",Data Engineering,"Powerful, open-source object-relational database system.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0017,MySQL,mysql,Data Engineering,Open-source relational database management system.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0018,MongoDB,"mongo,mongodb",Data Engineering,Source-available cross-platform document-oriented database program.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0019,Redis,"redis,redis cache",Data Engineering,"In-memory data structure store used as a database, cache, and message broker.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0020,Cassandra,"apache cassandra,cassandra",Data Engineering,Distributed NoSQL database management system designed to handle large amounts of data.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0021,Neo4j,neo4j,Data Engineering,"Graph database management system developed by Neo4j, Inc.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0022,Apache Spark,"spark,pyspark,apache spark",Data Engineering,Unified analytics engine for large-scale data processing.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0023,Apache Kafka,"kafka,apache kafka",Data Engineering,Distributed event store and stream-processing platform.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0024,Flink,"apache flink,flink",Data Engineering,Framework and distributed processing engine for stateful computations over data streams.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0025,Hadoop,"apache hadoop,hadoop",Data Engineering,Collection of open-source software utilities for distributed processing.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0026,Airflow,"apache airflow,airflow",Data Engineering,"Platform to programmatically author, schedule, and monitor workflows.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0027,dbt,"dbt,data build tool",Data Engineering,Data transformation tool that enables data analysts and engineers to transform data in their warehouse.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0028,Elasticsearch,"elasticsearch,es",Data Engineering,"Distributed, JSON-based search and analytics engine.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0029,BigQuery,"bigquery,google bigquery",Data Engineering,"Fully managed, serverless enterprise data warehouse on GCP.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0030,Vector Databases,"vector db,vector databases",Artificial Intelligence,"Database designed to store, manage, and index high-dimensional vector embeddings.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0031,Data Pipelines,"data pipelines,etl",Data Engineering,"Automated pipeline for ingesting, transforming, and loading data.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0032,Machine Learning,"ml,machine learning",Artificial Intelligence,Study of algorithms that improve automatically through experience and data.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0033,Deep Learning,"deep learning,dnn,neural networks",Artificial Intelligence,Part of a broader family of machine learning methods based on artificial neural networks.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0034,PyTorch,"pytorch,torch",Artificial Intelligence,Open-source machine learning library developed by Meta AI.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0035,TensorFlow,"tensorflow,tf",Artificial Intelligence,Open-source software library for machine learning and artificial intelligence.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0036,Keras,keras,Artificial Intelligence,High-level deep learning API designed for human beings.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0037,scikit-learn,"sklearn,scikit-learn",Data Science,Simple and efficient tools for predictive data analysis.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0038,Hugging Face Transformers,"transformers,huggingface,hugging face",Artificial Intelligence,Library providing state-of-the-art machine learning architectures for NLP and vision.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0039,Large Language Models,"llms,large language models,llm",Artificial Intelligence,AI models trained on massive text datasets for generative and reasoning tasks.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0040,Reinforcement Learning,"rl,reinforcement learning",Artificial Intelligence,Area of machine learning concerned with how intelligent agents take actions in an environment.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0041,Federated Learning,federated learning,Artificial Intelligence,Decentralized machine learning approach training across multiple edge devices.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0042,Graph Neural Networks,"gnn,graph neural networks",Artificial Intelligence,Class of deep learning methods designed to perform inference on data described by graphs.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0043,Edge AI,"edge ai,edge computing",Artificial Intelligence,Deployment of artificial intelligence algorithms directly on hardware edge devices.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0044,Convolutional Neural Networks,"cnn,convolutional neural networks",Computer Vision,Class of artificial neural networks commonly applied to analyze visual imagery.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0045,GPU Acceleration,"cuda,gpu acceleration,gpu",Systems & Hardware,Use of a graphics processing unit together with a CPU to accelerate computing.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0046,Computer Vision,"computer vision,cv",Computer Vision,Scientific field dealing with how computers gain high-level understanding from digital images or videos.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0047,OpenCV,"opencv,cv2",Computer Vision,Open source computer vision and machine learning software library.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0048,Natural Language Processing,"nlp,natural language processing",Natural Language Processing,Subfield of computer science dealing with interactions between computers and human language.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0049,spaCy,spacy,Natural Language Processing,Open-source software library for advanced natural language processing in Python.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0050,NLTK,"nltk,natural language toolkit",Natural Language Processing,Suite of libraries and programs for symbolic and statistical natural language processing.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0051,FastAPI,fastapi,Web & Mobile,"Modern, fast web framework for building APIs with Python.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0052,Django,django,Web & Mobile,High-level Python web framework that encourages rapid development.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0053,Flask,flask,Web & Mobile,Micro web framework written in Python.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0054,React,"react,reactjs",Web & Mobile,JavaScript library for building user interfaces.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0055,Next.js,"next.js,nextjs",Web & Mobile,React framework for web applications with server-side rendering.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0056,Node.js,"nodejs,node",Web & Mobile,"Open-source, cross-platform JavaScript runtime environment.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0057,Microservices,"microservices,microservice",Software Engineering,Architectural pattern that structures an application as a collection of services.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0058,RESTful APIs,"rest apis,restful apis,rest api",Software Engineering,Application programming interface adhering to REST architectural constraints.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0059,GraphQL,graphql,Software Engineering,Open-source data query and manipulation language for APIs.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0060,gRPC,grpc,Software Engineering,"High-performance, open source universal RPC framework.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0061,Docker,"docker,docker container",DevOps & Cloud,Set of platform as a service products using OS-level virtualization to deliver software in packages.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0062,Kubernetes,"k8s,kubernetes",DevOps & Cloud,Open-source container orchestration system for automating application deployment and scaling.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0063,AWS,"amazon web services,aws",DevOps & Cloud,Comprehensive and broadly adopted cloud platform.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0064,Google Cloud Platform,"gcp,google cloud",DevOps & Cloud,Suite of cloud computing services that runs on the same infrastructure Google uses.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0065,Microsoft Azure,"azure,ms azure",DevOps & Cloud,Cloud computing platform developed by Microsoft.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0066,Linux,"linux,ubuntu",Systems & Hardware,Open-source Unix-like operating system kernel.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0067,Git,"git,github,version control",Software Engineering,Distributed version control system for tracking changes in any set of files.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0068,CI/CD,"ci/cd,continuous integration",DevOps & Cloud,Combined practices of continuous integration and continuous delivery/deployment.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0069,GitHub Actions,github actions,DevOps & Cloud,Continuous integration and continuous delivery platform that automates builds and tests.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0070,DevOps,devops,DevOps & Cloud,Set of practices combining software development and IT operations.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0071,Cloud Infrastructure,"cloud infrastructure,cloud computing",DevOps & Cloud,Virtual and physical components of cloud environments.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0072,System Administration,"sysadmin,system administration",DevOps & Cloud,Field of work in which someone manages one or more systems.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0073,Pandas,pandas,Data Science,Software library written for data manipulation and analysis in Python.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0074,NumPy,numpy,Data Science,"Library for Python adding support for large, multi-dimensional arrays and matrices.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0075,SciPy,scipy,Data Science,Open-source Python library used for scientific and technical computing.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0076,Matplotlib,matplotlib,Data Science,Plotting library for Python and its numerical mathematics extension NumPy.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0077,Seaborn,seaborn,Data Science,Python data visualization library based on matplotlib.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0078,Tableau,tableau,Data Science,Interactive data visualization software focused on business intelligence.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0079,Power BI,"power bi,powerbi",Data Science,Interactive data visualization software developed by Microsoft.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0080,Embedded Systems,"embedded systems,embedded",Systems & Hardware,Controller programmed and dedicated to a specific task within a larger system.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0081,Embedded C,embedded c,Systems & Hardware,Set of language extensions for the C programming language to support embedded processors.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0082,RTOS,"rtos,real-time operating system",Systems & Hardware,Operating system intended to serve real-time applications with precise timing constraints.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0083,ROS,"ros,ros 2,robot operating system",Robotics & Hardware,Open-source robotics middleware suite.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0084,SLAM,"slam,simultaneous localization and mapping",Robotics & Hardware,Computational problem of constructing a map while updating agent location within it.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0085,Arduino,arduino,Systems & Hardware,"Open-source hardware and software company, project, and user community that designs single-board microcontrollers.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0086,Raspberry Pi,"raspberry pi,raspbian",Systems & Hardware,Series of small single-board computers developed to promote teaching of computer science.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0087,FPGA,"fpga,field programmable gate array",Systems & Hardware,Integrated circuit designed to be configured by a customer or a designer after manufacturing.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0088,Verilog,verilog,Systems & Hardware,Hardware description language used to model electronic systems.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0089,VHDL,vhdl,Systems & Hardware,Hardware description language used in electronic design automation to describe digital systems.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0090,PCB Design,"pcb design,pcb",Systems & Hardware,Design of printed circuit boards connecting electronic components.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0091,ARM Cortex,"arm cortex,arm",Systems & Hardware,Family of ARM architecture processors for microcontrollers and embedded applications.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0092,Cybersecurity,"cybersecurity,infosec",Cybersecurity,"Practice of protecting systems, networks, and programs from digital attacks.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0093,Penetration Testing,"penetration testing,pen testing",Cybersecurity,Authorized simulated cyberattack on a computer system to evaluate security.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0094,Network Security,network security,Cybersecurity,Provisions and policies adopted to prevent and monitor unauthorized access to a network.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0095,Cryptography,"cryptography,encryption",Cybersecurity,Practice and study of techniques for secure communication.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0096,Vulnerability Scanning,vulnerability scanning,Cybersecurity,"Automated process of proactively identifying network, application and security vulnerabilities.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0097,Blockchain,"blockchain,distributed ledger",Web3 & Decentralized,"Growing list of records, called blocks, that are linked together using cryptography.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0098,Solidity,solidity,Web3 & Decentralized,Object-oriented programming language for writing smart contracts on Ethereum.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0099,Smart Contracts,"smart contracts,smart contract",Web3 & Decentralized,Self-executing program that automates the actions required in a blockchain agreement.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0100,Team Leadership,"team leadership,leadership,team lead",Leadership & Soft Skills,"Ability to guide, inspire, and direct team members toward shared project objectives.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0101,Agile Project Management,"agile,scrum,sprints,agile methodology",Leadership & Soft Skills,Iterative approach to project management that helps teams deliver value faster.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0102,Scrum,scrum,Leadership & Soft Skills,"Agile process framework for managing complex work, especially software development.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0103,Technical Writing,"technical writing,documentation",Leadership & Soft Skills,Writing or drafting technical communication used in technical and occupational fields.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0104,Public Speaking,"public speaking,oral presentation,presentation",Leadership & Soft Skills,Performing speech or presentation to a live audience.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0105,Cross-functional Collaboration,"cross-functional collaboration,team collaboration",Leadership & Soft Skills,"Working effectively across different teams, departments, and disciplines.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0106,Stakeholder Communication,stakeholder communication,Leadership & Soft Skills,Managing relationships and communications with project sponsors and clients.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0107,System Architecture,"system architecture,architectural design",Software Engineering,"Conceptual model that defines the structure, behavior, and views of a system.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0108,Problem Solving,"problem solving,analytical reasoning",Leadership & Soft Skills,"Act of defining a problem, determining the cause, and implementing a solution.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0109,Peer Mentoring,"mentoring,peer mentoring",Leadership & Soft Skills,Guiding and supporting less experienced peers in technical topics.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0110,Event Organization,"event organization,logistics",Leadership & Soft Skills,"Planning, coordinating, and producing conferences, hackathons, or competitions.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0111,Strategic Planning,strategic planning,Leadership & Soft Skills,Organizational management activity used to set priorities and focus energy.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0112,User Research,"user research,ux",Software Engineering,"Focuses on understanding user behaviors, needs, and motivations through observation.",CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0113,Quality Assurance,"quality assurance,qa,testing",Software Engineering,Ensuring software meets specified requirements and standards.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0114,Design Thinking,design thinking,Leadership & Soft Skills,Iterative process in which teams seek to understand users and redefine problems.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0115,Scientific Rigor,"scientific rigor,ablation studies",Research & Methodology,Strict adherence to the scientific method and reproducible empirical evaluation.,CURATED_MEMBER1_VOCAB,NORMALIZED
+SKL_0116,Academic Excellence,"academic excellence,scholastic rigor",Research & Methodology,"Exceptional scholastic achievement, high GPA, and mastery of foundational subjects.",CURATED_MEMBER1_VOCAB,NORMALIZED

@@ -1,0 +1,107 @@
+{
+  "dataset_name": "Achievement Classification Dataset",
+  "dataset_version": "achievement_dataset_v1.0.1",
+  "generation_id": "GEN_v1_seed42_20261025",
+  "generation_timestamp": "2026-10-26",
+  "random_seed": 42,
+  "total_records": 1540,
+  "synthetic_records": 1540,
+  "real_source_records": 0,
+  "exact_duplicates_detected": 24,
+  "categories_represented": 14,
+  "category_distribution": {
+    "PATENT": 110,
+    "SPORTS": 110,
+    "VOLUNTEERING": 110,
+    "INTERNSHIP": 110,
+    "LEADERSHIP": 110,
+    "COMPETITION": 110,
+    "WORKSHOP": 110,
+    "PROJECT": 110,
+    "CERTIFICATION": 110,
+    "CONFERENCE": 110,
+    "CULTURAL": 110,
+    "HACKATHON": 110,
+    "OTHER": 110,
+    "RESEARCH_PUBLICATION": 110
+  },
+  "quality_status_summary": {
+    "VALIDATED": 1540
+  },
+  "artifacts": {
+    "processed_csv": "data/processed/achievement_classification_dataset.csv",
+    "processed_jsonl": "data/processed/achievement_classification_dataset.jsonl",
+    "schema_json": "data/schema/achievement_classification_schema.json",
+    "config_json": "data/config/synthetic_generation_config.json"
+  },
+  "license_and_governance": {
+    "license": "Research & Educational Use Only",
+    "provenance_statement": "All records in this dataset are explicitly synthetic representations generated for NLP benchmark development. No actual student private data is included."
+  },
+  "schema_version": "1.0.0",
+  "generation_script_version": "1.0.0",
+  "validation_status": "PASSED_100_PERCENT",
+  "duplicate_audit_status": "ZERO_EXACT_DUPLICATES",
+  "file_checksums": {
+    "primary_csv": {
+      "path": "data/processed/achievement_classification_dataset.csv",
+      "sha256": "1a62b8d8b56bd94df27d8c40ff86ef892b7d50e0c6bb92ff4f69882596b27ddc",
+      "size_bytes": 1413407
+    },
+    "primary_jsonl": {
+      "path": "data/processed/achievement_classification_dataset.jsonl",
+      "sha256": "7a328fa10be9671190d4b34cab26653f90fe36aea635af7b6812a2247c8991e6",
+      "size_bytes": 2173472
+    },
+    "train_csv": {
+      "path": "data/splits/train.csv",
+      "sha256": "c5dc7c224cd98f17760f391cfb096867f50110860c8cf7341c5780eab371b635",
+      "size_bytes": 989410
+    },
+    "validation_csv": {
+      "path": "data/splits/validation.csv",
+      "sha256": "2b1afd584020ab234a4d3794ca99585ffdd640999fe188ccde73969216c337c9",
+      "size_bytes": 211843
+    },
+    "test_csv": {
+      "path": "data/splits/test.csv",
+      "sha256": "88445ea36d71223d8943e14aa96c30818f0682db5c9b32a82aa6ddba53120ac5",
+      "size_bytes": 212824
+    },
+    "schema": {
+      "path": "data/schema/achievement_classification_schema.json",
+      "sha256": "f54f7054e21e10ab13569b0a8df6535a643055ba8da5baa96c7243395f21d76e",
+      "size_bytes": 3725
+    },
+    "config": {
+      "path": "data/config/synthetic_generation_config.json",
+      "sha256": "082538b34ebdddbadf72b6f2550c5b838192ddc3ff81166f5b8323eaf4d218c9",
+      "size_bytes": 1504
+    },
+    "split_manifest": {
+      "path": "data/splits/split_manifest.json",
+      "sha256": "1b4b952f5b5b24128404c99525e2f8fadc95e2b90c7263f8f57151e58ee0bb27",
+      "size_bytes": 2445
+    },
+    "skill_annotations": {
+      "path": "data/annotations/achievement_skill_annotations.csv",
+      "sha256": "3426f79b9bbec6e8ea9b0ab1724b50ef77499227597adc8450a917c80e86aadb",
+      "size_bytes": 229321
+    },
+    "skill_vocabulary": {
+      "path": "data/annotations/canonical_skill_vocabulary.csv",
+      "sha256": "93af0cf98effa560f756784b263843b1eefbe5e6acdf98a2cf9bc261aacd32b4",
+      "size_bytes": 19874
+    },
+    "extraction_samples": {
+      "path": "data/annotations/extraction_evaluation_samples.jsonl",
+      "sha256": "e59972a99194cae09349a2c34a4e0481c95be7e2a1424d73ed652e2b24bbcf26",
+      "size_bytes": 87566
+    },
+    "duplicate_pairs": {
+      "path": "data/annotations/achievement_duplicate_pairs.csv",
+      "sha256": "d0329df700efb470c448c0c79865e84dd15662c10288b4b450337c38b1520573",
+      "size_bytes": 176845
+    }
+  }
+}

@@ -1,0 +1,242 @@
+{
+  "pilot_id": "step23_controlled_pilot_v1.0",
+  "timestamp": "2026-10-28T17:30:00Z",
+  "sampling_parameters": {
+    "random_seed": 42,
+    "sample_size": 25,
+    "eligible_pool_size": 138,
+    "master_task_size": 175,
+    "sampling_method": "Stratified random sampling over primary_category using random.Random(42)"
+  },
+  "category_allocation": {
+    "CERTIFICATION": 2,
+    "COMPETITION": 2,
+    "CONFERENCE": 2,
+    "HACKATHON": 3,
+    "INTERNSHIP": 3,
+    "LEADERSHIP": 2,
+    "PATENT": 2,
+    "PROJECT": 3,
+    "RESEARCH_PUBLICATION": 3,
+    "SPORTS": 1,
+    "WORKSHOP": 2
+  },
+  "eligibility_verification": {
+    "split": "test",
+    "test_csv_total_ids": 231,
+    "verified_reference_records_count": 7,
+    "blind_evaluation_records_count": 30,
+    "candidate_pool_records_count": 138,
+    "overlap_with_blind_evaluation_sample": 0,
+    "overlap_with_verified_reference_records": 0,
+    "disjoint_confirmed": true
+  },
+  "selected_record_ids": [
+    "ACH000019",
+    "ACH000033",
+    "ACH000075",
+    "ACH000118",
+    "ACH000199",
+    "ACH000241",
+    "ACH000288",
+    "ACH000299",
+    "ACH000332",
+    "ACH000359",
+    "ACH000469",
+    "ACH000510",
+    "ACH000529",
+    "ACH000594",
+    "ACH000649",
+    "ACH000678",
+    "ACH000685",
+    "ACH000707",
+    "ACH000787",
+    "ACH000827",
+    "ACH000898",
+    "ACH000903",
+    "ACH001015",
+    "ACH001085",
+    "ACH001109"
+  ],
+  "selected_records_summary": [
+    {
+      "pilot_record_id": 1,
+      "achievement_id": "ACH000019",
+      "primary_category": "HACKATHON",
+      "ai_proposed_tags": "lbl_domain_systems|lbl_domain_web",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 2,
+      "achievement_id": "ACH000033",
+      "primary_category": "HACKATHON",
+      "ai_proposed_tags": "lbl_domain_data|lbl_domain_hardware",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 3,
+      "achievement_id": "ACH000075",
+      "primary_category": "HACKATHON",
+      "ai_proposed_tags": "lbl_domain_systems|lbl_domain_web|lbl_domain_hardware",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 4,
+      "achievement_id": "ACH000118",
+      "primary_category": "COMPETITION",
+      "ai_proposed_tags": "lbl_domain_ai|lbl_domain_ml|lbl_domain_nlp|lbl_domain_security",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 5,
+      "achievement_id": "ACH000199",
+      "primary_category": "COMPETITION",
+      "ai_proposed_tags": "lbl_domain_ai|lbl_domain_ml|lbl_domain_security",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 6,
+      "achievement_id": "ACH000241",
+      "primary_category": "RESEARCH_PUBLICATION",
+      "ai_proposed_tags": "lbl_domain_ai",
+      "uncertainty_flag": true
+    },
+    {
+      "pilot_record_id": 7,
+      "achievement_id": "ACH000288",
+      "primary_category": "RESEARCH_PUBLICATION",
+      "ai_proposed_tags": "NONE",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 8,
+      "achievement_id": "ACH000299",
+      "primary_category": "RESEARCH_PUBLICATION",
+      "ai_proposed_tags": "lbl_domain_hardware",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 9,
+      "achievement_id": "ACH000332",
+      "primary_category": "PATENT",
+      "ai_proposed_tags": "lbl_domain_web|lbl_domain_hardware",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 10,
+      "achievement_id": "ACH000359",
+      "primary_category": "PATENT",
+      "ai_proposed_tags": "lbl_domain_security|lbl_domain_hardware",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 11,
+      "achievement_id": "ACH000469",
+      "primary_category": "INTERNSHIP",
+      "ai_proposed_tags": "lbl_domain_ai|lbl_domain_ml|lbl_domain_systems|lbl_domain_web",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 12,
+      "achievement_id": "ACH000510",
+      "primary_category": "INTERNSHIP",
+      "ai_proposed_tags": "lbl_domain_systems|lbl_domain_web|lbl_domain_data",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 13,
+      "achievement_id": "ACH000529",
+      "primary_category": "INTERNSHIP",
+      "ai_proposed_tags": "lbl_domain_systems|lbl_domain_web",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 14,
+      "achievement_id": "ACH000594",
+      "primary_category": "CERTIFICATION",
+      "ai_proposed_tags": "lbl_domain_security|lbl_domain_data",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 15,
+      "achievement_id": "ACH000649",
+      "primary_category": "CERTIFICATION",
+      "ai_proposed_tags": "lbl_domain_security|lbl_domain_systems",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 16,
+      "achievement_id": "ACH000678",
+      "primary_category": "PROJECT",
+      "ai_proposed_tags": "lbl_domain_security|lbl_domain_systems|lbl_domain_hardware",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 17,
+      "achievement_id": "ACH000685",
+      "primary_category": "PROJECT",
+      "ai_proposed_tags": "lbl_domain_systems|lbl_domain_hardware",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 18,
+      "achievement_id": "ACH000707",
+      "primary_category": "PROJECT",
+      "ai_proposed_tags": "lbl_domain_systems|lbl_domain_data",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 19,
+      "achievement_id": "ACH000787",
+      "primary_category": "WORKSHOP",
+      "ai_proposed_tags": "lbl_domain_systems",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 20,
+      "achievement_id": "ACH000827",
+      "primary_category": "WORKSHOP",
+      "ai_proposed_tags": "lbl_domain_ai|lbl_domain_systems",
+      "uncertainty_flag": true
+    },
+    {
+      "pilot_record_id": 21,
+      "achievement_id": "ACH000898",
+      "primary_category": "CONFERENCE",
+      "ai_proposed_tags": "lbl_domain_data",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 22,
+      "achievement_id": "ACH000903",
+      "primary_category": "CONFERENCE",
+      "ai_proposed_tags": "NONE",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 23,
+      "achievement_id": "ACH001015",
+      "primary_category": "LEADERSHIP",
+      "ai_proposed_tags": "NONE",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 24,
+      "achievement_id": "ACH001085",
+      "primary_category": "LEADERSHIP",
+      "ai_proposed_tags": "lbl_domain_data",
+      "uncertainty_flag": false
+    },
+    {
+      "pilot_record_id": 25,
+      "achievement_id": "ACH001109",
+      "primary_category": "SPORTS",
+      "ai_proposed_tags": "lbl_domain_other",
+      "uncertainty_flag": false
+    }
+  ],
+  "file_paths": {
+    "queue_csv": "D:\\SUPERVISED PROJECT\\AI-Powered-Student-Achievement-Intelligence-Platform\\data\\annotations\\ai_assisted\\pilot\\domain_categorization_pilot_queue.csv",
+    "manifest_json": "D:\\SUPERVISED PROJECT\\AI-Powered-Student-Achievement-Intelligence-Platform\\data\\annotations\\ai_assisted\\pilot\\domain_categorization_pilot_manifest.json"
+  }
+}

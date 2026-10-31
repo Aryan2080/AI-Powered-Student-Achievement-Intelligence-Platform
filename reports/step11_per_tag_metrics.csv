@@ -1,0 +1,51 @@
+subset,tag,canonical_name,support,neg_support,tp,fp,fn,tn,precision,recall,f1,threshold
+auto_test_231,lbl_domain_ai,Artificial intelligence,100,131,86,45,14,86,0.6565,0.86,0.7446,0.4
+auto_test_231,lbl_domain_ml,Machine learning,35,196,14,16,21,180,0.4667,0.4,0.4308,0.625
+auto_test_231,lbl_domain_nlp,Natural language processing,28,203,3,15,25,188,0.1667,0.1071,0.1304,0.575
+auto_test_231,lbl_domain_cv,Computer vision,10,221,3,11,7,210,0.2143,0.3,0.25,0.6
+auto_test_231,lbl_domain_security,Security,28,203,15,30,13,173,0.3333,0.5357,0.411,0.6
+auto_test_231,lbl_domain_systems,Systems & Cloud,95,136,71,41,24,95,0.6339,0.7474,0.686,0.5
+auto_test_231,lbl_domain_web,Web and application,48,183,34,27,14,156,0.5574,0.7083,0.6239,0.55
+auto_test_231,lbl_domain_data,Data engineering and analytics,90,141,83,56,7,85,0.5971,0.9222,0.7249,0.425
+auto_test_231,lbl_domain_hardware,Hardware and embedded systems,77,154,69,70,8,84,0.4964,0.8961,0.6389,0.4
+auto_test_231,lbl_domain_other,Other domain (Non-computing),32,199,32,0,0,199,1.0,1.0,1.0,0.25
+reviewed_all_45,lbl_domain_ai,Artificial intelligence,20,25,20,6,0,19,0.7692,1.0,0.8696,0.4
+reviewed_all_45,lbl_domain_ml,Machine learning,11,34,8,0,3,34,1.0,0.7273,0.8421,0.625
+reviewed_all_45,lbl_domain_nlp,Natural language processing,6,39,4,2,2,37,0.6667,0.6667,0.6667,0.575
+reviewed_all_45,lbl_domain_cv,Computer vision,6,39,5,0,1,39,1.0,0.8333,0.9091,0.6
+reviewed_all_45,lbl_domain_security,Security,8,37,7,2,1,35,0.7778,0.875,0.8235,0.6
+reviewed_all_45,lbl_domain_systems,Systems & Cloud,18,27,15,6,3,21,0.7143,0.8333,0.7692,0.5
+reviewed_all_45,lbl_domain_web,Web and application,14,31,10,4,4,27,0.7143,0.7143,0.7143,0.55
+reviewed_all_45,lbl_domain_data,Data engineering and analytics,12,33,12,15,0,18,0.4444,1.0,0.6154,0.425
+reviewed_all_45,lbl_domain_hardware,Hardware and embedded systems,16,29,15,10,1,19,0.6,0.9375,0.7317,0.4
+reviewed_all_45,lbl_domain_other,Other domain (Non-computing),4,41,4,0,0,41,1.0,1.0,1.0,0.25
+reviewed_test_only,lbl_domain_ai,Artificial intelligence,3,4,3,2,0,2,0.6,1.0,0.75,0.4
+reviewed_test_only,lbl_domain_ml,Machine learning,1,6,0,0,1,6,0.0,0.0,0.0,0.625
+reviewed_test_only,lbl_domain_nlp,Natural language processing,1,6,0,1,1,5,0.0,0.0,0.0,0.575
+reviewed_test_only,lbl_domain_cv,Computer vision,0,7,0,0,0,7,0.0,0.0,0.0,0.6
+reviewed_test_only,lbl_domain_security,Security,1,6,1,2,0,4,0.3333,1.0,0.5,0.6
+reviewed_test_only,lbl_domain_systems,Systems & Cloud,3,4,2,2,1,2,0.5,0.6667,0.5714,0.5
+reviewed_test_only,lbl_domain_web,Web and application,1,6,0,2,1,4,0.0,0.0,0.0,0.55
+reviewed_test_only,lbl_domain_data,Data engineering and analytics,1,6,1,4,0,2,0.2,1.0,0.3333,0.425
+reviewed_test_only,lbl_domain_hardware,Hardware and embedded systems,2,5,2,3,0,2,0.4,1.0,0.5714,0.4
+reviewed_test_only,lbl_domain_other,Other domain (Non-computing),0,7,0,0,0,7,0.0,0.0,0.0,0.25
+reviewed_train_only,lbl_domain_ai,Artificial intelligence,14,18,14,2,0,16,0.875,1.0,0.9333,0.4
+reviewed_train_only,lbl_domain_ml,Machine learning,9,23,8,0,1,23,1.0,0.8889,0.9412,0.625
+reviewed_train_only,lbl_domain_nlp,Natural language processing,4,28,3,1,1,27,0.75,0.75,0.75,0.575
+reviewed_train_only,lbl_domain_cv,Computer vision,4,28,3,0,1,28,1.0,0.75,0.8571,0.6
+reviewed_train_only,lbl_domain_security,Security,5,27,5,0,0,27,1.0,1.0,1.0,0.6
+reviewed_train_only,lbl_domain_systems,Systems & Cloud,11,21,10,4,1,17,0.7143,0.9091,0.8,0.5
+reviewed_train_only,lbl_domain_web,Web and application,11,21,8,2,3,19,0.8,0.7273,0.7619,0.55
+reviewed_train_only,lbl_domain_data,Data engineering and analytics,10,22,10,9,0,13,0.5263,1.0,0.6897,0.425
+reviewed_train_only,lbl_domain_hardware,Hardware and embedded systems,11,21,10,5,1,16,0.6667,0.9091,0.7692,0.4
+reviewed_train_only,lbl_domain_other,Other domain (Non-computing),3,29,3,0,0,29,1.0,1.0,1.0,0.25
+reviewed_val_only,lbl_domain_ai,Artificial intelligence,3,3,3,2,0,1,0.6,1.0,0.75,0.4
+reviewed_val_only,lbl_domain_ml,Machine learning,1,5,0,0,1,5,0.0,0.0,0.0,0.625
+reviewed_val_only,lbl_domain_nlp,Natural language processing,1,5,1,0,0,5,1.0,1.0,1.0,0.575
+reviewed_val_only,lbl_domain_cv,Computer vision,2,4,2,0,0,4,1.0,1.0,1.0,0.6
+reviewed_val_only,lbl_domain_security,Security,2,4,1,0,1,4,1.0,0.5,0.6667,0.6
+reviewed_val_only,lbl_domain_systems,Systems & Cloud,4,2,3,0,1,2,1.0,0.75,0.8571,0.5
+reviewed_val_only,lbl_domain_web,Web and application,2,4,2,0,0,4,1.0,1.0,1.0,0.55
+reviewed_val_only,lbl_domain_data,Data engineering and analytics,1,5,1,2,0,3,0.3333,1.0,0.5,0.425
+reviewed_val_only,lbl_domain_hardware,Hardware and embedded systems,3,3,3,2,0,1,0.6,1.0,0.75,0.4
+reviewed_val_only,lbl_domain_other,Other domain (Non-computing),1,5,1,0,0,5,1.0,1.0,1.0,0.25

@@ -1,0 +1,18 @@
+{
+  "model_type": "TF-IDF + LogisticRegression",
+  "model_version": "1.0.1",
+  "trained_on_dataset_version": "achievement_dataset_v1.0.1",
+  "num_classes": 14,
+  "trained_at": "2026-10-26T18:05:16.001145+00:00",
+  "train_samples": 1078,
+  "feature_count": 5000,
+  "hyperparameters": {
+    "ngram_range": [
+      1,
+      2
+    ],
+    "max_features": 5000,
+    "C": 1.0,
+    "random_state": 42
+  }
+}

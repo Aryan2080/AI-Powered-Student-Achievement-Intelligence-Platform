@@ -5,3 +5,15 @@ pandas
 pydantic>=2,<3
 pytest
 pyyaml
+
+# Chunk 7.22 — Redis-backed arXiv rate-limit coordinator (Option C of
+# the Chunk 7.21 design). Required when ARXIV_RATE_COORDINATOR_URL is
+# set to a redis:// URL; the module gracefully handles ImportError
+# (fail-closed) when the dependency is absent. See
+# src/nlp_semantic/ingestion/rate_limit.py and
+# hybrid_dataset/metadata/arxiv_governance_decisions.md.
+redis>=5,<6
+# fakeredis[lua] provides an in-process Redis double for unit tests
+# of the RedisCoordinator. The `lua` extra enables Lua scripting
+# support (via lupa), which the acquire/release Lua scripts require.
+fakeredis[lua]>=2,<3

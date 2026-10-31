@@ -1,0 +1,119 @@
+{
+  "dataset_name": "Achievement Classification Dataset - Partition Manifest",
+  "dataset_version": "achievement_dataset_v1.0.0",
+  "split_generation_date": "2026-10-26",
+  "random_seed": 42,
+  "split_ratios": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "total_records": 1540,
+  "split_counts": {
+    "train": 1078,
+    "validation": 231,
+    "test": 231
+  },
+  "exact_percentages": {
+    "train": "70.00%",
+    "validation": "15.00%",
+    "test": "15.00%"
+  },
+  "per_category_breakdown": {
+    "CERTIFICATION": {
+      "total": 110,
+      "train": 77,
+      "validation": 16,
+      "test": 17
+    },
+    "COMPETITION": {
+      "total": 110,
+      "train": 77,
+      "validation": 17,
+      "test": 16
+    },
+    "CONFERENCE": {
+      "total": 110,
+      "train": 77,
+      "validation": 16,
+      "test": 17
+    },
+    "CULTURAL": {
+      "total": 110,
+      "train": 77,
+      "validation": 17,
+      "test": 16
+    },
+    "HACKATHON": {
+      "total": 110,
+      "train": 77,
+      "validation": 16,
+      "test": 17
+    },
+    "INTERNSHIP": {
+      "total": 110,
+      "train": 77,
+      "validation": 17,
+      "test": 16
+    },
+    "LEADERSHIP": {
+      "total": 110,
+      "train": 77,
+      "validation": 16,
+      "test": 17
+    },
+    "OTHER": {
+      "total": 110,
+      "train": 77,
+      "validation": 17,
+      "test": 16
+    },
+    "PATENT": {
+      "total": 110,
+      "train": 77,
+      "validation": 16,
+      "test": 17
+    },
+    "PROJECT": {
+      "total": 110,
+      "train": 77,
+      "validation": 17,
+      "test": 16
+    },
+    "RESEARCH_PUBLICATION": {
+      "total": 110,
+      "train": 77,
+      "validation": 16,
+      "test": 17
+    },
+    "SPORTS": {
+      "total": 110,
+      "train": 77,
+      "validation": 17,
+      "test": 16
+    },
+    "VOLUNTEERING": {
+      "total": 110,
+      "train": 77,
+      "validation": 16,
+      "test": 17
+    },
+    "WORKSHOP": {
+      "total": 110,
+      "train": 77,
+      "validation": 17,
+      "test": 16
+    }
+  },
+  "leakage_verification": {
+    "train_val_overlap": 0,
+    "train_test_overlap": 0,
+    "val_test_overlap": 0,
+    "status": "PASSED_STRICT_ISOLATION"
+  },
+  "split_files": {
+    "train_csv": "data/splits/train.csv",
+    "validation_csv": "data/splits/validation.csv",
+    "test_csv": "data/splits/test.csv"
+  }
+}

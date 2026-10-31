@@ -1,0 +1,114 @@
+{
+  "audit_metadata": {
+    "step": "Step 26 \u2014 Launch the Remaining 113-Record Human-in-the-Loop Annotation Queue",
+    "timestamp": "2026-10-29T02:14:25.244001+00:00",
+    "role": "Senior NLP/ML Engineer & Dataset Quality Auditor (Member 1)",
+    "branch": "feature/nlp-semantic",
+    "git_head": "c8c1b8084ff9d15955e0b456d9eccbe9c4cf6d90",
+    "intake_status": "READY_FOR_HUMAN_REVIEW",
+    "final_status": "READY FOR HUMAN REVIEW"
+  },
+  "corpus_census_and_partition": {
+    "master_gold_task_total": 175,
+    "certified_reference_standards": 7,
+    "blind_validation_sample": 30,
+    "completed_controlled_pilot": 25,
+    "remaining_intake_queue": 113,
+    "partition_sum_check": true,
+    "split_membership": "100% test split (data/splits/test.csv)"
+  },
+  "disjointness_verification": {
+    "disjoint_from_certified_references_7": true,
+    "disjoint_from_blind_validation_sample_30": true,
+    "disjoint_from_pilot_sample_25": true,
+    "unique_record_count": 113,
+    "duplicate_ids_count": 0
+  },
+  "artifact_hashes": {
+    "remaining_113_queue_csv": {
+      "path": "data/annotations/ai_assisted/pilot/domain_categorization_remaining_113_queue.csv",
+      "sha256": "4307b2b55091d9b6bfa7d102a27bdc913168d038af0192d7a2564dd7e2381da7"
+    },
+    "remaining_113_manifest_json": {
+      "path": "data/annotations/ai_assisted/pilot/domain_categorization_remaining_113_manifest.json",
+      "sha256": "e7f872896c459cb2775385d1fd0e2941e0678087119efcf4f5d47c070b3c4997"
+    },
+    "frozen_master_dataset_csv": {
+      "path": "data/processed/achievement_classification_dataset.csv",
+      "sha256": "1a62b8d8b56bd94df27d8c40ff86ef892b7d50e0c6bb92ff4f69882596b27ddc"
+    },
+    "frozen_categorizer_joblib": {
+      "path": "models/achievement_categorizer_v1.0.1.joblib",
+      "sha256": "e0f514a4286752948c069c43dda6626af9e4ace926ab899334d12af77353ddb3"
+    },
+    "frozen_classifier_joblib": {
+      "path": "models/achievement_classifier_v1.0.1.joblib",
+      "sha256": "1359534562ced43eca0309c33a25cc630ad1eef95f1a94a8e7ffdc9fc7eed2cd"
+    },
+    "frozen_blind_sample_csv": {
+      "path": "data/annotations/ai_assisted/domain_categorization_validation_sample_blind.csv",
+      "sha256": "7c2fd5f04bddc938d4b4f42ad8b9fbe94ee09aa250fb3bcc20d0d7d4fd70a4e2"
+    },
+    "frozen_completed_pilot_queue_csv": {
+      "path": "data/annotations/ai_assisted/pilot/domain_categorization_pilot_queue.csv",
+      "sha256": "0733247370a4914b6dafbcb49e8623d51a5cb4beb6d2f905f4221f5e0e3641c9"
+    }
+  },
+  "queue_composition": {
+    "category_distribution": {
+      "HACKATHON": 11,
+      "COMPETITION": 11,
+      "RESEARCH_PUBLICATION": 10,
+      "PATENT": 11,
+      "INTERNSHIP": 10,
+      "CERTIFICATION": 11,
+      "PROJECT": 10,
+      "WORKSHOP": 11,
+      "CONFERENCE": 11,
+      "LEADERSHIP": 11,
+      "SPORTS": 6
+    },
+    "proposed_tag_frequencies": {
+      "lbl_domain_data": 20,
+      "lbl_domain_hardware": 30,
+      "lbl_domain_systems": 46,
+      "lbl_domain_ai": 16,
+      "lbl_domain_web": 12,
+      "lbl_domain_ml": 11,
+      "lbl_domain_nlp": 7,
+      "lbl_domain_security": 17,
+      "lbl_domain_cv": 3,
+      "lbl_domain_other": 5
+    },
+    "zero_tag_proposals_none": 19,
+    "uncertainty_flag_true_count": 12,
+    "uncertainty_flag_false_count": 101
+  },
+  "reviewer_fields_initialization": {
+    "reviewer_name": "INITIALIZED_BLANK",
+    "reviewer_decision": "INITIALIZED_BLANK",
+    "reviewer_final_tags": "INITIALIZED_BLANK",
+    "reviewer_rationale": "INITIALIZED_BLANK",
+    "review_time_seconds": "INITIALIZED_BLANK",
+    "review_status": "PENDING_REVIEW",
+    "completion_fabricated": false,
+    "reviewed_records_count": 0,
+    "pending_records_count": 113
+  },
+  "governance_compliance": {
+    "autonomous_acceptance_blocked": true,
+    "zero_automatic_gold_promotion": true,
+    "models_retrained": false,
+    "master_dataset_modified": false,
+    "splits_modified": false,
+    "independent_benchmark_modified": false,
+    "pilot_artifacts_preserved": true,
+    "efficiency_claims_made": false
+  },
+  "operational_conditions_for_reviewers": [
+    "Condition 1: Mandatory 100% human-in-the-loop review; no auto-promotion.",
+    "Condition 2: AI vs. ML disambiguation protocol (reject AI/ML on framework names alone without model training).",
+    "Condition 3: Strict web evidence grounding (disqualify hackathon tracks and generic dashboards).",
+    "Condition 4: Active multi-domain verification (inspect compound claims for missing sub-domains)."
+  ]
+}

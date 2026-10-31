@@ -1,0 +1,1611 @@
+{
+  "evaluation_timestamp": "2026-10-29T15:25:35.350470+00:00",
+  "git_branch": "feature/nlp-semantic",
+  "git_commit": "c8c1b80",
+  "evaluation_corpus": {
+    "total_records": 175,
+    "cohorts": {
+      "Cohort A (Reference Standards)": 7,
+      "Cohort B (Blind Validation Sample)": 30,
+      "Cohort C (Controlled Pilot)": 25,
+      "Cohort D (Expansion Review Queue)": 113
+    },
+    "strata_sample_sizes": {
+      "Cohort A (Reference Standards)": 7,
+      "Cohort B (Blind Validation Sample)": 30,
+      "Combined AI-Unexposed Blind Stratum (Cohorts A + B)": 37,
+      "AI-Assisted Adjudication Cohort (Cohorts C + D)": 138,
+      "Full Pooled Ground-Truth Benchmark (Cohorts A + B + C + D)": 175
+    },
+    "split_containment": "100% test.csv (0 in train.csv, 0 in validation.csv)"
+  },
+  "frozen_model_artifacts": {
+    "categorizer": "models/achievement_categorizer_v1.0.1.joblib",
+    "classifier": "models/achievement_classifier_v1.0.1.joblib",
+    "pre_execution_hashes": {
+      "categorizer": "e0f514a4286752948c069c43dda6626af9e4ace926ab899334d12af77353ddb3",
+      "classifier": "1359534562ced43eca0309c33a25cc630ad1eef95f1a94a8e7ffdc9fc7eed2cd"
+    }
+  },
+  "multi_label_categorizer_evaluation": {
+    "Cohort A (Reference Standards)": {
+      "sample_size": 7,
+      "exact_match_count": 1,
+      "exact_match_ratio": 0.1429,
+      "exact_match_95_ci": [
+        0.0257,
+        0.5131
+      ],
+      "hamming_loss": 0.2857,
+      "micro_precision": 0.36,
+      "micro_recall": 0.6923,
+      "micro_f1": 0.4737,
+      "macro_precision": 0.2033,
+      "macro_recall": 0.4667,
+      "macro_f1": 0.2726,
+      "weighted_f1": 0.4569,
+      "zero_tag_metrics": {
+        "support": 1,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "tn": 6,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "wilson_ci": [
+          0.2065,
+          1.0
+        ]
+      },
+      "confidence_tiers": {
+        "counts": {
+          "HIGH": 11,
+          "MEDIUM": 14,
+          "LOW": 0
+        },
+        "precisions": {
+          "HIGH": 0.3636,
+          "MEDIUM": 0.3571,
+          "LOW": 0.0
+        }
+      },
+      "per_tag": {
+        "lbl_domain_ai": {
+          "canonical_name": "Artificial intelligence",
+          "support": 3,
+          "tp": 3,
+          "fp": 2,
+          "fn": 0,
+          "tn": 2,
+          "precision": 0.6,
+          "recall": 1.0,
+          "f1": 0.75
+        },
+        "lbl_domain_ml": {
+          "canonical_name": "Machine learning",
+          "support": 1,
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 6,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "lbl_domain_nlp": {
+          "canonical_name": "Natural language processing",
+          "support": 1,
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "tn": 5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "lbl_domain_cv": {
+          "canonical_name": "Computer vision",
+          "support": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "lbl_domain_security": {
+          "canonical_name": "Security",
+          "support": 1,
+          "tp": 1,
+          "fp": 2,
+          "fn": 0,
+          "tn": 4,
+          "precision": 0.3333,
+          "recall": 1.0,
+          "f1": 0.5
+        },
+        "lbl_domain_systems": {
+          "canonical_name": "Systems & Cloud",
+          "support": 3,
+          "tp": 2,
+          "fp": 2,
+          "fn": 1,
+          "tn": 2,
+          "precision": 0.5,
+          "recall": 0.6667,
+          "f1": 0.5714
+        },
+        "lbl_domain_web": {
+          "canonical_name": "Web and application",
+          "support": 1,
+          "tp": 0,
+          "fp": 2,
+          "fn": 1,
+          "tn": 4,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "lbl_domain_data": {
+          "canonical_name": "Data engineering and analytics",
+          "support": 1,
+          "tp": 1,
+          "fp": 4,
+          "fn": 0,
+          "tn": 2,
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1": 0.3333
+        },
+        "lbl_domain_hardware": {
+          "canonical_name": "Hardware and embedded systems",
+          "support": 2,
+          "tp": 2,
+          "fp": 3,
+          "fn": 0,
+          "tn": 2,
+          "precision": 0.4,
+          "recall": 1.0,
+          "f1": 0.5714
+        },
+        "lbl_domain_other": {
+          "canonical_name": "Other domain (Non-computing)",
+          "support": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      }
+    },
+    "Cohort B (Blind Validation Sample)": {
+      "sample_size": 30,
+      "exact_match_count": 2,
+      "exact_match_ratio": 0.0667,
+      "exact_match_95_ci": [
+        0.0185,
+        0.2132
+      ],
+      "hamming_loss": 0.3167,
+      "micro_precision": 0.2857,
+      "micro_recall": 0.7727,
+      "micro_f1": 0.4172,
+      "macro_precision": 0.3082,
+      "macro_recall": 0.606,
+      "macro_f1": 0.3344,
+      "weighted_f1": 0.4691,
+      "zero_tag_metrics": {
+        "support": 0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 30,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "wilson_ci": [
+          0.0,
+          0.0
+        ]
+      },
+      "confidence_tiers": {
+        "counts": {
+          "HIGH": 59,
+          "MEDIUM": 60,
+          "LOW": 0
+        },
+        "precisions": {
+          "HIGH": 0.322,
+          "MEDIUM": 0.25,
+          "LOW": 0.0
+        }
+      },
+      "per_tag": {
+        "lbl_domain_ai": {
+          "canonical_name": "Artificial intelligence",
+          "support": 4,
+          "tp": 4,
+          "fp": 17,
+          "fn": 0,
+          "tn": 9,
+          "precision": 0.1905,
+          "recall": 1.0,
+          "f1": 0.32
+        },
+        "lbl_domain_ml": {
+          "canonical_name": "Machine learning",
+          "support": 3,
+          "tp": 3,
+          "fp": 5,
+          "fn": 0,
+          "tn": 22,
+          "precision": 0.375,
+          "recall": 1.0,
+          "f1": 0.5455
+        },
+        "lbl_domain_nlp": {
+          "canonical_name": "Natural language processing",
+          "support": 0,
+          "tp": 0,
+          "fp": 4,
+          "fn": 0,
+          "tn": 26,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "lbl_domain_cv": {
+          "canonical_name": "Computer vision",
+          "support": 2,
+          "tp": 1,
+          "fp": 3,
+          "fn": 1,
+          "tn": 25,
+          "precision": 0.25,
+          "recall": 0.5,
+          "f1": 0.3333
+        },
+        "lbl_domain_security": {
+          "canonical_name": "Security",
+          "support": 1,
+          "tp": 0,
+          "fp": 4,
+          "fn": 1,
+          "tn": 25,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "lbl_domain_systems": {
+          "canonical_name": "Systems & Cloud",
+          "support": 14,
+          "tp": 11,
+          "fp": 8,
+          "fn": 3,
+          "tn": 8,
+          "precision": 0.5789,
+          "recall": 0.7857,
+          "f1": 0.6667
+        },
+        "lbl_domain_web": {
+          "canonical_name": "Web and application",
+          "support": 3,
+          "tp": 2,
+          "fp": 11,
+          "fn": 1,
+          "tn": 16,
+          "precision": 0.1538,
+          "recall": 0.6667,
+          "f1": 0.25
+        },
+        "lbl_domain_data": {
+          "canonical_name": "Data engineering and analytics",
+          "support": 7,
+          "tp": 6,
+          "fp": 17,
+          "fn": 1,
+          "tn": 6,
+          "precision": 0.2609,
+          "recall": 0.8571,
+          "f1": 0.4
+        },
+        "lbl_domain_hardware": {
+          "canonical_name": "Hardware and embedded systems",
+          "support": 6,
+          "tp": 6,
+          "fp": 16,
+          "fn": 0,
+          "tn": 8,
+          "precision": 0.2727,
+          "recall": 1.0,
+          "f1": 0.4286
+        },
+        "lbl_domain_other": {
+          "canonical_name": "Other domain (Non-computing)",
+          "support": 4,
+          "tp": 1,
+          "fp": 0,
+          "fn": 3,
+          "tn": 26,
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4
+        }
+      }
+    },
+    "Combined AI-Unexposed Blind Stratum (Cohorts A + B)": {
+      "sample_size": 37,
+      "exact_match_count": 3,
+      "exact_match_ratio": 0.0811,
+      "exact_match_95_ci": [
+        0.028,
+        0.213
+      ],
+      "hamming_loss": 0.3108,
+      "micro_precision": 0.2986,
+      "micro_recall": 0.7544,
+      "micro_f1": 0.4279,
+      "macro_precision": 0.3282,
+      "macro_recall": 0.614,
+      "macro_f1": 0.3586,
+      "weighted_f1": 0.4621,
+      "zero_tag_metrics": {
+        "support": 1,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "tn": 36,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "wilson_ci": [
+          0.2065,
+          1.0
+        ]
+      },
+      "confidence_tiers": {
+        "counts": {
+          "HIGH": 70,
+          "MEDIUM": 74,
+          "LOW": 0
+        },
+        "precisions": {
+          "HIGH": 0.3286,
+          "MEDIUM": 0.2703,
+          "LOW": 0.0
+        }
+      },
+      "per_tag": {
+        "lbl_domain_ai": {
+          "canonical_name": "Artificial intelligence",
+          "support": 7,
+          "tp": 7,
+          "fp": 19,
+          "fn": 0,
+          "tn": 11,
+          "precision": 0.2692,
+          "recall": 1.0,
+          "f1": 0.4242
+        },
+        "lbl_domain_ml": {
+          "canonical_name": "Machine learning",
+          "support": 4,
+          "tp": 3,
+          "fp": 5,
+          "fn": 1,
+          "tn": 28,
+          "precision": 0.375,
+          "recall": 0.75,
+          "f1": 0.5
+        },
+        "lbl_domain_nlp": {
+          "canonical_name": "Natural language processing",
+          "support": 1,
+          "tp": 0,
+          "fp": 5,
+          "fn": 1,
+          "tn": 31,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "lbl_domain_cv": {
+          "canonical_name": "Computer vision",
+          "support": 2,
+          "tp": 1,
+          "fp": 3,
+          "fn": 1,
+          "tn": 32,
+          "precision": 0.25,
+          "recall": 0.5,
+          "f1": 0.3333
+        },
+        "lbl_domain_security": {
+          "canonical_name": "Security",
+          "support": 2,
+          "tp": 1,
+          "fp": 6,
+          "fn": 1,
+          "tn": 29,
+          "precision": 0.1429,
+          "recall": 0.5,
+          "f1": 0.2222
+        },
+        "lbl_domain_systems": {
+          "canonical_name": "Systems & Cloud",
+          "support": 17,
+          "tp": 13,
+          "fp": 10,
+          "fn": 4,
+          "tn": 10,
+          "precision": 0.5652,
+          "recall": 0.7647,
+          "f1": 0.65
+        },
+        "lbl_domain_web": {
+          "canonical_name": "Web and application",
+          "support": 4,
+          "tp": 2,
+          "fp": 13,
+          "fn": 2,
+          "tn": 20,
+          "precision": 0.1333,
+          "recall": 0.5,
+          "f1": 0.2105
+        },
+        "lbl_domain_data": {
+          "canonical_name": "Data engineering and analytics",
+          "support": 8,
+          "tp": 7,
+          "fp": 21,
+          "fn": 1,
+          "tn": 8,
+          "precision": 0.25,
+          "recall": 0.875,
+          "f1": 0.3889
+        },
+        "lbl_domain_hardware": {
+          "canonical_name": "Hardware and embedded systems",
+          "support": 8,
+          "tp": 8,
+          "fp": 19,
+          "fn": 0,
+          "tn": 10,
+          "precision": 0.2963,
+          "recall": 1.0,
+          "f1": 0.4571
+        },
+        "lbl_domain_other": {
+          "canonical_name": "Other domain (Non-computing)",
+          "support": 4,
+          "tp": 1,
+          "fp": 0,
+          "fn": 3,
+          "tn": 33,
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4
+        }
+      }
+    },
+    "AI-Assisted Adjudication Cohort (Cohorts C + D)": {
+      "sample_size": 138,
+      "exact_match_count": 13,
+      "exact_match_ratio": 0.0942,
+      "exact_match_95_ci": [
+        0.0559,
+        0.1545
+      ],
+      "hamming_loss": 0.3,
+      "micro_precision": 0.303,
+      "micro_recall": 0.7767,
+      "micro_f1": 0.436,
+      "macro_precision": 0.3692,
+      "macro_recall": 0.7119,
+      "macro_f1": 0.448,
+      "weighted_f1": 0.4547,
+      "zero_tag_metrics": {
+        "support": 24,
+        "tp": 0,
+        "fp": 24,
+        "fn": 0,
+        "tn": 114,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "wilson_ci": [
+          0.0,
+          0.138
+        ]
+      },
+      "confidence_tiers": {
+        "counts": {
+          "HIGH": 285,
+          "MEDIUM": 243,
+          "LOW": 0
+        },
+        "precisions": {
+          "HIGH": 0.3825,
+          "MEDIUM": 0.2099,
+          "LOW": 0.0
+        }
+      },
+      "per_tag": {
+        "lbl_domain_ai": {
+          "canonical_name": "Artificial intelligence",
+          "support": 20,
+          "tp": 20,
+          "fp": 79,
+          "fn": 0,
+          "tn": 39,
+          "precision": 0.202,
+          "recall": 1.0,
+          "f1": 0.3361
+        },
+        "lbl_domain_ml": {
+          "canonical_name": "Machine learning",
+          "support": 22,
+          "tp": 9,
+          "fp": 11,
+          "fn": 13,
+          "tn": 105,
+          "precision": 0.45,
+          "recall": 0.4091,
+          "f1": 0.4286
+        },
+        "lbl_domain_nlp": {
+          "canonical_name": "Natural language processing",
+          "support": 7,
+          "tp": 3,
+          "fp": 10,
+          "fn": 4,
+          "tn": 121,
+          "precision": 0.2308,
+          "recall": 0.4286,
+          "f1": 0.3
+        },
+        "lbl_domain_cv": {
+          "canonical_name": "Computer vision",
+          "support": 8,
+          "tp": 3,
+          "fp": 7,
+          "fn": 5,
+          "tn": 123,
+          "precision": 0.3,
+          "recall": 0.375,
+          "f1": 0.3333
+        },
+        "lbl_domain_security": {
+          "canonical_name": "Security",
+          "support": 23,
+          "tp": 11,
+          "fp": 27,
+          "fn": 12,
+          "tn": 88,
+          "precision": 0.2895,
+          "recall": 0.4783,
+          "f1": 0.3607
+        },
+        "lbl_domain_systems": {
+          "canonical_name": "Systems & Cloud",
+          "support": 46,
+          "tp": 40,
+          "fp": 49,
+          "fn": 6,
+          "tn": 43,
+          "precision": 0.4494,
+          "recall": 0.8696,
+          "f1": 0.5926
+        },
+        "lbl_domain_web": {
+          "canonical_name": "Web and application",
+          "support": 14,
+          "tp": 10,
+          "fp": 36,
+          "fn": 4,
+          "tn": 88,
+          "precision": 0.2174,
+          "recall": 0.7143,
+          "f1": 0.3333
+        },
+        "lbl_domain_data": {
+          "canonical_name": "Data engineering and analytics",
+          "support": 26,
+          "tp": 26,
+          "fp": 71,
+          "fn": 0,
+          "tn": 41,
+          "precision": 0.268,
+          "recall": 1.0,
+          "f1": 0.4228
+        },
+        "lbl_domain_hardware": {
+          "canonical_name": "Hardware and embedded systems",
+          "support": 32,
+          "tp": 31,
+          "fp": 78,
+          "fn": 1,
+          "tn": 28,
+          "precision": 0.2844,
+          "recall": 0.9688,
+          "f1": 0.4397
+        },
+        "lbl_domain_other": {
+          "canonical_name": "Other domain (Non-computing)",
+          "support": 8,
+          "tp": 7,
+          "fp": 0,
+          "fn": 1,
+          "tn": 130,
+          "precision": 1.0,
+          "recall": 0.875,
+          "f1": 0.9333
+        }
+      }
+    },
+    "Full Pooled Ground-Truth Benchmark (Cohorts A + B + C + D)": {
+      "sample_size": 175,
+      "exact_match_count": 16,
+      "exact_match_ratio": 0.0914,
+      "exact_match_95_ci": [
+        0.0571,
+        0.1433
+      ],
+      "hamming_loss": 0.3023,
+      "micro_precision": 0.3021,
+      "micro_recall": 0.7719,
+      "micro_f1": 0.4342,
+      "macro_precision": 0.3584,
+      "macro_recall": 0.6837,
+      "macro_f1": 0.4274,
+      "weighted_f1": 0.4562,
+      "zero_tag_metrics": {
+        "support": 25,
+        "tp": 1,
+        "fp": 24,
+        "fn": 0,
+        "tn": 150,
+        "precision": 0.04,
+        "recall": 1.0,
+        "f1": 0.0769,
+        "wilson_ci": [
+          0.0071,
+          0.1954
+        ]
+      },
+      "confidence_tiers": {
+        "counts": {
+          "HIGH": 355,
+          "MEDIUM": 317,
+          "LOW": 0
+        },
+        "precisions": {
+          "HIGH": 0.3718,
+          "MEDIUM": 0.224,
+          "LOW": 0.0
+        }
+      },
+      "per_tag": {
+        "lbl_domain_ai": {
+          "canonical_name": "Artificial intelligence",
+          "support": 27,
+          "tp": 27,
+          "fp": 98,
+          "fn": 0,
+          "tn": 50,
+          "precision": 0.216,
+          "recall": 1.0,
+          "f1": 0.3553
+        },
+        "lbl_domain_ml": {
+          "canonical_name": "Machine learning",
+          "support": 26,
+          "tp": 12,
+          "fp": 16,
+          "fn": 14,
+          "tn": 133,
+          "precision": 0.4286,
+          "recall": 0.4615,
+          "f1": 0.4444
+        },
+        "lbl_domain_nlp": {
+          "canonical_name": "Natural language processing",
+          "support": 8,
+          "tp": 3,
+          "fp": 15,
+          "fn": 5,
+          "tn": 152,
+          "precision": 0.1667,
+          "recall": 0.375,
+          "f1": 0.2308
+        },
+        "lbl_domain_cv": {
+          "canonical_name": "Computer vision",
+          "support": 10,
+          "tp": 4,
+          "fp": 10,
+          "fn": 6,
+          "tn": 155,
+          "precision": 0.2857,
+          "recall": 0.4,
+          "f1": 0.3333
+        },
+        "lbl_domain_security": {
+          "canonical_name": "Security",
+          "support": 25,
+          "tp": 12,
+          "fp": 33,
+          "fn": 13,
+          "tn": 117,
+          "precision": 0.2667,
+          "recall": 0.48,
+          "f1": 0.3429
+        },
+        "lbl_domain_systems": {
+          "canonical_name": "Systems & Cloud",
+          "support": 63,
+          "tp": 53,
+          "fp": 59,
+          "fn": 10,
+          "tn": 53,
+          "precision": 0.4732,
+          "recall": 0.8413,
+          "f1": 0.6057
+        },
+        "lbl_domain_web": {
+          "canonical_name": "Web and application",
+          "support": 18,
+          "tp": 12,
+          "fp": 49,
+          "fn": 6,
+          "tn": 108,
+          "precision": 0.1967,
+          "recall": 0.6667,
+          "f1": 0.3038
+        },
+        "lbl_domain_data": {
+          "canonical_name": "Data engineering and analytics",
+          "support": 34,
+          "tp": 33,
+          "fp": 92,
+          "fn": 1,
+          "tn": 49,
+          "precision": 0.264,
+          "recall": 0.9706,
+          "f1": 0.4151
+        },
+        "lbl_domain_hardware": {
+          "canonical_name": "Hardware and embedded systems",
+          "support": 40,
+          "tp": 39,
+          "fp": 97,
+          "fn": 1,
+          "tn": 38,
+          "precision": 0.2868,
+          "recall": 0.975,
+          "f1": 0.4432
+        },
+        "lbl_domain_other": {
+          "canonical_name": "Other domain (Non-computing)",
+          "support": 12,
+          "tp": 8,
+          "fp": 0,
+          "fn": 4,
+          "tn": 163,
+          "precision": 1.0,
+          "recall": 0.6667,
+          "f1": 0.8
+        }
+      }
+    }
+  },
+  "primary_classifier_evaluation": {
+    "sample_size": 175,
+    "correct_count": 175,
+    "accuracy": 1.0,
+    "accuracy_95_ci": [
+      0.9785,
+      1.0
+    ],
+    "macro_precision_observable_12": 1.0,
+    "macro_recall_observable_12": 1.0,
+    "macro_f1_observable_12": 1.0,
+    "weighted_f1": 1.0,
+    "observable_categories_count": 12,
+    "absent_categories": [
+      "CULTURAL",
+      "VOLUNTEERING"
+    ],
+    "per_class": {
+      "CERTIFICATION": {
+        "support": 17,
+        "tp": 17,
+        "fp": 0,
+        "fn": 0,
+        "tn": 158,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "status": "EVALUATED"
+      },
+      "COMPETITION": {
+        "support": 16,
+        "tp": 16,
+        "fp": 0,
+        "fn": 0,
+        "tn": 159,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "status": "EVALUATED"
+      },
+      "CONFERENCE": {
+        "support": 17,
+        "tp": 17,
+        "fp": 0,
+        "fn": 0,
+        "tn": 158,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "status": "EVALUATED"
+      },
+      "CULTURAL": {
+        "support": 0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 175,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "status": "ABSENT_IN_175_GOLD_SUBSET"
+      },
+      "HACKATHON": {
+        "support": 17,
+        "tp": 17,
+        "fp": 0,
+        "fn": 0,
+        "tn": 158,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "status": "EVALUATED"
+      },
+      "INTERNSHIP": {
+        "support": 16,
+        "tp": 16,
+        "fp": 0,
+        "fn": 0,
+        "tn": 159,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "status": "EVALUATED"
+      },
+      "LEADERSHIP": {
+        "support": 17,
+        "tp": 17,
+        "fp": 0,
+        "fn": 0,
+        "tn": 158,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "status": "EVALUATED"
+      },
+      "OTHER": {
+        "support": 1,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "tn": 174,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "status": "EVALUATED"
+      },
+      "PATENT": {
+        "support": 17,
+        "tp": 17,
+        "fp": 0,
+        "fn": 0,
+        "tn": 158,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "status": "EVALUATED"
+      },
+      "PROJECT": {
+        "support": 16,
+        "tp": 16,
+        "fp": 0,
+        "fn": 0,
+        "tn": 159,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "status": "EVALUATED"
+      },
+      "RESEARCH_PUBLICATION": {
+        "support": 17,
+        "tp": 17,
+        "fp": 0,
+        "fn": 0,
+        "tn": 158,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "status": "EVALUATED"
+      },
+      "SPORTS": {
+        "support": 8,
+        "tp": 8,
+        "fp": 0,
+        "fn": 0,
+        "tn": 167,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "status": "EVALUATED"
+      },
+      "VOLUNTEERING": {
+        "support": 0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "tn": 175,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "status": "ABSENT_IN_175_GOLD_SUBSET"
+      },
+      "WORKSHOP": {
+        "support": 16,
+        "tp": 16,
+        "fp": 0,
+        "fn": 0,
+        "tn": 159,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "status": "EVALUATED"
+      }
+    },
+    "confusion_matrix": {
+      "CERTIFICATION": {
+        "CERTIFICATION": 17,
+        "COMPETITION": 0,
+        "CONFERENCE": 0,
+        "CULTURAL": 0,
+        "HACKATHON": 0,
+        "INTERNSHIP": 0,
+        "LEADERSHIP": 0,
+        "OTHER": 0,
+        "PATENT": 0,
+        "PROJECT": 0,
+        "RESEARCH_PUBLICATION": 0,
+        "SPORTS": 0,
+        "VOLUNTEERING": 0,
+        "WORKSHOP": 0
+      },
+      "COMPETITION": {
+        "CERTIFICATION": 0,
+        "COMPETITION": 16,
+        "CONFERENCE": 0,
+        "CULTURAL": 0,
+        "HACKATHON": 0,
+        "INTERNSHIP": 0,
+        "LEADERSHIP": 0,
+        "OTHER": 0,
+        "PATENT": 0,
+        "PROJECT": 0,
+        "RESEARCH_PUBLICATION": 0,
+        "SPORTS": 0,
+        "VOLUNTEERING": 0,
+        "WORKSHOP": 0
+      },
+      "CONFERENCE": {
+        "CERTIFICATION": 0,
+        "COMPETITION": 0,
+        "CONFERENCE": 17,
+        "CULTURAL": 0,
+        "HACKATHON": 0,
+        "INTERNSHIP": 0,
+        "LEADERSHIP": 0,
+        "OTHER": 0,
+        "PATENT": 0,
+        "PROJECT": 0,
+        "RESEARCH_PUBLICATION": 0,
+        "SPORTS": 0,
+        "VOLUNTEERING": 0,
+        "WORKSHOP": 0
+      },
+      "CULTURAL": {
+        "CERTIFICATION": 0,
+        "COMPETITION": 0,
+        "CONFERENCE": 0,
+        "CULTURAL": 0,
+        "HACKATHON": 0,
+        "INTERNSHIP": 0,
+        "LEADERSHIP": 0,
+        "OTHER": 0,
+        "PATENT": 0,
+        "PROJECT": 0,
+        "RESEARCH_PUBLICATION": 0,
+        "SPORTS": 0,
+        "VOLUNTEERING": 0,
+        "WORKSHOP": 0
+      },
+      "HACKATHON": {
+        "CERTIFICATION": 0,
+        "COMPETITION": 0,
+        "CONFERENCE": 0,
+        "CULTURAL": 0,
+        "HACKATHON": 17,
+        "INTERNSHIP": 0,
+        "LEADERSHIP": 0,
+        "OTHER": 0,
+        "PATENT": 0,
+        "PROJECT": 0,
+        "RESEARCH_PUBLICATION": 0,
+        "SPORTS": 0,
+        "VOLUNTEERING": 0,
+        "WORKSHOP": 0
+      },
+      "INTERNSHIP": {
+        "CERTIFICATION": 0,
+        "COMPETITION": 0,
+        "CONFERENCE": 0,
+        "CULTURAL": 0,
+        "HACKATHON": 0,
+        "INTERNSHIP": 16,
+        "LEADERSHIP": 0,
+        "OTHER": 0,
+        "PATENT": 0,
+        "PROJECT": 0,
+        "RESEARCH_PUBLICATION": 0,
+        "SPORTS": 0,
+        "VOLUNTEERING": 0,
+        "WORKSHOP": 0
+      },
+      "LEADERSHIP": {
+        "CERTIFICATION": 0,
+        "COMPETITION": 0,
+        "CONFERENCE": 0,
+        "CULTURAL": 0,
+        "HACKATHON": 0,
+        "INTERNSHIP": 0,
+        "LEADERSHIP": 17,
+        "OTHER": 0,
+        "PATENT": 0,
+        "PROJECT": 0,
+        "RESEARCH_PUBLICATION": 0,
+        "SPORTS": 0,
+        "VOLUNTEERING": 0,
+        "WORKSHOP": 0
+      },
+      "OTHER": {
+        "CERTIFICATION": 0,
+        "COMPETITION": 0,
+        "CONFERENCE": 0,
+        "CULTURAL": 0,
+        "HACKATHON": 0,
+        "INTERNSHIP": 0,
+        "LEADERSHIP": 0,
+        "OTHER": 1,
+        "PATENT": 0,
+        "PROJECT": 0,
+        "RESEARCH_PUBLICATION": 0,
+        "SPORTS": 0,
+        "VOLUNTEERING": 0,
+        "WORKSHOP": 0
+      },
+      "PATENT": {
+        "CERTIFICATION": 0,
+        "COMPETITION": 0,
+        "CONFERENCE": 0,
+        "CULTURAL": 0,
+        "HACKATHON": 0,
+        "INTERNSHIP": 0,
+        "LEADERSHIP": 0,
+        "OTHER": 0,
+        "PATENT": 17,
+        "PROJECT": 0,
+        "RESEARCH_PUBLICATION": 0,
+        "SPORTS": 0,
+        "VOLUNTEERING": 0,
+        "WORKSHOP": 0
+      },
+      "PROJECT": {
+        "CERTIFICATION": 0,
+        "COMPETITION": 0,
+        "CONFERENCE": 0,
+        "CULTURAL": 0,
+        "HACKATHON": 0,
+        "INTERNSHIP": 0,
+        "LEADERSHIP": 0,
+        "OTHER": 0,
+        "PATENT": 0,
+        "PROJECT": 16,
+        "RESEARCH_PUBLICATION": 0,
+        "SPORTS": 0,
+        "VOLUNTEERING": 0,
+        "WORKSHOP": 0
+      },
+      "RESEARCH_PUBLICATION": {
+        "CERTIFICATION": 0,
+        "COMPETITION": 0,
+        "CONFERENCE": 0,
+        "CULTURAL": 0,
+        "HACKATHON": 0,
+        "INTERNSHIP": 0,
+        "LEADERSHIP": 0,
+        "OTHER": 0,
+        "PATENT": 0,
+        "PROJECT": 0,
+        "RESEARCH_PUBLICATION": 17,
+        "SPORTS": 0,
+        "VOLUNTEERING": 0,
+        "WORKSHOP": 0
+      },
+      "SPORTS": {
+        "CERTIFICATION": 0,
+        "COMPETITION": 0,
+        "CONFERENCE": 0,
+        "CULTURAL": 0,
+        "HACKATHON": 0,
+        "INTERNSHIP": 0,
+        "LEADERSHIP": 0,
+        "OTHER": 0,
+        "PATENT": 0,
+        "PROJECT": 0,
+        "RESEARCH_PUBLICATION": 0,
+        "SPORTS": 8,
+        "VOLUNTEERING": 0,
+        "WORKSHOP": 0
+      },
+      "VOLUNTEERING": {
+        "CERTIFICATION": 0,
+        "COMPETITION": 0,
+        "CONFERENCE": 0,
+        "CULTURAL": 0,
+        "HACKATHON": 0,
+        "INTERNSHIP": 0,
+        "LEADERSHIP": 0,
+        "OTHER": 0,
+        "PATENT": 0,
+        "PROJECT": 0,
+        "RESEARCH_PUBLICATION": 0,
+        "SPORTS": 0,
+        "VOLUNTEERING": 0,
+        "WORKSHOP": 0
+      },
+      "WORKSHOP": {
+        "CERTIFICATION": 0,
+        "COMPETITION": 0,
+        "CONFERENCE": 0,
+        "CULTURAL": 0,
+        "HACKATHON": 0,
+        "INTERNSHIP": 0,
+        "LEADERSHIP": 0,
+        "OTHER": 0,
+        "PATENT": 0,
+        "PROJECT": 0,
+        "RESEARCH_PUBLICATION": 0,
+        "SPORTS": 0,
+        "VOLUNTEERING": 0,
+        "WORKSHOP": 16
+      }
+    }
+  },
+  "ai_proposal_and_reviewer_workflow_evaluation": {
+    "proposals_168_all": {
+      "subset_name": "All 168 Proposals (Cohorts B, C, D)",
+      "sample_size": 168,
+      "total_proposed_tags": 259,
+      "total_gold_tags": 250,
+      "false_alarm_count": 77,
+      "missed_tag_count": 68,
+      "agreed_tag_count": 182,
+      "false_alarm_rate": 0.2973,
+      "missed_tag_rate": 0.272,
+      "proposal_exact_match_count": 80,
+      "proposal_exact_match_rate": 0.4762,
+      "proposal_exact_match_95_ci": [
+        0.402,
+        0.5514
+      ],
+      "micro_precision": 0.7027,
+      "micro_recall": 0.728,
+      "micro_f1": 0.7151,
+      "macro_f1": 0.6739,
+      "per_tag": {
+        "lbl_domain_ai": {
+          "proposed": 26,
+          "gold": 24,
+          "tp": 12,
+          "fp": 14,
+          "fn": 12,
+          "precision": 0.4615,
+          "recall": 0.5,
+          "f1": 0.48
+        },
+        "lbl_domain_ml": {
+          "proposed": 18,
+          "gold": 25,
+          "tp": 12,
+          "fp": 6,
+          "fn": 13,
+          "precision": 0.6667,
+          "recall": 0.48,
+          "f1": 0.5581
+        },
+        "lbl_domain_nlp": {
+          "proposed": 8,
+          "gold": 7,
+          "tp": 3,
+          "fp": 5,
+          "fn": 4,
+          "precision": 0.375,
+          "recall": 0.4286,
+          "f1": 0.4
+        },
+        "lbl_domain_cv": {
+          "proposed": 5,
+          "gold": 10,
+          "tp": 5,
+          "fp": 0,
+          "fn": 5,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667
+        },
+        "lbl_domain_security": {
+          "proposed": 24,
+          "gold": 24,
+          "tp": 20,
+          "fp": 4,
+          "fn": 4,
+          "precision": 0.8333,
+          "recall": 0.8333,
+          "f1": 0.8333
+        },
+        "lbl_domain_systems": {
+          "proposed": 72,
+          "gold": 60,
+          "tp": 52,
+          "fp": 20,
+          "fn": 8,
+          "precision": 0.7222,
+          "recall": 0.8667,
+          "f1": 0.7879
+        },
+        "lbl_domain_web": {
+          "proposed": 21,
+          "gold": 17,
+          "tp": 15,
+          "fp": 6,
+          "fn": 2,
+          "precision": 0.7143,
+          "recall": 0.8824,
+          "f1": 0.7895
+        },
+        "lbl_domain_data": {
+          "proposed": 32,
+          "gold": 33,
+          "tp": 22,
+          "fp": 10,
+          "fn": 11,
+          "precision": 0.6875,
+          "recall": 0.6667,
+          "f1": 0.6769
+        },
+        "lbl_domain_hardware": {
+          "proposed": 46,
+          "gold": 38,
+          "tp": 34,
+          "fp": 12,
+          "fn": 4,
+          "precision": 0.7391,
+          "recall": 0.8947,
+          "f1": 0.8095
+        },
+        "lbl_domain_other": {
+          "proposed": 7,
+          "gold": 12,
+          "tp": 7,
+          "fp": 0,
+          "fn": 5,
+          "precision": 1.0,
+          "recall": 0.5833,
+          "f1": 0.7368
+        }
+      }
+    },
+    "proposals_blind_30": {
+      "subset_name": "Cohort B Blind Proposal Discrepancy Baseline (N=30)",
+      "sample_size": 30,
+      "total_proposed_tags": 46,
+      "total_gold_tags": 44,
+      "false_alarm_count": 15,
+      "missed_tag_count": 13,
+      "agreed_tag_count": 31,
+      "false_alarm_rate": 0.3261,
+      "missed_tag_rate": 0.2955,
+      "proposal_exact_match_count": 11,
+      "proposal_exact_match_rate": 0.3667,
+      "proposal_exact_match_95_ci": [
+        0.2187,
+        0.5449
+      ],
+      "micro_precision": 0.6739,
+      "micro_recall": 0.7045,
+      "micro_f1": 0.6889,
+      "macro_f1": 0.6108,
+      "per_tag": {
+        "lbl_domain_ai": {
+          "proposed": 5,
+          "gold": 4,
+          "tp": 3,
+          "fp": 2,
+          "fn": 1,
+          "precision": 0.6,
+          "recall": 0.75,
+          "f1": 0.6667
+        },
+        "lbl_domain_ml": {
+          "proposed": 4,
+          "gold": 3,
+          "tp": 1,
+          "fp": 3,
+          "fn": 2,
+          "precision": 0.25,
+          "recall": 0.3333,
+          "f1": 0.2857
+        },
+        "lbl_domain_nlp": {
+          "proposed": 0,
+          "gold": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "lbl_domain_cv": {
+          "proposed": 2,
+          "gold": 2,
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "lbl_domain_security": {
+          "proposed": 1,
+          "gold": 1,
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "lbl_domain_systems": {
+          "proposed": 15,
+          "gold": 14,
+          "tp": 12,
+          "fp": 3,
+          "fn": 2,
+          "precision": 0.8,
+          "recall": 0.8571,
+          "f1": 0.8276
+        },
+        "lbl_domain_web": {
+          "proposed": 3,
+          "gold": 3,
+          "tp": 2,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.6667,
+          "recall": 0.6667,
+          "f1": 0.6667
+        },
+        "lbl_domain_data": {
+          "proposed": 6,
+          "gold": 7,
+          "tp": 3,
+          "fp": 3,
+          "fn": 4,
+          "precision": 0.5,
+          "recall": 0.4286,
+          "f1": 0.4615
+        },
+        "lbl_domain_hardware": {
+          "proposed": 9,
+          "gold": 6,
+          "tp": 6,
+          "fp": 3,
+          "fn": 0,
+          "precision": 0.6667,
+          "recall": 1.0,
+          "f1": 0.8
+        },
+        "lbl_domain_other": {
+          "proposed": 1,
+          "gold": 4,
+          "tp": 1,
+          "fp": 0,
+          "fn": 3,
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4
+        }
+      }
+    },
+    "proposals_assisted_138": {
+      "subset_name": "Cohorts C+D AI-Assisted Adjudication (N=138)",
+      "sample_size": 138,
+      "total_proposed_tags": 213,
+      "total_gold_tags": 206,
+      "false_alarm_count": 62,
+      "missed_tag_count": 55,
+      "agreed_tag_count": 151,
+      "false_alarm_rate": 0.2911,
+      "missed_tag_rate": 0.267,
+      "proposal_exact_match_count": 69,
+      "proposal_exact_match_rate": 0.5,
+      "proposal_exact_match_95_ci": [
+        0.4177,
+        0.5823
+      ],
+      "micro_precision": 0.7089,
+      "micro_recall": 0.733,
+      "micro_f1": 0.7208,
+      "macro_f1": 0.681,
+      "per_tag": {
+        "lbl_domain_ai": {
+          "proposed": 21,
+          "gold": 20,
+          "tp": 9,
+          "fp": 12,
+          "fn": 11,
+          "precision": 0.4286,
+          "recall": 0.45,
+          "f1": 0.439
+        },
+        "lbl_domain_ml": {
+          "proposed": 14,
+          "gold": 22,
+          "tp": 11,
+          "fp": 3,
+          "fn": 11,
+          "precision": 0.7857,
+          "recall": 0.5,
+          "f1": 0.6111
+        },
+        "lbl_domain_nlp": {
+          "proposed": 8,
+          "gold": 7,
+          "tp": 3,
+          "fp": 5,
+          "fn": 4,
+          "precision": 0.375,
+          "recall": 0.4286,
+          "f1": 0.4
+        },
+        "lbl_domain_cv": {
+          "proposed": 3,
+          "gold": 8,
+          "tp": 3,
+          "fp": 0,
+          "fn": 5,
+          "precision": 1.0,
+          "recall": 0.375,
+          "f1": 0.5455
+        },
+        "lbl_domain_security": {
+          "proposed": 23,
+          "gold": 23,
+          "tp": 19,
+          "fp": 4,
+          "fn": 4,
+          "precision": 0.8261,
+          "recall": 0.8261,
+          "f1": 0.8261
+        },
+        "lbl_domain_systems": {
+          "proposed": 57,
+          "gold": 46,
+          "tp": 40,
+          "fp": 17,
+          "fn": 6,
+          "precision": 0.7018,
+          "recall": 0.8696,
+          "f1": 0.7767
+        },
+        "lbl_domain_web": {
+          "proposed": 18,
+          "gold": 14,
+          "tp": 13,
+          "fp": 5,
+          "fn": 1,
+          "precision": 0.7222,
+          "recall": 0.9286,
+          "f1": 0.8125
+        },
+        "lbl_domain_data": {
+          "proposed": 26,
+          "gold": 26,
+          "tp": 19,
+          "fp": 7,
+          "fn": 7,
+          "precision": 0.7308,
+          "recall": 0.7308,
+          "f1": 0.7308
+        },
+        "lbl_domain_hardware": {
+          "proposed": 37,
+          "gold": 32,
+          "tp": 28,
+          "fp": 9,
+          "fn": 4,
+          "precision": 0.7568,
+          "recall": 0.875,
+          "f1": 0.8116
+        },
+        "lbl_domain_other": {
+          "proposed": 6,
+          "gold": 8,
+          "tp": 6,
+          "fp": 0,
+          "fn": 2,
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1": 0.8571
+        }
+      }
+    },
+    "assisted_138_reviewer_decisions": {
+      "ACCEPT": 67,
+      "MODIFY": 71
+    }
+  },
+  "reviewer_timing_analysis": {
+    "total_records_in_corpus": 175,
+    "valid_timing_observations_count": 83,
+    "missing_timing_observations_count": 92,
+    "valid_cohort_scope": "Cohort D (Expansion Queue QIDs 31-113)",
+    "missing_cohort_scope": "Cohorts A, B, C, and Cohort D QIDs 1-30",
+    "total_recorded_seconds": 1679.0,
+    "total_recorded_minutes": 27.98,
+    "mean_seconds": 20.23,
+    "std_seconds": 2.72,
+    "median_seconds": 20.0,
+    "min_seconds": 16.0,
+    "max_seconds": 26.0,
+    "timing_by_decision": {
+      "ACCEPT": {
+        "count": 42,
+        "mean_seconds": 18.14,
+        "median_seconds": 18.0,
+        "total_seconds": 762.0
+      },
+      "MODIFY": {
+        "count": 41,
+        "mean_seconds": 22.37,
+        "median_seconds": 22.0,
+        "total_seconds": 917.0
+      }
+    },
+    "governance_note": "No empirical manual-only time baseline exists in the repository. Efficiency gains, time-savings percentages, or speedup factors cannot be computed and are strictly omitted to prevent data fabrication."
+  }
+}
