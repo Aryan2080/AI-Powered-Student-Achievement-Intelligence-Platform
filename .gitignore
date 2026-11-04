@@ -107,3 +107,10 @@ checkpoints/
 # --- Logs ---
 logs/
 *.log
+
+# --- Database & Frontend ---
+*.db
+*.sqlite
+*.sqlite3
+node_modules/
+frontend/dist/

@@ -1,0 +1,41 @@
+# Member 3 — Recommendation Intelligence & Full-Stack Platform Dependencies
+# AI-Powered Student Achievement Intelligence Platform
+
+# Web Framework & API
+fastapi>=0.110.0,<1.0.0
+uvicorn[standard]>=0.28.0,<1.0.0
+pydantic>=2.6.0,<3.0.0
+pydantic-settings>=2.2.0,<3.0.0
+python-multipart>=0.0.9
+
+# Persistence & Database
+sqlalchemy>=2.0.25,<3.0.0
+alembic>=1.13.0,<2.0.0
+aiosqlite>=0.19.0
+asyncpg>=0.29.0
+
+# Security & Authentication
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.4
+bcrypt>=4.1.0
+
+# Scientific, NLP & Machine Learning
+numpy>=1.24.0,<2.0.0
+pandas>=2.0.0,<3.0.0
+scikit-learn>=1.3.0,<2.0.0
+sentence-transformers>=2.2.0
+joblib>=1.3.0
+
+# Reporting & Notifications
+reportlab>=4.0.0
+jinja2>=3.1.0
+
+# Frontend Dashboard (Streamlit option)
+streamlit>=1.32.0
+
+# Testing & Utilities
+httpx>=0.27.0
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+pyyaml>=6.0.0
+requests>=2.31.0
